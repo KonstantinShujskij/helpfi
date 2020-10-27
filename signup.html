@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+  
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/jquery.formstyler.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form__body.css">
+    <link rel="stylesheet" href="css/form__header.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="fullscreen">
+            <div class="fullscreen__body d-flex flex-column">
+                <header class="header d-flex">
+                    <a href="#" class="logo mr-auto">
+                        <img src="images/logo.svg" class="w-100" alt="logo">
+                    </a>  
+
+                    <button class="note note_active">
+                        <img src="images/note.svg" alt="note">
+                    </button>
+                </header>
+                <main class="main">
+                    <form action="" method="post" novalidate name="reg" class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 form">
+                        <h2 class="title">Регистрация</h2>
+                        <label class="input-wrap phone-wrap d-flex" value="Телефон">
+                            <div type=button class="input-btn clear-btn">
+                                <span class="icon">
+                                    <img src="images/cross.svg" class="img-svg" alt="icon">
+                                </span>
+                            </div>
+                            <select class="phone__select">
+                                <option value="ua">+38</option>
+                                <!--<option value="ru">+7</option>
+                                <option value="">+374</option>
+                                <option value="">+48</option>-->
+                            </select>
+                            <input type="tel" class="input phone" name="login" pattern="^[(]{1}[0-9]{3}[)]{1} [0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$" required>
+                            <div class="flag" country="+38"></div>
+                        </label>
+                        <label class="input-wrap" value="Пароль">
+                            <div type=button class="input-btn show-btn">
+                                <span class="icon show-icon">
+                                    <img src="images/show.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="icon hidden-icon">
+                                    <img src="images/hidden.svg" class="img-svg" alt="icon">
+                                </span>
+                            </div>
+                            <input type="password" class="input password" name="pwd" pattern="^[0-9a-zA-Z]+$" required>
+                        </label>
+                        <label class="input-wrap" value="Реферальный код">
+                            <div type=button class="input-btn clear-btn">
+                                <span class="icon">
+                                    <img src="images/cross.svg" class="img-svg" alt="icon">
+                                </span>                                
+                            </div>
+                            <input type="text" class="input code" name="referral" autocomplete="off" pattern="^[0-9\s]+$">
+                        </label>
+                        <label class="input-wrap select-wrap input-wrap_inp mb-4" value="Город">
+                            <div type=button class="input-btn arrow-btn">
+                                <span class="icon">
+                                    <img src="images/arrow.svg" class="img-svg" alt="icon">
+                                </span>
+                            </div>
+                            <select class="town-select" name="city" required>
+                                <option>Киев</option>
+                                <option>Харьков</option>
+                                <option>Днепр</option>
+                                <option>Запорожье</option>
+                                <option>Одесса</option>
+                                <option>Львов</option>
+                            </select>
+                        </label>
+
+                        <input id="remember-checkbox" type="checkbox" class="checkbox" required>
+                        <label class="checkbox-wrap" for="remember-checkbox">                            
+                            <span class="mr-4">Не запоминать меня</span>
+                        </label>
+
+                        <input id="rules-checkbox" type="checkbox" class="checkbox" required>
+                        <label class="checkbox-wrap rules-checkbox-wrap" for="rules-checkbox">                            
+                            <span>Соглашаюсь с <a href="#" class="link">правилами</a> сервиса</span>
+                        </label>
+
+                        <div class="d-flex">
+                            <a href="login.html" class="log-btn login-btn helpfi___btn mr-auto"><span>Вход</span></a>
+                            <button class="log-btn siginup-btn helpfi___btn"><span>Зарегистрироваться</span></button>
+                        </div>
+                    </form>
+                </main> 
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.formstyler.min.js"></script>
+    <script src="js/signup.js"></script>
+</body>
+</html>

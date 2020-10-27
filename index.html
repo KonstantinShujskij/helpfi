@@ -1,0 +1,442 @@
+ <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELPFI</title>  
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+  
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/aside.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="fullscreen">
+            <aside class="aside">
+                <div class="d-flex flex-row">
+                    <a href="#" class="logo">
+                        <img src="images/logo.svg" alt="logo">
+                    </a>   
+                    <button class="close-btn">
+                        <div class="close-btn__inner"></div>
+                    </button>
+                </div>
+                   
+                <div class="user w-100">
+                    <div class="avatar user__avatar">
+                        <div class="avatar__wrapper">
+                            <div class="avatar__anchor">
+                                <img src="images/profile_photo.png" class="w-100 d-block" alt="avatar">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user__info">
+                        <span>
+                            <a href="#" class="user__id">92755775</a>
+                            <button class="user__copy d-inline">
+                                <img src="images/copy.svg" class="w-100" alt="copy">
+                            </button>
+                        </span>
+                        <br>
+                        <span class="user__name">Макушенко Евгений</span>
+                    </div>                    
+                </div> 
+                <div class="balance">
+                    <div class="balance__titles">
+                        <spsn>Кешбек:</spsn>
+                        <br>
+                        <spsn>Баланс:</spsn>
+                    </div>
+                    <div class="balance__values">
+                        <span>777</span><span> ₴</span> 
+                        <br>                           
+                        <span>77777</span><span> ₴</span>
+                    </div>
+                </div>     
+                <hr class="aside__hr">   
+                <div class="one-menu aside__menu">
+                    <a href="#" class="aside__link aside__link_active">
+                        <span class="icon">
+                            <img src="images/dashboard-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Главная</span>
+                    </a>
+                    <a href="https://helpfi.me/st/executor_reg.php" target="_blank" class="aside__link">
+                        <span class="icon">
+                            <img src="images/tasks-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Создать услугу</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/email-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Избранные мастера</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/profile-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>История</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/mess-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Чат</span>
+                    </a>
+                </div>  
+                
+                <hr class="aside__hr">   
+                <div class="two-menu aside__menu">
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/deals-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Профиль</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/email-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Рефералы</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/profile-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Стать партнером</span>
+                    </a>
+                </div>  
+                <hr class="aside__hr">   
+                <div class="three-menu aside__menu">
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/email-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Помощь</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/deals-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Поделиться</span>
+                    </a>
+                </div> 
+
+                <div class="out-menu aside__menu">
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/deals-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Выход</span>
+                    </a>
+                </div>
+            </aside>
+            <main class="main">
+                <section class="top">
+                    <button class="open-btn">
+                        <div class="open-btn__inner"></div>
+                    </button>                    
+                    <button class="search-btn">
+                        <img src="images/search.svg" alt="search">
+                    </button>
+                    <input type="text" class="search" placeholder="Search for a contact">
+                    <button class="note note_active">
+                        <img src="images/note.svg" alt="note">
+                    </button>
+                </section>
+                <h2 class="title">Прогноз дохода</h2>
+                <section class="forecast row mb-0">
+                    <a href="index.html" class="col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
+                        <div class="card card_active forecast__item text-nowrap">
+                            <h3 class="card__title">Безнес места</h3>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">Абонплата</div>
+                                <div class="forecast__value value-month percentage-place">8</div>
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">Процент</div>
+                                <div class="forecast__value value-year ticket-place">8</div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
+                        <a href="table_three.html" class="card forecast__item text-nowrap">
+                            <h3 class="card__title">Абонплата</h3>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">За месяц</div>
+                                <div class="forecast__value value-month"><span class="fee-month">1600</span><span> ₴</span></div>
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">За год</div>
+                                <div class="forecast__value value-year"><span class="fee-year">19 200</span><span> ₴</span></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-sm-0 mb-lg-0">
+                        <a href="table_one.html" class="card forecast__item text-nowrap">
+                            <h3 class="card__title">Процент</h3>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">За месяц</div>
+                                <div class="forecast__value value-month"><span class="percent-month">11 988</span><span> ₴</span></div>
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">За год</div>
+                                <div class="forecast__value value-year"><span class="percent-year">143 856</span><span> ₴</span></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-sm-0 mb-lg-0">
+                        <a href="#" class="card forecast__item text-nowrap">
+                            <h3 class="card__title">Доход</h3>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">За месяц</div>
+                                <div class="forecast__value value-month"><span class="income-month">13 588</span><span> ₴</span></div>
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">За год</div>
+                                <div class="forecast__value value-year"><span class="income-year">163 056</span><span> ₴</span></div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+                <div class="title">
+                    Гарантированый возврат средств в течении 14 дней
+                </div>
+                <section class="stock row">
+                    <div class="col-12 col-xl-6">
+                        <div class="card d-flex flex-column flex-sm-row align-items-center">
+                            <div class="card__title">Ввести промокод:</div>
+                            <div class="promocode d-flex">
+                                <div class="promocode__input-wrap" value="Промокод">
+                                    <input type="text" class="promocode__input" maxlength="13">
+                                </div>                                
+                                <button class="promocode__btn helpfi___btn"><span>></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-6 mt-3 mt-lg-0 hidden">
+                        <div class="card d-flex flex-column flex-sm-row align-items-center">
+                            <div class="card__title">До конца акции осталось:</div>
+                            <div class="timer">00:00:29</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-6 mt-3 mt-lg-0">
+                        <div class="card d-flex flex-column flex-sm-row align-items-center">
+                            <div class="card__title mr-auto ml-auto ml-sm-0">Как ПОЛУЧИТЬ СКИДКУ?</div>
+                            <button class="get-sale-btn helpfi___btn"><span>Подробнее</span></button>
+                        </div>
+                    </div>
+                </section>                
+                <sections class="packages row mt-4">                          
+                    <div class="col-12 mx-auto mb-4 col-sm-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
+                        <div class="card packaged" percentage-place="0" 
+                                                        ticket-place="1"
+                                                        fee-month="0"
+                                                        fee-year="0"
+                                                        percent-month="1499"
+                                                        percent-year="17 988"
+                                                        income-month="1499"
+                                                        income-year="17 988">
+                            <div class="packaged__img" sale="- 40%">
+                                <div class="packaged__img-wrap">
+                                    <img src="images/start.png" alt="img">
+                                </div>                                
+                            </div>
+                            <div class="price d-flex">
+                                <div class="price__old align-self-end">50</div>
+                                <div class="price__new">30</div>
+                                <div class="price__simbol">$</div>
+                            </div>
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/abonplata.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Абонплатных мест: <span class="paragraph__value paragraph__value_abonplata">0</span></span>
+                            </div>
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/percent.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Процентных мест: <span class="paragraph__value">1</span></span>
+                            </div>                            
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/present.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Кешбек за продажу: <span class="paragraph__value">10$</span></span>
+                            </div>
+                            <div class="paragraph mb-3">
+                                <span class="icon">
+                                    <img src="images/profit.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Доход: <span class="paragraph__value">30-200$</span> и выше</span>
+                            </div>
+                            <button class="packaged__btn helpfi___btn" pacekage-type="start"><span>Купить</span></button>
+                            <div class="paragraph caution">
+                                <span>осталось <span class="paragraph__value paragraph__value_low">169</span> пакетов</span>                                
+                            </div>
+                        </div>
+                    </div>      
+                    <div class="col-12 mx-auto mb-4 col-sm-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
+                        <div class="card packaged"  percentage-place="2" 
+                                                    ticket-place="2"
+                                                    fee-month="400"
+                                                    fee-year="4800"
+                                                    percent-month="2997"
+                                                    percent-year="35 964"
+                                                    income-month="3397"
+                                                    income-year="40 764">
+                            <div class="packaged__img" sale="- 40%">
+                                <div class="packaged__img-wrap">
+                                    <img src="images/basic.png" alt="img">
+                                </div>                                
+                            </div>
+                            <div class="price d-flex">
+                                <div class="price__old align-self-end">140</div>
+                                <div class="price__new">80</div>
+                                <div class="price__simbol">$</div>
+                            </div>
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/abonplata.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Абонплатных мест: <span class="paragraph__value paragraph__value_abonplata">2</span></span>
+                            </div>
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/percent.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Процентных мест: <span class="paragraph__value">2</span></span>
+                            </div>                            
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/present.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Кешбек за продажу: <span class="paragraph__value">15$</span></span>
+                            </div>
+                            <div class="paragraph mb-3">
+                                <span class="icon">
+                                    <img src="images/profit.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Доход: <span class="paragraph__value">50-400$</span> и выше</span>
+                            </div>
+                            <button class="packaged__btn helpfi___btn" pacekage-type="basic"><span>Купить</span></button>
+                            <div class="paragraph caution">
+                                <span>осталось <span class="paragraph__value paragraph__value_low">89</span> пакетов</span>                                
+                            </div>
+                        </div>
+                    </div>      
+                    <div class="col-12 mx-auto mb-4 col-sm-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
+                        <div class="card packaged"          percentage-place="4" 
+                                                            ticket-place="4"
+                                                            fee-month="800"
+                                                            fee-year="9600"
+                                                            percent-month="5994"
+                                                            percent-year="71 928"
+                                                            income-month="6794"
+                                                            income-year="81 258">
+                            <div class="packaged__img leader" sale="- 40%" sentence="топ продаж">
+                                <div class="packaged__img-wrap">
+                                    <img src="images/standart.png" alt="img">
+                                </div>                                
+                            </div>
+                            <div class="price d-flex">
+                                <div class="price__old align-self-end">240</div>
+                                <div class="price__new">140</div>
+                                <div class="price__simbol">$</div>
+                            </div>
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/abonplata.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Абонплатных мест: <span class="paragraph__value paragraph__value_abonplata">4</span></span>
+                            </div>
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/percent.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Процентных мест: <span class="paragraph__value">4</span></span>
+                            </div>                            
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/present.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Кешбек за продажу: <span class="paragraph__value">25$</span></span>
+                            </div>
+                            <div class="paragraph mb-3">
+                                <span class="icon">
+                                    <img src="images/profit.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Доход: <span class="paragraph__value">100-800$</span> и выше</span>
+                            </div>
+                            <button class="packaged__btn helpfi___btn" pacekage-type="standart"><span>Купить</span></button>
+                            <div class="paragraph caution">
+                                <span>осталось <span class="paragraph__value paragraph__value_low">54</span> пакетов</span>                                
+                            </div>
+                        </div>
+                    </div>      
+                    <div class="col-12 mx-auto mb-4 col-sm-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
+                        <div class="card packaged"                          percentage-place="8" 
+                                                                            ticket-place="8"
+                                                                            fee-month="1600"
+                                                                            fee-year="19 200"
+                                                                            percent-month="11 988"
+                                                                            percent-year="143 856"
+                                                                            income-month="13 588"
+                                                                            income-year="163 056">
+                            <div class="packaged__img low" sale="- 40%" sentence="заканчивается">
+                                <div class="packaged__img-wrap">
+                                    <img src="images/premium.png" alt="img">
+                                </div>                                
+                            </div>
+                            <div class="price d-flex">
+                                <div class="price__old align-self-end">400</div>
+                                <div class="price__new">240</div>
+                                <div class="price__simbol">$</div>
+                            </div>
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/abonplata.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Абонплатных мест: <span class="paragraph__value paragraph__value_abonplata">8</span></span>
+                            </div>
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/percent.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Процентных мест: <span class="paragraph__value">8</span></span>
+                            </div>                            
+                            <div class="paragraph">
+                                <span class="icon">
+                                    <img src="images/present.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Кешбек за продажу: <span class="paragraph__value">35$</span></span>
+                            </div>
+                            <div class="paragraph mb-3">
+                                <span class="icon">
+                                    <img src="images/profit.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span>Доход: <span class="paragraph__value">250-1200$</span> и выше</span>
+                            </div>
+                            <button class="packaged__btn helpfi___btn" pacekage-type="premium"><span>Купить</span></button>
+                            <div class="paragraph caution">
+                                <span>осталось <span class="paragraph__value paragraph__value_low">27</span> пакетов</span>                                
+                            </div>
+                        </div>
+                    </div>                    
+                </sections>
+            </main>
+        </div>
+    </div>    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/aside.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+@media (min-width: 1800px) {
+    html {
+        font-size: 1vw;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+@font-face {
+    font-family: "Century Gothic"; 
+    src: url(../fonts/Century\ Gothic.ttf);
+}
+
+* {
+    -ms-overflow-style: none;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+            scrollbar-width: none;
+
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+::-ms-clear {
+    display: none;
+}
+
+::-ms-expand {
+    display: none;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-style: inherit;
+    outline: none;
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: none;
+    font-style: inherit;
+}
+
+button:focus {
+    outline: none;
+}
+
+dl, ol, ul {
+    margin-bottom: 0;
+}
+
+html {
+    width: 100%;
+    font-size: 16px;
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+body {
+    width: 100%;
+
+    background: #F5F6F8;
+    color: #777777;
+
+    font-size: calc((1rem / 16) * 12);
+    font-family: "Century Gothic", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+
+    letter-spacing: 0.01em;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.wrapper {
+    max-height: 100vh;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+.fullscreen {
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.fullscreen__body {
+    width: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.nicescroll-rails div { 
+    background: #C4C4C4 !important;
+    border-radius: calc((1rem / 16) * 3);
+    width: calc((1rem / 16) * 5);
+}  
+
+.helpfi___btn {
+    padding: calc((1rem / 16) * 12);
+    background-color: transparent;
+    border: calc(1rem / 16) solid #A8A8A8;
+    border-radius: 0.25rem;
+    max-width: 10.5rem;
+    width: 9.75rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: calc((1rem / 16) * 13);
+    line-height: calc((1rem / 16) * 19);
+
+    color: #A8A8A8;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    letter-spacing: 0.01rem;
+    outline: none;
+    display: block;
+    position: relative;
+}
+
+.helpfi___btn:after {
+    content: "";
+    position: absolute;    
+    top: calc(-1rem / 16); 
+    left: calc(-1rem / 16); 
+    right: calc(-1rem / 16); 
+    bottom: calc(-1rem / 16); 
+
+    border-radius: 0.25rem;
+
+    background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
+    background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%);
+    background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    z-index: 2;
+    opacity: 0;
+}
+  
+.helpfi___btn:hover:after {
+    opacity: 1;
+}
+  
+.helpfi___btn span {
+    position: relative;
+    z-index: 3;
+}
+
+.helpfi___btn:hover {
+    color: #FFFFFF;
+    -webkit-box-shadow: 0px 4px 10px rgba(249, 80, 3, 0.24);
+            box-shadow: 0px 4px 10px rgba(249, 80, 3, 0.24);    
+    border-color: #F95003;
+    border-right-color: #BE1000;   
+}

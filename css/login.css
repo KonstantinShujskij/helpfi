@@ -1,0 +1,77 @@
+.login-btn {
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
+    background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
+    -webkit-box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
+            box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
+    color: #FFFFFF;
+    border-color: #03A868;
+    border-right-color: #00783D;
+}
+
+.login-btn:hover {
+    -webkit-box-shadow: 0px 4px 10px rgba(249, 80, 3, 0.24);
+            box-shadow: 0px 4px 10px rgba(249, 80, 3, 0.24);    
+    border-color: #F95003;
+    border-right-color: #BE1000;   
+}
+
+.login-btn:after {
+    background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
+    background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%);
+    background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
+}
+
+.forget-pass {
+    font-size: calc((1rem / 16) * 14);
+    line-height: 1;
+    -webkit-font-feature-settings: 'pnum' on, 'lnum' on;
+            font-feature-settings: 'pnum' on, 'lnum' on;
+    text-align: right;
+    margin-top: calc((1rem / 16) * 9);
+    margin-bottom: calc((1rem / 16) * 21);
+}
+
+.jq-selectbox ul {
+    width: 100%;
+    border: calc(1rem / 16) solid #03A869;
+    border-top: none;
+    border-radius: 0 0 0.25rem 0.25rem;
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+.jq-selectbox li {
+    padding: 1rem calc((1rem / 16) * 14);
+    background-color: #FFFFFF;
+    cursor: pointer;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.jq-selectbox li:hover {
+    background: #55DB96;
+    color: #FFFFFF;
+}
+
+.jq-selectbox__search {
+    width: 100%;
+}
+
+.jq-selectbox__search input {
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border: calc(1rem / 16) solid #03A869;
+}
+
+.jq-selectbox__not-found {
+    background-color: #FFFFFF;
+    border: calc(1rem / 16) solid #03A869;
+    border-bottom: none;
+    border-top: none;
+    padding: 1rem;
+}

@@ -1,0 +1,37 @@
+.header {
+    width: 100%;
+    background: #FFFFFF;
+    -webkit-box-shadow: 0px calc((1rem / 16) * 6) calc((1rem / 16) * 18) #0000000f;
+            box-shadow: 0px calc((1rem / 16) * 6) calc((1rem / 16) * 18) #0000000f;
+    padding: 1.5rem;
+    font-size: calc((1rem / 16) * 14);
+    line-height: 1;
+    height: calc((1rem / 16) * 14 + 3rem);
+}
+
+
+.logo {
+    display: block;
+    width: 4.5rem;
+}
+
+.note {
+    width: 1rem;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;    
+}
+
+.note_active::after {
+    content: '';
+    background: #BE1000;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

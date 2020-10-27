@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+        *{
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+                    -ms-overflow-style: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+                -ms-user-select: none;
+                    user-select: none;
+                    scrollbar-width: none;
+        }
+
+        .w-100 {
+            width: 100%;
+        }
+
+        
+        .helpfi___btn {
+            padding: calc((1rem / 16) * 12);
+            background-color: transparent;
+            border: calc(1rem / 16) solid #A8A8A8;
+            border-radius: 0.25rem;
+            max-width: 10.5rem;
+            width: 9.75rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: calc((1rem / 16) * 13);
+            line-height: calc((1rem / 16) * 19);
+
+            color: #A8A8A8;
+            -webkit-transition: 0.3s;
+            -o-transition: 0.3s;
+            transition: 0.3s;
+            letter-spacing: 0.01rem;
+            outline: none;
+            display: block;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .helpfi___btn:after {
+            content: "";
+            position: absolute;    
+            top: calc(-1rem / 16); 
+            left: calc(-1rem / 16); 
+            right: calc(-1rem / 16); 
+            bottom: calc(-1rem / 16); 
+
+            border-radius: 0.25rem;
+
+            background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%);
+
+            background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
+
+            background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
+            -webkit-transition: 0.3s;
+            -o-transition: 0.3s;
+            transition: 0.3s;
+            z-index: 2;
+            opacity: 0;
+
+        }
+
+        .helpfi___btn:hover:after {
+            opacity: 1;
+        }
+
+        .helpfi___btn span {
+            position: relative;
+            z-index: 3;
+        }
+
+        .helpfi___btn:hover {
+            color: #FFFFFF;
+            -webkit-box-shadow: 0px 4px 10px rgba(249, 80, 3, 0.24);
+                    box-shadow: 0px 4px 10px rgba(249, 80, 3, 0.24);    
+            border-color: #F95003;
+            border-right-color: #BE1000;   
+        }
+
+        .main {
+            padding: 18px;
+            padding: calc((1rem / 16) * 18);
+            background-image: url('https://testtstst.imfast.io/images/bg.png');
+            background-repeat: repeat;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .letter {
+            width: 100%;
+            padding: 1.5rem;
+            padding-bottom: 2.25rem;
+            padding-top: 3.75rem;
+           
+            background: #FFFFFF;
+            -webkit-box-shadow: 0.125rem 0.25rem 0.5rem 0.125rem rgba(0, 0, 0, 0.05);
+                    box-shadow: 0.125rem 0.25rem 0.5rem 0.125rem rgba(0, 0, 0, 0.05);
+            border-radius: 0.25rem;
+            overflow: hidden;
+        }
+
+        .letter__logo-img {
+            width: 4.75rem;
+            height: 4.25rem;
+            background-image: url("https://testtstst.imfast.io/images/logo-img.png");
+
+            background-size: cover;  
+            background-repeat: repeat;
+
+            margin: 0 auto;
+            margin-bottom: 0.75rem;
+            font-size: 0;
+        }
+
+        .letter__logo {
+            width: 6.25rem;
+            height: 1rem;
+            background-image: url("https://testtstst.imfast.io/images/logo.png");
+            background-size: cover;  
+            background-repeat: repeat;
+
+            margin: 0 auto;
+            margin-bottom: 1rem;
+            font-size: 0;
+        }
+
+        .letter__h {
+            font-family: "Century Gothic";
+            font-style: normal;
+            font-weight: bold;
+            font-size: calc((1rem / 16) * 14);
+            line-height: calc((1rem / 16) * 17);
+            text-align: center;
+            letter-spacing: 0.01em;
+
+            color: #F95003;
+            margin-bottom: 0;
+        }
+
+        .latter__img {
+            width: 11.25rem;
+            height: 12rem;
+            background-image: url("https://testtstst.imfast.io/images/open-letter.png");
+            background-size: cover;  
+            background-repeat: repeat;
+            margin: 0 auto;
+            margin-top: 1.5rem;
+            margin-bottom: 26px;
+            margin-bottom: calc((1rem / 16) * 26);
+            position: relative;
+        }
+
+        .letter__text {
+            width: 22.5rem;
+            font-family: "Century Gothic";
+            font-style: normal;
+            font-weight: normal;
+            font-size: 1rem;
+            line-height: calc((1rem / 16) * 20);
+            text-align: center;
+            letter-spacing: 0.01em;
+            margin: 0 auto;
+
+            color: #777777;
+        }
+
+        .letter__btn {
+            margin: 0 auto;
+            margin-top: 29px;
+            margin-bottom: 12px;
+            margin-top: calc((1rem / 16) * 29);
+            margin-bottom: 0.75rem;
+            background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+            background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
+            background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
+            -webkit-box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
+                    box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
+            border: none;
+            overflow: hidden;    
+            padding: 12px;            
+            padding: calc((1rem / 16) * 12);
+        }
+
+        a.letter__btn {
+            text-decoration: none;
+            color: #FFFFFF;
+            font-family: "Century Gothic";
+        }
+
+        .letter__small {
+            font-size: calc((1rem / 16) * 10);
+            line-height: calc((1rem / 16) * 12);
+        }
+
+    </style>
+
+</head>
+<body>   
+
+    <div class="main">
+        <div class="letter">
+            <h2 class="letter__logo-img"></h2>
+           
+            <h2 class="letter__logo"></h2>
+
+            <h1 class="letter__h">ДОБРО ПОЖАЛОВАТЬ!</h1>
+                
+            <div class="latter__img"></div>
+
+            <p class="letter__text">
+                Подтвердите адрес электронной почты, нажатием кнопки
+            </p>
+
+            <a href="https://testtstst.imfast.io/" target="_blanck" class="letter__btn helpfi___btn"><span>Проверить почту</span></a>
+
+            <p class="letter__text letter__small">
+                Время действия подтверждения 72 часа
+            </p> 
+
+        </div>                    
+    </div> 
+
+</body>
+</html>

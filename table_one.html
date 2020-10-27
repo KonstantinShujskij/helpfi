@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>  
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+  
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/jquery.scrollbar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/aside.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/table-one.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="fullscreen">
+            <aside class="aside">
+                <div class="d-flex flex-row">
+                    <a href="#" class="logo">
+                        <img src="images/logo.svg" alt="logo">
+                    </a>   
+                    <button class="close-btn">
+                        <div class="close-btn__inner"></div>
+                    </button>
+                </div>
+                   
+                <div class="user w-100">
+                    <div class="avatar user__avatar">
+                        <div class="avatar__wrapper">
+                            <div class="avatar__anchor">
+                                <img src="images/profile_photo.png" class="w-100 d-block" alt="avatar">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user__info">
+                        <span>
+                            <a href="#" class="user__id">92755775</a>
+                            <button class="user__copy d-inline">
+                                <img src="images/copy.svg" class="w-100" alt="copy">
+                            </button>
+                        </span>
+                        <br>
+                        <span class="user__name">Макушенко Евгений</span>
+                    </div>                    
+                </div> 
+                <div class="balance">
+                    <div class="balance__titles">
+                        <spsn>Кешбек:</spsn>
+                        <br>
+                        <spsn>Баланс:</spsn>
+                    </div>
+                    <div class="balance__values">
+                        <span>777</span><span> ₴</span> 
+                        <br>                           
+                        <span>77777</span><span> ₴</span>
+                    </div>
+                </div>     
+                <hr class="aside__hr">   
+                <div class="one-menu aside__menu">
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/dashboard-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Главная</span>
+                    </a>
+                    <a href="https://helpfi.me/st/executor_reg.php" target="_blank" class="aside__link">
+                        <span class="icon">
+                            <img src="images/tasks-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Создать услугу</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/email-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Избранные мастера</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/profile-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>История</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/mess-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Чат</span>
+                    </a>
+                </div>  
+                
+                <hr class="aside__hr">   
+                <div class="two-menu aside__menu">
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/deals-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Профиль</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/email-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Рефералы</span>
+                    </a>
+                    <a href="#" class="aside__link aside__link_active">
+                        <span class="icon">
+                            <img src="images/profile-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Мой бизнес</span>
+                    </a>
+                </div>  
+                <hr class="aside__hr">   
+                <div class="three-menu aside__menu">
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/email-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Помощь</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/deals-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Поделиться</span>
+                    </a>
+                </div> 
+
+                <div class="out-menu aside__menu">
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/deals-icon.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span>Выход</span>
+                    </a>
+                </div>
+            </aside>
+            <main class="main">
+                <section class="top">
+                    <button class="open-btn">
+                        <div class="open-btn__inner"></div>
+                    </button>                    
+                    <button class="search-btn">
+                        <img src="images/search.svg" alt="search">
+                    </button>
+                    <input type="text" class="search" placeholder="Search for a contact">
+                    <button class="note note_active">
+                        <img src="images/note.svg" alt="note">
+                    </button>
+                </section>
+                <section class="forecast row mt-4">
+                    <a href="index.html" class="col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
+                        <div class="card forecast__item text-nowrap">
+                            <h3 class="card__title">Безнес места</h3>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">Абонплата</div>
+                                <div class="forecast__value low"><span class="percentage-place">4</span>/<span class="percentage-place-active">2</span></div>
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">Процент</div>
+                                <div class="forecast__value full"><span class="ticket-place">4</span>/<span class="ticket-place-active">4</span></div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="table_three.html" class="col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
+                        <div class="card forecast__item text-nowrap">
+                            <h3 class="card__title">Абонплата</h3>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">Сегодня</div>
+                                <div class="forecast__value value-month"><span class="fee-month">50</span><span> ₴</span></div>
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">За месяц</div>
+                                <div class="forecast__value value-year"><span class="fee-year">1 500</span><span> ₴</span></div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="table_one.html" class="col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-sm-0 mb-lg-0">
+                        <div class="card card_active forecast__item text-nowrap">
+                            <h3 class="card__title">Процент</h3>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">Сегодня</div>
+                                <div class="forecast__value value-month"><span class="percent-month">4 250</span><span> ₴</span></div>
+                            </div>
+                            <div class="d-flex align-items-end text-nowrap">
+                                <div class="forecast__title">За месяц</div>
+                                <div class="forecast__value value-year"><span class="percent-year">100 000</span><span> ₴</span></div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="" class="col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-sm-0 mb-lg-0">
+                        <div class="card forecast__item text-nowrap">
+                            <h3 class="card__title">Доход</h3>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">Сегодня</div>
+                                <div class="forecast__value value-month"><span class="income-month">4 300</span><span> ₴</span></div>
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <div class="forecast__title">За месяц</div>
+                                <div class="forecast__value value-year"><span class="income-year">101 500</span><span> ₴</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </section>
+                <section class="table">
+                    <div class="table__head">
+                        <div class="d-flex align-items-center table__head-id">Id</div>
+                        <div class="d-flex align-items-center table__head-name">Имя</div>
+                        <div class="d-flex align-items-center table__head-specialty">Специализация</div>
+                        <div class="d-flex flex-column text-center table__head-today">Заказов <small>Сегодня/за месяц</small></div>
+                        <div class="d-flex flex-column text-center table__head-profit">Доход <small>Сегодня/за месяц</small></div>                            
+                        <div class="d-flex align-items-center table__head-ball">Средняя оценка</div>
+                        <div class="d-flex align-items-center table__head-triger">Абонплата <a href="table_three.html" class="monthly-fee-btn"></a> <span>%</span></div>
+                    </div>
+                    <div class="table__body">                    
+
+                        <div class="table__item table__item_active">
+                            <div class="d-flex align-items-center table-user-id">32112</div>
+                            <div class="d-flex align-items-center table__user">
+                                <div class="online-wrap online-wrap__online">
+                                    <div class="avatar table-avatar">
+                                        <div class="avatar__wrapper">
+                                            <div class="avatar__anchor">
+                                                <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <span class="table__user-name">Юлия</span>
+                            </div>
+                            <div class="d-flex align-items-center table__user-specialty">
+                                <div class="select-wrap">
+                                    <img class="select-arrow" src="images/select-arrow.svg">
+                                    <select class="specialty-select">
+                                        <option>Швея</option>
+                                        <option>Водитель</option>
+                                    </select>
+                                </div>                            
+                            </div>
+                            <div class="d-flex align-items-center table__user-today"><span class="table__value ml-2">20</span>/400</div>
+                            <div class="d-flex align-items-center table__user-profit"><span class="table__value ml-2">1000</span>/20000</div>                            
+                            <div class="d-flex align-items-center table-ball">
+                                <div class="table__stars" ball="5.0"></div>                            
+                                <span>5.0</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <button class="table-btn helpfi___btn delete-btn"><span>Отменить</span></button>
+                            </div>
+                        </div>
+                        <div class="coments-wrap hidden">                        
+                            <div class="table__head">
+                                <div class="d-flex align-items-center table__head-id">Id заказа</div>
+                                <div class="d-flex align-items-center table__head-name">Дата и время</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-specialty">Специализация</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-today">Стоимость</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-profit">Доход</div>                            
+                                <div class="d-flex align-items-center justify-content-start table__head-ball">Оценка</div>
+                                <div class="d-flex align-items-center table__head-triger" >Отзыв</div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                            
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                          
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                          
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                        </div>                    
+
+                        <div class="table__item table__item_active">
+                            <div class="d-flex align-items-center table-user-id">32112</div>
+                            <div class="d-flex align-items-center table__user">
+                                <div class="online-wrap">
+                                    <div class="avatar table-avatar">
+                                        <div class="avatar__wrapper">
+                                            <div class="avatar__anchor">
+                                                <img src="images/default-user.png" class="w-100 d-block" alt="avatar">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <span class="table__user-name">Маша</span>
+                            </div>
+                            <div class="d-flex align-items-center table__user-specialty">
+                                <div class="select-wrap">
+                                    <img class="select-arrow" src="images/select-arrow.svg">
+                                    <select class="specialty-select">
+                                        <option>Массажист</option>
+                                        <option>Водитель</option>
+                                    </select>
+                                </div>                            
+                            </div>
+                            <div class="d-flex align-items-center table__user-today"><span class="table__value ml-2">20</span>/200</div>
+                            <div class="d-flex align-items-center table__user-profit"><span class="table__value ml-2">1000</span>/25000</div>                            
+                            <div class="d-flex align-items-center table-ball">
+                                <div class="table__stars" ball="5.0"></div>                            
+                                <span>5.0</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <button class="table-btn helpfi___btn delete-btn"><span>Отменить</span></button>
+                            </div>
+                        </div>
+                        <div class="coments-wrap hidden">                        
+                            <div class="table__head">
+                                <div class="d-flex align-items-center table__head-id">Id заказа</div>
+                                <div class="d-flex align-items-center table__head-name">Дата и время</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-specialty">Специализация</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-today">Стоимость</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-profit">Доход</div>                            
+                                <div class="d-flex align-items-center justify-content-start table__head-ball">Оценка</div>
+                                <div class="d-flex align-items-center table__head-triger">Отзыв</div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                        
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                           
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                        
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                        </div>   
+
+                        <div class="table__item table__item_active">
+                            <div class="d-flex align-items-center table-user-id">32112</div>
+                            <div class="d-flex align-items-center table__user">
+                                <div class="online-wrap">
+                                    <div class="avatar table-avatar">
+                                        <div class="avatar__wrapper">
+                                            <div class="avatar__anchor">
+                                                <img src="images/default-user.png" class="w-100 d-block" alt="avatar">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <span class="table__user-name">Маша</span>
+                            </div>
+                            <div class="d-flex align-items-center table__user-specialty">
+                                <div class="select-wrap">
+                                    <img class="select-arrow" src="images/select-arrow.svg">
+                                    <select class="specialty-select">
+                                        <option>Массажист</option>
+                                        <option>Водитель</option>
+                                    </select>
+                                </div>                            
+                            </div>
+                            <div class="d-flex align-items-center table__user-today"><span class="table__value ml-2">20</span>/400</div>
+                            <div class="d-flex align-items-center table__user-profit"><span class="table__value ml-2">1000</span>/20000</div>                            
+                            <div class="d-flex align-items-center table-ball">
+                                <div class="table__stars" ball="4.8"></div>                            
+                                <span>4.8</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <button class="table-btn helpfi___btn delete-btn"><span>Отменить</span></button>
+                            </div>
+                        </div>
+                        <div class="coments-wrap hidden">                        
+                            <div class="table__head">
+                                <div class="d-flex align-items-center table__head-id">Id заказа</div>
+                                <div class="d-flex align-items-center table__head-name">Дата и время</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-specialty">Специализация</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-today">Стоимость</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-profit">Доход</div>                            
+                                <div class="d-flex align-items-center justify-content-start table__head-ball">Оценка</div>
+                                <div class="d-flex align-items-center table__head-triger">Отзыв</div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                        
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                       
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                          
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                        </div>   
+
+                        <div class="table__item">
+                            <div class="d-flex align-items-center table-user-id">32112</div>
+                            <div class="d-flex align-items-center table__user">
+                                <div class="online-wrap">
+                                    <div class="avatar table-avatar">
+                                        <div class="avatar__wrapper">
+                                            <div class="avatar__anchor">
+                                                <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <span class="table__user-name">Маша</span>
+                            </div>
+                            <div class="d-flex align-items-center table__user-specialty">
+                                <div class="select-wrap">
+                                    <img class="select-arrow" src="images/select-arrow.svg">
+                                    <select class="specialty-select">
+                                        <option>Массажист</option>
+                                        <option>Водитель</option>
+                                    </select>
+                                </div>                            
+                            </div>
+                            <div class="d-flex align-items-center table__user-today"><span class="table__value ml-2">20</span>/400</div>
+                            <div class="d-flex align-items-center table__user-profit"><span class="table__value ml-2">1000</span>/20000</div>                            
+                            <div class="d-flex align-items-center table-ball">
+                                <div class="table__stars" ball="3.5"></div>                            
+                                <span>3.5</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <button class="table-btn helpfi___btn add-btn"><span>Выбрать</span></button>
+                            </div>
+                        </div>
+                        <div class="coments-wrap hidden">                        
+                            <div class="table__head">
+                                <div class="d-flex align-items-center table__head-id">Id заказа</div>
+                                <div class="d-flex align-items-center table__head-name">Дата и время</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-specialty">Специализация</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-today">Стоимость</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-profit">Доход</div>                            
+                                <div class="d-flex align-items-center justify-content-start table__head-ball">Оценка</div>
+                                <div class="d-flex align-items-center table__head-triger">Отзыв</div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                       
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                      
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                        
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                        </div>   
+
+                        <div class="table__item">
+                            <div class="d-flex align-items-center table-user-id">32112</div>
+                            <div class="d-flex align-items-center table__user">
+                                <div class="online-wrap online-wrap__online">
+                                    <div class="avatar table-avatar">
+                                        <div class="avatar__wrapper">
+                                            <div class="avatar__anchor">
+                                                <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <span class="table__user-name">Екатерина</span>
+                            </div>
+                            <div class="d-flex align-items-center table__user-specialty">
+                                <div class="select-wrap">
+                                    <img class="select-arrow" src="images/select-arrow.svg">
+                                    <select class="specialty-select">
+                                        <option>Массажист</option>
+                                        <option>Водитель</option>
+                                    </select>
+                                </div>                            
+                            </div>
+                            <div class="d-flex align-items-center table__user-today"><span class="table__value ml-2">20</span>/400</div>
+                            <div class="d-flex align-items-center table__user-profit"><span class="table__value ml-2">1000</span>/20000</div>                            
+                            <div class="d-flex align-items-center table-ball">
+                                <div class="table__stars" ball="0.0"></div>                            
+                                <span>0.0</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <button class="table-btn helpfi___btn add-btn"><span>Выбрать</span></button>
+                            </div>
+                        </div>
+                        <div class="coments-wrap hidden">                        
+                            <div class="table__head">
+                                <div class="d-flex align-items-center table__head-id">Id заказа</div>
+                                <div class="d-flex align-items-center table__head-name">Дата и время</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-specialty">Специализация</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-today">Стоимость</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-profit">Доход</div>                            
+                                <div class="d-flex align-items-center justify-content-start table__head-ball">Оценка</div>
+                                <div class="d-flex align-items-center table__head-triger">Отзыв</div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                          
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                          
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                           
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                        </div>   
+
+                        <div class="table__item">
+                            <div class="d-flex align-items-center table-user-id">32112</div>
+                            <div class="d-flex align-items-center table__user">
+                                <div class="online-wrap online-wrap__online"> 
+                                    <div class="avatar table-avatar">
+                                        <div class="avatar__wrapper">
+                                            <div class="avatar__anchor">
+                                                <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <span class="table__user-name">Екатерина</span>
+                            </div>
+                            <div class="d-flex align-items-center table__user-specialty">
+                                <div class="select-wrap">
+                                    <img class="select-arrow" src="images/select-arrow.svg">
+                                    <select class="specialty-select">
+                                        <option>Массажист</option>
+                                        <option>Водитель</option>
+                                    </select>
+                                </div>                            
+                            </div>
+                            <div class="d-flex align-items-center table__user-today"><span class="table__value ml-2">20</span>/400</div>
+                            <div class="d-flex align-items-center table__user-profit"><span class="table__value ml-2">1000</span>/20000</div>                            
+                            <div class="d-flex align-items-center table-ball">
+                                <div class="table__stars" ball="2.3"></div>                            
+                                <span>2.3</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <button class="table-btn helpfi___btn add-btn"><span>Выбрать</span></button>
+                            </div>
+                        </div>
+                        <div class="coments-wrap hidden">                        
+                            <div class="table__head">
+                                <div class="d-flex align-items-center table__head-id">Id заказа</div>
+                                <div class="d-flex align-items-center table__head-name">Дата и время</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-specialty">Специализация</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-today">Стоимость</div>
+                                <div class="d-flex align-items-center justify-content-center table__head-profit">Доход</div>                            
+                                <div class="d-flex align-items-center justify-content-start table__head-ball">Оценка</div>
+                                <div class="d-flex align-items-center table__head-triger">Отзыв</div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                           
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                           
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                            <div class="table__item">
+                                <div class="d-flex align-items-center table-user-id">32112</div>
+                                <div class="d-flex align-items-center table__data">
+                                    <span>29.07.2020</span>
+                                    <span class="ml-3">17:00</span>
+                                </div>
+                                <div class="d-flex align-items-center table__user-specialty">
+                                    <div class="select-wrap">
+                                        <div class="specialty-select">
+                                            Массажист
+                                        </div>
+                                    </div>                        
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center table__user-today">200</div>
+                                <div class="d-flex align-items-center justify-content-center table__user-profit">20</div>                            
+                                <div class="d-flex align-items-center table-ball">
+                                    <div class="table__stars" ball="3.5"></div>                            
+                                    <span>3.5</span> 
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/jquery.formstyler.min.js"></script>
+    <script src="js/aside.js"></script>
+    <script src="js/table.js"></script>
+    <script>
+        (function () {
+            $('.table__item').click(function(e) {
+                let elem = $(this).next();
+
+                if(elem.hasClass('hidden')){
+                    $('.coments-wrap').addClass('hidden');
+                    elem.removeClass('hidden');
+                }
+                else {
+                    $('.coments-wrap').addClass('hidden');
+                }
+            });
+        }());
+    </script>
+</body>
+</html>
