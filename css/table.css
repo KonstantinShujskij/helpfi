@@ -320,16 +320,23 @@
 
 @media (max-width: 768px) {
     .table__head {
-        -ms-grid-columns: 9% 5% 22% 5% 24% 5% 30%;
-        grid-template-columns: 9% 22% 24% 30%;
-        grid-gap: 2.5%;
+        -ms-grid-columns: 28% 5% 32% 5% 30%;
+        grid-template-columns: 28% 32% 30%;
         grid-gap: 5%;
     } 
     
     .table__item {
-        -ms-grid-columns: 9% 5% 22% 5% 24% 5% 30%;
-        grid-template-columns: 9% 22% 24% 30%;
+        -ms-grid-columns: 28% 5% 32% 5% 30%;
+        grid-template-columns: 28% 32% 30%;
         grid-gap: 5%;
+    }
+    
+    .table__head-id {
+        display: none!important;
+    }
+
+    .table-user-id {
+        display: none!important;
     }
 }
 
@@ -354,13 +361,6 @@
         display: none!important;
     }
 
-    .table__head-id {
-        display: none!important;
-    }
-
-    .table-user-id {
-        display: none!important;
-    }
 }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  

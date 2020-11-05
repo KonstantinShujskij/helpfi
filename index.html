@@ -16,132 +16,95 @@
 <body>
     <div class="wrapper">
         <div class="fullscreen">
-            <aside class="aside">
-                <div class="d-flex flex-row">
-                    <a href="index.html" class="logo">
+            <aside class="aside aside_moble">
+                <div class="logo-wrap">
+                    <a href="index.html" class="logo full">
                         <img src="images/logo.svg" alt="logo">
+                        <span class="logo__alpfa">
+                            <img src="images/alpfa.svg" alt="alpfa">
+                        </span>
                     </a>   
-                    <button class="close-btn">
-                        <div class="close-btn__inner"></div>
+                    <a href="index.html" class="mobale-logo short">
+                        <img src="images/mobale-logo.svg" alt="logo">
+                    </a>  
+                    <button class="switch-btn"> 
+                        <img class="w-100" src="images/switch-arrow.svg" alt="<">
                     </button>
                 </div>
-                   
-                <div class="user w-100">
-                    <div class="avatar user__avatar">
-                        <div class="avatar__wrapper">
-                            <div class="avatar__anchor">
-                                <img src="images/profile_photo.png" class="w-100 d-block" alt="avatar">
-                            </div>
-                        </div>
+
+                <div class="form-links">
+                    <div class="full">
+                        <a href="login.html" class="form-links__item">ВОЙТИ</a>
+                        <span class="form-links__item"> | </span>
+                        <a href="signup.html" class="form-links__item">РЕГИСТРАЦИЯ</a>  
                     </div>
-                    <div class="user__info">
-                        <span>
-                            <a href="#" class="user__id">92755775</a>
-                            <button class="user__copy d-inline">
-                                <img src="images/copy.svg" class="w-100" alt="copy">
-                            </button>
-                        </span>
-                        <br>
-                        <span class="user__name">Макушенко Евгений</span>
+                    <div class="short">
+                        <a href="login.html" class="form-links__icon">
+                            <span class="icon">
+                                <img src="images/aside-login.svg" class="img-svg" alt="icon">
+                            </span>
+                        </a>
                     </div>                    
-                </div> 
-                <div class="balance">
-                    <div class="balance__titles">
-                        <spsn>Кешбек:</spsn>
-                        <br>
-                        <spsn>Баланс:</spsn>
-                    </div>
-                    <div class="balance__values">
-                        <span>777</span><span> ₴</span> 
-                        <br>                           
-                        <span>77777</span><span> ₴</span>
-                    </div>
-                </div>     
-                <hr class="aside__hr">   
+                </div>
+
                 <div class="one-menu aside__menu">
-                    <a href="#" class="aside__link aside__link_active">
+                    <a href="#" class="aside__link">
                         <span class="icon">
-                            <img src="images/dashboard-icon.svg" class="img-svg" alt="icon">
+                            <img src="images/aside-search.svg" class="img-svg" alt="icon">
                         </span>
-                        <span>Главная</span>
+                        <span class="full">Найти услугу</span>
                     </a>
                     <a href="https://helpfi.me/st/executor_reg.php" target="_blank" class="aside__link">
                         <span class="icon">
-                            <img src="images/tasks-icon.svg" class="img-svg" alt="icon">
+                            <img src="images/aside-create.svg" class="img-svg" alt="icon">
                         </span>
-                        <span>Создать услугу</span>
-                    </a>
-                    <a href="#" class="aside__link">
-                        <span class="icon">
-                            <img src="images/email-icon.svg" class="img-svg" alt="icon">
-                        </span>
-                        <span>Избранные мастера</span>
-                    </a>
-                    <a href="#" class="aside__link">
-                        <span class="icon">
-                            <img src="images/profile-icon.svg" class="img-svg" alt="icon">
-                        </span>
-                        <span>История</span>
-                    </a>
-                    <a href="#" class="aside__link">
-                        <span class="icon">
-                            <img src="images/mess-icon.svg" class="img-svg" alt="icon">
-                        </span>
-                        <span>Чат</span>
+                        <span class="full">Создать услугу</span>
                     </a>
                 </div>  
                 
                 <hr class="aside__hr">   
+
                 <div class="two-menu aside__menu">
                     <a href="#" class="aside__link">
                         <span class="icon">
-                            <img src="images/deals-icon.svg" class="img-svg" alt="icon">
+                            <img src="images/aside-info.svg" class="img-svg" alt="icon">
                         </span>
-                        <span>Профиль</span>
+                        <span class="full">О проекте</span>
                     </a>
                     <a href="#" class="aside__link">
                         <span class="icon">
-                            <img src="images/email-icon.svg" class="img-svg" alt="icon">
+                            <img src="images/aside-heart.svg" class="img-svg" alt="icon">
                         </span>
-                        <span>Рефералы</span>
+                        <span class="full">Помощь проекту</span>
                     </a>
                     <a href="#" class="aside__link">
                         <span class="icon">
-                            <img src="images/profile-icon.svg" class="img-svg" alt="icon">
+                            <img src="images/aside-phone.svg" class="img-svg" alt="icon">
                         </span>
-                        <span>Стать партнером</span>
+                        <span class="full">Контакты</span>
+                    </a>
+                    <a href="#" class="aside__link">
+                        <span class="icon">
+                            <img src="images/aside-share.svg" class="img-svg" alt="icon">
+                        </span>
+                        <span class="full">Поделиться</span>
                     </a>
                 </div>  
                 <hr class="aside__hr">   
-                <div class="three-menu aside__menu">
-                    <a href="#" class="aside__link">
-                        <span class="icon">
-                            <img src="images/email-icon.svg" class="img-svg" alt="icon">
-                        </span>
-                        <span>Помощь</span>
-                    </a>
-                    <a href="#" class="aside__link">
-                        <span class="icon">
-                            <img src="images/deals-icon.svg" class="img-svg" alt="icon">
-                        </span>
-                        <span>Поделиться</span>
-                    </a>
-                </div> 
 
                 <div class="out-menu aside__menu">
-                    <a href="#" class="aside__link">
+                    <button class="join-btn helpfi___btn full">
+                        <span>Стать партнером</span>
+                    </button>
+                    <button class="join-btn short">
                         <span class="icon">
-                            <img src="images/deals-icon.svg" class="img-svg" alt="icon">
+                            <img src="images/aside-partner.svg" alt="i">
                         </span>
-                        <span>Выход</span>
-                    </a>
+                    </button>
                 </div>
             </aside>
             <main class="main">
-                <section class="top">
-                    <button class="open-btn">
-                        <div class="open-btn__inner"></div>
-                    </button>                    
+                <section class="top">          
                     <button class="search-btn">
                         <img src="images/search.svg" alt="search">
                     </button>
@@ -226,7 +189,7 @@
                             <div class="timer">00:00:29</div>
                         </div>
                     </div>
-                    <div class="col-12 col-xl-6 mt-3 mt-lg-0">
+                    <div class="col-12 col-xl-6 mt-3 mt-xl-0">
                         <div class="card d-flex flex-column flex-sm-row align-items-center">
                             <div class="card__title mr-auto ml-auto ml-sm-0">Как ПОЛУЧИТЬ СКИДКУ?</div>
                             <button class="get-sale-btn helpfi___btn"><span>Подробнее</span></button>
@@ -234,7 +197,7 @@
                     </div>
                 </section>                
                 <sections class="packages row mt-4">                          
-                    <div class="col-12 mx-auto mb-4 col-sm-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
+                    <div class="col-12 mx-auto mb-4 col-sm-10 col-md-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
                         <div class="card packaged" percentage-place="0" 
                                                         ticket-place="1"
                                                         fee-month="0"
@@ -283,7 +246,7 @@
                             </div>
                         </div>
                     </div>      
-                    <div class="col-12 mx-auto mb-4 col-sm-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
+                    <div class="col-12 mx-auto mb-4 col-sm-10 col-md-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
                         <div class="card packaged"  percentage-place="2" 
                                                     ticket-place="2"
                                                     fee-month="400"
@@ -332,7 +295,7 @@
                             </div>
                         </div>
                     </div>      
-                    <div class="col-12 mx-auto mb-4 col-sm-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
+                    <div class="col-12 mx-auto mb-4 col-sm-10 col-md-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
                         <div class="card packaged"          percentage-place="4" 
                                                             ticket-place="4"
                                                             fee-month="800"
@@ -381,7 +344,7 @@
                             </div>
                         </div>
                     </div>      
-                    <div class="col-12 mx-auto mb-4 col-sm-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
+                    <div class="col-12 mx-auto mb-4 col-sm-10 col-md-6 col-lg-4 mb-xl-0 col-xl-3 pb-4">
                         <div class="card packaged"                          percentage-place="8" 
                                                                             ticket-place="8"
                                                                             fee-month="1600"
