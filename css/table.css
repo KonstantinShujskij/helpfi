@@ -316,6 +316,27 @@
     .table__user-profit {
         display: none!important;
     }
+
+    .main_moble .table__head {
+        -ms-grid-columns: 28% 5% 32% 5% 30%;
+        grid-template-columns: 28% 32% 30%;
+        grid-gap: 5%;
+    } 
+    
+    .main_moble .table__item {
+        -ms-grid-columns: 28% 5% 32% 5% 30%;
+        grid-template-columns: 28% 32% 30%;
+        grid-gap: 5%;
+    }
+
+    .main_moble .table__head-id {
+        display: none!important;
+    }
+
+    .main_moble .table-user-id {
+        display: none!important;
+    }
+
 }
 
 @media (max-width: 768px) {

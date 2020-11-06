@@ -204,9 +204,9 @@
 .packaged:hover {
     background: #F2F9FF;
     
-    -webkit-transform: scale(1.1);    
-        -ms-transform: scale(1.1);    
-            transform: scale(1.1);
+    -webkit-transform: scale(1.06);    
+        -ms-transform: scale(1.06);    
+            transform: scale(1.06);
     z-index: 3;
 }
 
@@ -404,6 +404,71 @@
     min-width: 8.25rem;
 }
 
+@media (min-width: 1266px) {
+    .col-package  {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;    
+    }
+}
+
+@media (max-width: 1266px) {
+    .col-package  {
+        -ms-flex: 0 0 33%;
+        flex: 0 0 33%;
+        max-width: 33%;    
+    }
+}
+
+
+@media (max-width: 992px) {
+    .col-package  {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;    
+    }
+}
+
+@media (max-width: 692px) {
+    .col-package  {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;    
+    }
+}
+
+
+@media (min-width: 1400px) {
+    .main_moble .col-package  {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;    
+    }
+}
+
+@media (max-width: 1400px) {
+    .main_moble .col-package  {
+        -ms-flex: 0 0 33%;
+        flex: 0 0 33%;
+        max-width: 33%;    
+    }
+}
+
+@media (max-width: 1192px) {
+    .main_moble .col-package  {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;    
+    }
+}
+
+@media (max-width: 876px) {
+    .main_moble .col-package  {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;    
+    }
+}
 
 @media (max-width: 768px) {
     .main {

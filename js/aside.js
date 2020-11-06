@@ -27,6 +27,7 @@
 
     $('.switch-btn').click(function() {
         $('.aside').toggleClass('aside_moble');
+        $('.main').toggleClass('main_moble');
     });
 
     $('.map-aside__switch-btn').click(function() {

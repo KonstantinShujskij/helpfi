@@ -27,10 +27,6 @@
 
     position: static;
     z-index: 2;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0; 
 }
 
 .aside-inner-wrap {
@@ -398,6 +394,23 @@
     padding-bottom: 1rem;
 }
 
-@media (max-width: 992px) {
+.aside_moble .balance {
+    padding: 0;
+    margin: 0;
+}
 
+.aside_moble .balance__values {
+    width: 100%;
+    font-size: 0.625rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .aside {                
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0; 
+    }
 }
