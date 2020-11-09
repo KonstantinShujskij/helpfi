@@ -196,3 +196,108 @@ body {
 .green {
     color: #03A868;
 }
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #00000080;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    visibility: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.popup_open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup__body {
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0.5rem;
+
+}
+
+.popup__content {
+    background-color: #FFFFFF;
+    min-width: 73%;
+    width: 66rem;
+    padding: 6.25rem;
+    border-radius: 0.25rem;
+
+    font-family: "Century Gothic";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+    text-align: center;
+    color: #777777;
+
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    transform: translate(0px, -100%);
+}
+
+.popup_open .popup__content {
+    opacity: 1;
+    transform: translate(0px, 0);
+}
+
+.popup__mess {
+    font-size: 1.5rem;
+}
+
+.popup__h {
+    color: #03A868;
+    margin-top: 8rem;
+}
+
+.popup__small {
+    font-size: 1.125rem;
+}
+
+.popup__back-btn {
+    margin-right: 1.5rem;
+}
+
+.popup__back-btn:after {
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
+    background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
+}
+
+.popup__ok-btn {
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
+    background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
+
+    color: #FFFFFF;
+    border: none;
+    overflow: hidden;
+}
+
+.popup__btns {
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .popup__content {
+        padding: 1.5rem;
+    }
+    
+}
+
+@media (max-width: 576px) {
+    .popup__h {
+        margin-top: 2.25rem;
+    }
+}

@@ -73,6 +73,20 @@ function init_start() {
     $('.add-btn').click(function(e) {
         e.stopPropagation();
         // Запрос к серверу на добавление пользователя к выбраным
+
+        $('.add-popup').addClass('popup_open');
+    });
+
+    $('.popup__close').click(function(e) {
+        $(this).closest(".popup").removeClass('popup_open');
+    });
+
+    $(document).click( function(e){
+        if ( $(e.target).closest('.popup__content').length ) {
+            return;
+        }
+
+        $(e.target).closest(".popup").removeClass('popup_open');
     });
 
 }());
