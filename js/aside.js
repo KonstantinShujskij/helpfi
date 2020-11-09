@@ -17,12 +17,21 @@
     });
    
     $('.user__copy').click(function() {
-        var $tmp = $("<textarea>");
+        let $tmp = $("<textarea>");
         $("body").append($tmp);
       
         $tmp.val($(this).siblings(".user__id").text()).select();
         document.execCommand("copy");
         $tmp.remove();
+    });    
+
+    $('.user__id').click(function() {
+      let $tmp = $("<textarea>");
+      $("body").append($tmp);
+    
+      $tmp.val($(this).text()).select();
+      document.execCommand("copy");
+      $tmp.remove();
     });    
 
     $('.switch-btn').click(function() {

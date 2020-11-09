@@ -13,6 +13,7 @@
     height: 70vh;
     overflow: scroll !important;
     padding-bottom: 4rem;
+    position: relative;
 }
 
 .table::-webkit-scrollbar {
@@ -38,6 +39,15 @@
     min-height: 3rem;
 
 } 
+
+.table__head-triger-inner {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 10.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .monthly-fee-btn {
     display: block;
@@ -211,7 +221,21 @@
     background-color: #F2F9FF;    
 }
 
+.table__user-today {
+    padding-left: 1.5rem;
+}
 
+.coments-wrap .table__user-today {
+    padding-left: 0;
+}
+
+.table__user-profit {
+    padding-left: 0.5rem;
+}
+
+.coments-wrap .table__user-profit {
+    padding-left: 0;
+}
 
 .table__value {
     color: #03A868;
@@ -227,6 +251,7 @@
 }
 
 .table-btn {
+    width: 100%;
     margin: 0.75rem auto;
 }
 
@@ -260,6 +285,58 @@
     border-right-color: #00783D;
 }
 
+.table-empty {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 3rem 1.5rem;
+
+    background-color: #FFFFFF;
+}
+
+.table-empty__content {
+    height: fit-content;
+    font-family: "Century Gothic";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: calc((1rem / 16) * 29);
+    text-align: center;
+    color: #777777;
+}
+
+.table-empty__text {
+    white-space: pre-wrap;
+}
+
+.table-empty__h {
+    margin-top: 6rem;
+    margin-bottom: 0.5rem;
+    padding: 0;
+    font-size: 1.5rem;
+    color:#03A868;
+}
+
+.table-empty__small {
+    font-size: 1rem;
+}
+
+.table-empty__btn {
+    margin-top: 1.5rem;
+    border: none;
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
+    background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
+
+    color: #FFFFFF;
+}
 
 @media (max-width: 1200px) {
     .table__head {
@@ -369,6 +446,18 @@
     } 
     
     .table__item {
+        -ms-grid-columns: 37% 15% 48%;
+        grid-template-columns: 37% 48%;
+        grid-gap: 15%;
+    }
+
+    .main_moble .table__head {
+        -ms-grid-columns: 37% 15% 48%;
+        grid-template-columns: 37% 48%;
+        grid-gap: 15%;
+    } 
+    
+    .main_moble .table__item {
         -ms-grid-columns: 37% 15% 48%;
         grid-template-columns: 37% 48%;
         grid-gap: 15%;

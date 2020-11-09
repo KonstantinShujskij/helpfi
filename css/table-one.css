@@ -51,7 +51,7 @@
 .card__title {
     font-weight: bold;
     font-size: calc((1rem / 16) * 18);
-    line-height: calc((1rem / 16) * 27);
+    line-height: 1.5rem;
 }
 
 .forecast__item .card__title {
@@ -99,6 +99,34 @@
     color: #03A868;
 }
 
+.add-places::after {
+    border-radius: none;
+}
+
+.add-places {
+    width: 1.125rem;
+    height: 1.125rem;
+    border: none;
+    overflow: hidden;
+    border-radius: 50%;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    float: right;
+    margin: 0.25rem 0;
+    padding: 0;
+    line-height: 0;
+
+    background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
+}
+
+.add-places span {
+    width: calc((1rem / 16) * 10);
+}
+
 .delete-btn{
     border: none;
     overflow: hidden;
@@ -118,6 +146,14 @@
     background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%);
     background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
     background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
+}
+
+.forecast__item {
+    transition: 0.3s ease;
+}
+
+.forecast__item:hover {
+    transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
