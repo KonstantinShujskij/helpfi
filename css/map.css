@@ -207,3 +207,10 @@
 .map-aside__switch-btn_service .people-icon path {
     fill: #FFFFFF;
 }
+
+@media (max-width: 576px) {  
+    .main {
+        margin: 0;
+        width: 100%;
+    }
+}
