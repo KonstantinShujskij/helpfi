@@ -39,9 +39,13 @@
                     <div class="avatar user__avatar">
                         <div class="avatar__wrapper">
                             <div class="avatar__anchor">
-                                <img src="images/profile_photo.png" class="w-100 d-block" alt="avatar">
+                                <img src="images/default-user.png" class="w-100 d-block" alt="avatar">
                             </div>
                         </div>
+                        <label class="helpfi___btn avatar-btn">
+                            <span><img src="images/plus-icon.png" class="w-100" alt="+"></span>
+                            <input type="file" class="avatar-input hidden" accept="image/png">
+                        </label>
                     </div>
                     <div class="user__info full">
                         <span class="label-code">Ваш реферальный код:</span>
@@ -131,7 +135,10 @@
                 </div>
             </aside>
             <main class="main">
-                <section class="top">               
+                <section class="top">     
+                    <button class="open-btn">
+                        <div class="open-btn__inner"></div>
+                    </button>               
                     <button class="search-btn">
                         <img src="images/search.svg" alt="search">
                     </button>

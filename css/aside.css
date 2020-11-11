@@ -18,6 +18,7 @@
             flex-direction: column;
 
     height: fit-content;
+    min-height: 100vh;
     width: 100%;
     max-width: 16rem;
     padding: 0;
@@ -109,11 +110,30 @@
 }
 
 .form-links__item {
+    display: inline-block;
     font-family: "Century Gothic bold";
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 24px;
+    position: relative;
+}
+
+a.form-links__item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.1875rem;
+    height: 0.0625rem;
+    background-color: #FFFFFF;
+    transform-origin: center;
+    transition: 0.3s ease;
+    transform: scale(0);
+}
+
+a.form-links__item:hover::before {
+    transform: scale(1);
 }
 
 .form-links__icon {
@@ -137,16 +157,18 @@
     width: calc((1rem / 16) * 46);
     -ms-flex-negative: 0;
         flex-shrink: 0;
+    position: relative;
 }
 
 .avatar {
     border-radius: 50%;
-    overflow: hidden;
 }
 
 .avatar__wrapper {
     width: 100%;
     padding: 50% 0;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .avatar__anchor {
@@ -161,6 +183,37 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+}
+
+.avatar-btn {
+    position: absolute;
+    right: -0.125rem;
+    bottom: -0.125rem;
+
+    border-radius: 50%;
+    overflow: hidden;
+    width: 1.125rem;
+    height: 1.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
+    background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
+    color: #FFFFFF;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.avatar-btn span {
+    width: 0.625rem;
+    height: 0.625rem;
+    line-height: 0;
 }
 
 .user__info {
@@ -407,11 +460,114 @@
     padding-bottom: 0.5rem;
 }
 
+.open-btn {
+    width: 1rem;
+    background-color: transparent;
+    border: none;
+    margin-right: 1rem;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    padding: 0;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.open-btn__inner {
+    width: 1rem;
+    margin: 0.325rem 0;
+    height: 0.125rem;
+    background-color:#90A0B7;
+    position: relative;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.open-btn__inner::after, .open-btn__inner::before{
+    content: '';
+    width: 100%;
+    height: 0.125rem;
+    background-color: #90A0B7;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.open-btn__inner::after {
+    -webkit-transform: translateY(-0.325rem);
+        -ms-transform: translateY(-0.325rem);
+            transform: translateY(-0.325rem);
+    -webkit-transform-origin: right;
+        -ms-transform-origin: right;
+            transform-origin: right;
+}
+
+.open-btn__inner::before {
+    -webkit-transform: translateY(0.325rem);
+        -ms-transform: translateY(0.325rem);
+            transform: translateY(0.325rem);
+    -webkit-transform-origin: right;
+        -ms-transform-origin: right;
+            transform-origin: right;
+}
+
+.open-btn:hover .open-btn__inner::after {
+    -webkit-transform: scaleX(0.7) rotate(30deg);
+        -ms-transform: scaleX(0.7) rotate(30deg);
+            transform: scaleX(0.7) rotate(30deg);
+}
+
+.open-btn:hover .open-btn__inner::before {
+    -webkit-transform: scaleX(0.7) rotate(-30deg);
+        -ms-transform: scaleX(0.7) rotate(-30deg);
+            transform: scaleX(0.7) rotate(-30deg);
+}
+
+.open-btn_click .open-btn__inner::after {
+    -webkit-transform: scaleX(0.7) rotate(30deg);
+        -ms-transform: scaleX(0.7) rotate(30deg);
+            transform: scaleX(0.7) rotate(30deg);
+}
+
+.open-btn_click .open-btn__inner::before {
+    -webkit-transform: scaleX(0.7) rotate(-30deg);
+        -ms-transform: scaleX(0.7) rotate(-30deg);
+            transform: scaleX(0.7) rotate(-30deg);
+}
+
 @media (max-width: 768px) {
     .aside {                
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0; 
+       
+    }
+}
+
+@media (max-width: 576px) { 
+    .aside {                
+        transform: translate(-100%);
+        transition: transform 0.4s ease;
+    }
+
+    .aside_open {
+        transform: translate(0);
+    }
+
+    .switch-btn {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .open-btn {
+        opacity: 1;
+        visibility: visible;
     }
 }

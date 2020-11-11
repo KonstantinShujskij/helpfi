@@ -502,4 +502,9 @@
         margin-bottom: 0;
     }
 
+    .main {
+        margin: 0;
+        width: 100%;
+    }
+
 }
