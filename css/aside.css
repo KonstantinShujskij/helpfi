@@ -350,14 +350,14 @@ a.form-links__item:hover::before {
 .join-btn {
     width: 100%;
     max-width: 100%;
-    margin-top: 1rem;
-}
-
-.join-btn:after {
+    margin-top: 1rem; 
+    border: none; 
+    overflow: hidden;
     background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(1.6%, #03A868), to(#00783D));
     background: -o-linear-gradient(left, #03A868 1.6%, #00783D 100%);
     background: linear-gradient(90deg, #03A868 1.6%, #00783D 100%);
+    color: #FFFFFF;
 }
 
 .join-btn.short {
