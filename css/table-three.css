@@ -116,10 +116,12 @@
     line-height: 0;
 
     background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
+    box-shadow: 0px 0.25rem 0.625rem #03a86833;
+
 }
 
 .add-places span {
-    width: calc((1rem / 16) * 10);
+    width: 0.5625rem;
 }
 
 .table__item_active {

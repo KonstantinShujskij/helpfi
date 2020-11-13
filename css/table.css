@@ -1,6 +1,6 @@
 .table {
     width: calc(100% - 60px);
-    margin: 1.5rem 30px;
+    margin: 1.5rem 1.875rem;
     border-radius: 0.25rem;    
     min-height: 20rem;
     -ms-flex-negative: 0;
@@ -438,6 +438,10 @@
 }
 
 @media (max-width: 576px) {
+    .table {
+        margin-top: 0; 
+    }
+
     .table__head {
         -ms-grid-columns: 37% 15% 48%;
         grid-template-columns: 37% 48%;

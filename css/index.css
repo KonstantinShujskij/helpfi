@@ -412,6 +412,11 @@
     transform: scale(1.05);
 }
 
+.row-title {
+    margin: 0;
+    padding: 0 15px;
+}
+
 @media (min-width: 1266px) {
     .col-package  {
         -ms-flex: 0 0 25%;
