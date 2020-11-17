@@ -54,6 +54,7 @@ function init_start() {
 
 (function () {
     let nice = $(".table__body").niceScroll();
+    let nice_two = $(".table-wrap").niceScroll();
     
     init_start();
 
