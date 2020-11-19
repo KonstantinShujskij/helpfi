@@ -27,6 +27,7 @@
     max-height: 70vh;
     overflow: scroll !important;
     position: relative;
+    min-height: inherit;
 }
 
 .table__body::-webkit-scrollbar {
