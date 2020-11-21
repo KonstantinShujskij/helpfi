@@ -329,7 +329,6 @@ a.form-links__item:hover::before {
 }
 
 .aside__link_active path{
-    stroke: #FFFFFF;
     fill: #FFFFFF;
 }
 
@@ -381,6 +380,39 @@ a.form-links__item:hover::before {
     background: -o-linear-gradient(left, #03A868 1.6%, #00783D 100%);
     background: linear-gradient(90deg, #03A868 1.6%, #00783D 100%);
     margin: 0 auto;
+}
+
+.out-btn {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.out-btn::after {
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.6%, #03A868), to(#00783D));
+    background: -o-linear-gradient(left, #03A868 1.6%, #00783D 100%);
+    background: linear-gradient(90deg, #03A868 1.6%, #00783D 100%);
+}
+
+.out-btn.short {
+    width: 2.625rem;
+    height: 2.625rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0;
+    outline: 0;
+    border: none;
+    border-radius: 0.25rem;
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.6%, #03A868), to(#00783D));
+    background: -o-linear-gradient(left, #03A868 1.6%, #00783D 100%);
+    background: linear-gradient(90deg, #03A868 1.6%, #00783D 100%);
 }
 
 .aside .short {

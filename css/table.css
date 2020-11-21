@@ -56,6 +56,7 @@
 
 .table__head-triger-inner {
     margin: 0 auto;
+    margin-right: 0;
     width: 100%;
     max-width: 10.5rem;
     display: inline-flex;
@@ -236,7 +237,7 @@
 }
 
 .table__user-today {
-    padding-left: 1.5rem;
+    padding-left: 2rem;
 }
 
 .coments-wrap .table__user-today {
@@ -244,7 +245,7 @@
 }
 
 .table__user-profit {
-    padding-left: 0.5rem;
+    padding-left: 1rem;
 }
 
 .coments-wrap .table__user-profit {
@@ -267,6 +268,7 @@
 .table-btn {
     width: 100%;
     margin: 0.75rem auto;
+    margin-right: 0;
 }
 
 .table-btn:hover {
