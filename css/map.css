@@ -1,3 +1,8 @@
+.aside {
+    overflow: visible;
+}
+
+
 .main {
     width: calc(100% - 3.5rem);
     margin-left: auto;
@@ -23,11 +28,11 @@
 
 .map-aside {
     width: 24rem;
-    height: calc(100% - 3.75rem);
+    height: 100%;
 
     position: absolute;
     right: -24rem;
-    top: 3.75rem;
+    top: 0;
     bottom: 0;
     padding: 1.5rem;
     padding-right: 0;
@@ -140,7 +145,7 @@
     position: absolute;
     width: 6.625rem;
     height: 3.5rem;
-    top: 6rem;
+    top: 1.5rem;
     right: -32.625rem;
     background-color: #FFFFFF;
     border-radius: 1.75rem;

@@ -1,3 +1,11 @@
+.content-wrap {
+    min-height: calc(100vh - 3.75rem);
+    max-height: calc(100vh - 3.75rem);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
 .main {
     width: calc(100% - 3.5rem);
     margin-left: auto;

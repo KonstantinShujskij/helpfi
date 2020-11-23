@@ -12,7 +12,6 @@
 }
 
 .table {
-    min-width: 100%;
     margin: 0;
     min-width: 1136px;
     border-radius: 0.25rem;    
@@ -28,6 +27,22 @@
     overflow: scroll !important;
     position: relative;
     min-height: inherit;
+}
+
+.table-wrap.empty {
+    min-height: 20rem;
+    height: calc(100% - 11.875rem);
+    overflow-x: hidden !important;
+}
+
+.empty .table {
+    height: calc(100% - 0.0625rem);
+}
+
+.empty .table__body {
+    height: calc(100% - 3.375rem);
+    max-height: calc(100% - 3.375rem);    
+    min-height: 10px;
 }
 
 .table__body::-webkit-scrollbar {
@@ -46,8 +61,8 @@
     display: -ms-grid;
     display: grid;
     -ms-grid-row: 1fr;
-    -ms-grid-columns: 6% 2.5% 14% 2.5% 15% 2.5% 10% 2.5% 10% 2.5% 13% 2.5% 17%;
-    grid-template-columns: 6% 14% 15% 10% 10% 13% 17%;
+    -ms-grid-columns: 6% 2.5% 15% 2.5% 15% 2.5% 10% 2.5% 10% 2.5% 13% 2.5% 16%;
+    grid-template-columns: 6% 15% 15% 10% 10% 13% 16%;
     grid-gap: 2.5%;
     margin-top: calc(1rem / 16);
     min-height: 3rem;
@@ -114,8 +129,8 @@
     width: 100%;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 6% 2.5% 14% 2.5% 15% 2.5% 10% 2.5% 10% 2.5% 13% 2.5% 17%;
-    grid-template-columns: 6% 14% 15% 10% 10% 13% 17%;
+    -ms-grid-columns: 5% 2.5% 15.5% 2.5% 15.5% 2.5% 10% 2.5% 10% 2.5% 13% 2.5% 16%;
+    grid-template-columns: 5% 15.5% 15.5% 10% 10% 13% 16%;
     grid-gap: 2.5%;
     margin-top: calc(1rem / 16);
     min-height: 4rem;
@@ -126,6 +141,7 @@
 }
 
 .table__data {
+    justify-content: center;
     font-size: calc((1rem / 16) * 13);
     color: #707683;
     line-height: calc((1rem / 16) * 19);
@@ -237,19 +253,20 @@
 }
 
 .table__user-today {
-    padding-left: 2rem;
+    justify-content: center;
 }
 
-.coments-wrap .table__user-today {
-    padding-left: 0;
+.table__user-today > span {
+    width: 4.5rem;
 }
 
 .table__user-profit {
-    padding-left: 1rem;
+    justify-content: center;
 }
 
-.coments-wrap .table__user-profit {
-    padding-left: 0;
+.table__user-profit span {
+    width: 4.5rem;
+    max-width: 4.5rem;
 }
 
 .table__value {
@@ -258,6 +275,7 @@
 }
 
 .table-ball {
+    justify-content: center;
     line-height: calc((1rem / 16) * 22);
 }
 
@@ -315,6 +333,7 @@
     padding: 3rem 1.5rem;
 
     background-color: #FFFFFF;
+    border-top: 1px solid #e8e9eb;
 }
 
 .table-empty__content {
@@ -352,6 +371,15 @@
     background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
 
     color: #FFFFFF;
+}
+
+.table__head div {
+    align-items: center;
+    justify-content: center;
+}
+
+.table-user-id {
+    justify-content: center;
 }
 
 @media (max-width: 1200px) {

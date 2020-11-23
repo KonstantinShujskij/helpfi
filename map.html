@@ -14,96 +14,104 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="fullscreen">
-            <aside class="aside aside_moble">
-                <div class="aside-inner-wrap">
-                    <div class="logo-wrap">
-                        <a href="index.html" class="logo full">
-                            <img src="images/logo.svg" alt="logo">
-                            <span class="logo__alpfa">
-                                <img src="images/alpfa.svg" alt="alpfa">
-                            </span>
-                        </a>   
-                        <a href="index.html" class="mobale-logo short">
-                            <img src="images/mobale-logo.svg" alt="logo">
-                        </a>  
-                        <button class="switch-btn"> 
-                            <img class="w-100" src="images/switch-arrow.svg" alt="<">
-                        </button>
-                    </div>
+        <div class="fullscreen flex-column">
+            <section class="top">    
+                <button class="open-btn switch-btn">
+                    <div class="open-btn__inner"></div>
+                    <div class="open-btn__inner"></div>
+                    <div class="open-btn__inner"></div>
+                </button>       
+                <a href="index.html" class="logo">
+                    <img src="images/logo.svg" alt="logo">
+                    <span class="logo__alpfa">
+                        <img src="images/alpfa.svg" alt="alpfa">
+                    </span>
+                </a>    
 
-                    <div class="form-links">
-                        <div class="full">
-                            <a href="login.html" class="form-links__item">ВОЙТИ</a>
-                            <span class="form-links__item"> | </span>
-                            <a href="signup.html" class="form-links__item">РЕГИСТРАЦИЯ</a>  
+                <!--<button class="ml-auto search-btn">
+                    <img src="images/search.svg" alt="search">
+                </button>
+                <input type="text" class="search" placeholder="Search for a contact">-->
+                <button class="note note_active ml-auto">
+                    <img src="images/note.svg" alt="note">
+                </button>
+            </section>
+
+            <div class="d-flex flex-row content-wrap">
+                <aside class="aside">
+                    <div class="aside-inner-wrap">
+                        <div class="form-links">
+                            <div class="full">
+                                <a href="login.html" class="form-links__item">ВОЙТИ</a>
+                                <span class="form-links__item"> | </span>
+                                <a href="signup.html" class="form-links__item">РЕГИСТРАЦИЯ</a>  
+                            </div>
+                            <div class="short">
+                                <a href="login.html" class="form-links__icon">
+                                    <span class="icon">
+                                        <img src="images/aside-login.svg" class="img-svg" alt="icon">
+                                    </span>
+                                </a>
+                            </div>                    
                         </div>
-                        <div class="short">
-                            <a href="login.html" class="form-links__icon">
+
+                        <div class="one-menu aside__menu">
+                            <a href="#" class="aside__link aside__link_active">
                                 <span class="icon">
-                                    <img src="images/aside-login.svg" class="img-svg" alt="icon">
+                                    <img src="images/aside-search.svg" class="img-svg" alt="icon">
                                 </span>
+                                <span class="full">Найти услугу</span>
                             </a>
-                        </div>                    
+                            <a href="https://helpfi.me/st/executor_reg.php" target="_blank" class="aside__link">
+                                <span class="icon">
+                                    <img src="images/aside-create.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="full">Создать услугу</span>
+                            </a>
+                        </div>  
+                        
+                        <hr class="aside__hr">   
+
+                        <div class="two-menu aside__menu">
+                            <a href="#" class="aside__link">
+                                <span class="icon">
+                                    <img src="images/aside-info.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="full">О проекте</span>
+                            </a>
+                            <a href="#" class="aside__link">
+                                <span class="icon">
+                                    <img src="images/aside-heart.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="full">Помощь проекту</span>
+                            </a>
+                            <a href="#" class="aside__link">
+                                <span class="icon">
+                                    <img src="images/aside-phone.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="full">Контакты</span>
+                            </a>
+                            <a href="#" class="aside__link">
+                                <span class="icon">
+                                    <img src="images/aside-share.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="full">Поделиться</span>
+                            </a>
+                        </div>  
+
+                        <hr class="aside__hr">   
+
+                        <div class="out-menu aside__menu">
+                            <button class="join-btn helpfi___btn full">
+                                <span>Стать партнером</span>
+                            </button>
+                            <button class="join-btn short">
+                                <span class="icon">
+                                    <img src="images/aside-partner.svg" alt="i">
+                                </span>
+                            </button>
+                        </div>
                     </div>
-
-                    <div class="one-menu aside__menu">
-                        <a href="#" class="aside__link aside__link_active">
-                            <span class="icon">
-                                <img src="images/aside-search.svg" class="img-svg" alt="icon">
-                            </span>
-                            <span class="full">Найти услугу</span>
-                        </a>
-                        <a href="https://helpfi.me/st/executor_reg.php" target="_blank" class="aside__link">
-                            <span class="icon">
-                                <img src="images/aside-create.svg" class="img-svg" alt="icon">
-                            </span>
-                            <span class="full">Создать услугу</span>
-                        </a>
-                    </div>  
-                    
-                    <hr class="aside__hr">   
-
-                    <div class="two-menu aside__menu">
-                        <a href="#" class="aside__link">
-                            <span class="icon">
-                                <img src="images/aside-info.svg" class="img-svg" alt="icon">
-                            </span>
-                            <span class="full">О проекте</span>
-                        </a>
-                        <a href="#" class="aside__link">
-                            <span class="icon">
-                                <img src="images/aside-heart.svg" class="img-svg" alt="icon">
-                            </span>
-                            <span class="full">Помощь проекту</span>
-                        </a>
-                        <a href="#" class="aside__link">
-                            <span class="icon">
-                                <img src="images/aside-phone.svg" class="img-svg" alt="icon">
-                            </span>
-                            <span class="full">Контакты</span>
-                        </a>
-                        <a href="#" class="aside__link">
-                            <span class="icon">
-                                <img src="images/aside-share.svg" class="img-svg" alt="icon">
-                            </span>
-                            <span class="full">Поделиться</span>
-                        </a>
-                    </div>  
-
-                    <hr class="aside__hr">   
-
-                    <div class="out-menu aside__menu">
-                        <button class="join-btn helpfi___btn full">
-                            <span>Стать партнером</span>
-                        </button>
-                        <button class="join-btn short">
-                            <span class="icon">
-                                <img src="images/aside-partner.svg" alt="i">
-                            </span>
-                        </button>
-                    </div>
-
                     <div class="map-aside">
                         <div class="map-aside__inner">                            
                             <div class="map-aside__list-head">
@@ -203,7 +211,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="map-aside__switch-wrap">
                         <button class="map-aside__switch-btn">
                             <span class="icon car-icon mr-auto ">
@@ -215,25 +222,16 @@
                             <span class="tumbler"></span>                            
                         </button>
                     </div>
-                </div>
-            </aside>
-            <main class="main">
-                <section class="top">   
-                    <button class="open-btn">
-                        <div class="open-btn__inner"></div>
-                    </button>           
-                    <button class="search-btn">
-                        <img src="images/search.svg" alt="search">
-                    </button>
-                    <input type="text" class="search" placeholder="Search for a contact">
-                    <button class="note note_active">
-                        <img src="images/note.svg" alt="note">
-                    </button>
-                </section>
-                <section class="map">
-                    <div class="gmap gmapClass w-100 h-100" id="googlemap"></div>
-                </section>
-            </main>
+                </aside>
+                
+                
+
+                <main class="main">
+                    <section class="map">
+                        <div class="gmap gmapClass w-100 h-100" id="googlemap"></div>
+                    </section>
+                </main>
+            </div>
         </div>
     </div>    
 
