@@ -52,6 +52,7 @@
     font-size: 1.125rem;
     line-height: calc((1rem / 16) * 22);
     color: #777777;
+    transition: 0.3s ease;
 
 }
 
@@ -87,6 +88,10 @@
 .card__btn::after {
     border: none;
 } 
+
+.card:hover {
+    transform: scale(1.05);
+}
 
 .card:hover .card__btn{
     color: #FFFFFF;
