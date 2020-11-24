@@ -61,6 +61,7 @@
         }
 
         $('.aside').removeClass('aside_open');
+        $('.main-dark').removeClass('open');
     });
 
 }());
