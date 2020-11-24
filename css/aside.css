@@ -354,11 +354,15 @@ a.form-links__item:hover::before {
     margin-top: 1rem; 
     border: none; 
     overflow: hidden;
-    background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(1.6%, #03A868), to(#00783D));
     background: -o-linear-gradient(left, #03A868 1.6%, #00783D 100%);
     background: linear-gradient(90deg, #03A868 1.6%, #00783D 100%);
     color: #FFFFFF;
+    box-shadow: 0px 0.25rem 0.625rem #03a86833;
+}
+
+.join-btn:hover {
+    box-shadow: 0px 0.25rem 0.625rem #f950033d;
 }
 
 .join-btn.short {
@@ -390,6 +394,10 @@ a.form-links__item:hover::before {
     line-height: 1rem;
 }
 
+.out-btn:hover {
+    box-shadow: 0px 0.25rem 0.625rem #03a86833;
+}
+
 .out-btn::after {
     background: -webkit-gradient(linear, left top, right top, color-stop(1.6%, #03A868), to(#00783D));
     background: -o-linear-gradient(left, #03A868 1.6%, #00783D 100%);
@@ -410,11 +418,16 @@ a.form-links__item:hover::before {
             align-items: center;
     padding: 0;
     outline: 0;
-    border: none;
     border-radius: 0.25rem;
-    background: -webkit-gradient(linear, left top, right top, color-stop(1.6%, #03A868), to(#00783D));
-    background: -o-linear-gradient(left, #03A868 1.6%, #00783D 100%);
-    background: linear-gradient(90deg, #03A868 1.6%, #00783D 100%);
+}
+
+.out-btn.short path {
+    fill: #A8A8A8;
+    transition: 0.3s ease;
+}
+
+.out-btn.short:hover path {
+    fill: #FFFFFF;
 }
 
 .aside .short {
@@ -495,6 +508,22 @@ a.form-links__item:hover::before {
     text-align: center;
 }
 
+.main-dark {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #00000088;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+
+    transition: 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
 
 
 @media (max-width: 768px) {
@@ -515,5 +544,10 @@ a.form-links__item:hover::before {
 
     .aside_open {
         transform: translate(0);
+    }
+
+    .main-dark.open {
+        opacity: 1;
+        visibility: visible;
     }
 }

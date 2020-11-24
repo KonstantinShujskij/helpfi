@@ -143,6 +143,7 @@ body {
     font-weight: 600;
     font-size: calc((1rem / 16) * 13);
     line-height: calc((1rem / 16) * 19);
+    text-transform: uppercase;
 
     color: #A8A8A8;
     -webkit-transition: 0.3s;
@@ -185,8 +186,8 @@ body {
 
 .helpfi___btn:hover {
     color: #FFFFFF;
-    -webkit-box-shadow: 0px 4px 10px rgba(249, 80, 3, 0.24);
-            box-shadow: 0px 4px 10px rgba(249, 80, 3, 0.24);    
+    -webkit-box-shadow: 0px 0.25rem 0.625rem rgba(249, 80, 3, 0.24);
+            box-shadow: 0px 0.25rem 0.625rem rgba(249, 80, 3, 0.24);    
 }
 
 .orange {

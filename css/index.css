@@ -26,7 +26,7 @@
     overflow-y: scroll;
     padding-bottom: 1rem;
 
-    position: static;
+    position: relative;
     z-index: 1;
 }
 
@@ -281,8 +281,8 @@
     background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
     background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
-    -webkit-box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
-            box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
+    -webkit-box-shadow: 0px 0.25rem 0.625rem #03a8683d;
+            box-shadow: -0.125rem 0.25rem 0.625rem -0.125rem #03a8683d;
 }
 
 .packaged__img-wrap {
@@ -377,6 +377,10 @@
 .paragraph__value {
     font-weight: bold;
     color: #03A868;
+}
+
+.paragraph__value_low {
+    color: #BE1000;
 }
 
 .paragraph__value_abonplata {

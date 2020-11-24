@@ -51,6 +51,7 @@
         if(window.innerWidth <= 576) {
             $('.aside').removeClass('aside_moble');
             $('.aside').toggleClass('aside_open');
+            $('.main-dark').toggleClass('open');
         }       
     });
 
