@@ -77,10 +77,6 @@ function get_offset_table() {
         selectSmartPositioning: true
     });
 
-    $('.select-wrap').click(function(e) {
-        e.stopPropagation();
-    });
-
     $('.delete-btn').click(function(e) {
         e.stopPropagation();
         // Запрос к серверу на удаление выбраного пользователя

@@ -3,7 +3,8 @@
     margin: 1.5rem 1.875rem;
     overflow-x: scroll;
     overflow-y: hidden;
-    flex-shrink: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
 }
 
 .table-wrap::-webkit-scrollbar {
@@ -74,9 +75,15 @@
     margin-right: 0;
     width: 100%;
     max-width: 10.5rem;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .monthly-fee-btn {
@@ -103,8 +110,9 @@
     position: absolute;
     left: 0.125rem;
     top: calc(50% - (1rem / 16) * 9);
-    background: -webkit-gradient(linear, left top, right top, from(#00783D), to(#03A868));
     background: -o-linear-gradient(left,  #00783D 0%,#03A868 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#00783D), to(#03A868));
+    background: -o-linear-gradient(left, #00783D 0%, #03A868 100%);
     background: linear-gradient(90deg, #00783D 0%, #03A868 100%);
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
@@ -113,8 +121,8 @@
 
 .monthly-fee-btn_monthly::before {
     left: calc(100% - 1.25rem);
-    background: -webkit-gradient(linear, left top, right top, from(#BE1000), to(#F95003));
     background: -o-linear-gradient(left, #BE1000 0%, #F95003 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#BE1000), to(#F95003));
     background: linear-gradient(90deg, #BE1000 0%, #F95003 100%);
 }
 
@@ -141,7 +149,9 @@
 }
 
 .table__data {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     font-size: calc((1rem / 16) * 13);
     color: #707683;
     line-height: calc((1rem / 16) * 19);
@@ -253,7 +263,9 @@
 }
 
 .table__user-today {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .table__user-today > span {
@@ -261,7 +273,9 @@
 }
 
 .table__user-profit {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .table__user-profit span {
@@ -275,7 +289,9 @@
 }
 
 .table-ball {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     line-height: calc((1rem / 16) * 22);
 }
 
@@ -298,8 +314,8 @@
 }
 
 .table-btn::after {
-    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
 }
 
@@ -309,8 +325,8 @@
 }
 
 .delete-btn {
-    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
     -webkit-box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
             box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
@@ -326,9 +342,17 @@
     top: 0;
     bottom: 0;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     padding: 3rem 1.5rem;
 
@@ -337,6 +361,8 @@
 }
 
 .table-empty__content {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     font-family: "Century Gothic";
     font-style: normal;
@@ -366,20 +392,26 @@
 .table-empty__btn {
     margin-top: 1.5rem;
     border: none;
-    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
 
     color: #FFFFFF;
 }
 
 .table__head div {
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .table-user-id {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 @media (max-width: 1200px) {

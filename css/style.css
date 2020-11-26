@@ -164,9 +164,8 @@ body {
     bottom: calc(-1rem / 16); 
 
     border-radius: 0.25rem;
-
-    background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
     background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
     background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
@@ -207,6 +206,10 @@ body {
     left: 0;
     z-index: 3;
 
+    -webkit-transition: all 0.8s ease 0s;
+
+    -o-transition: all 0.8s ease 0s;
+
     transition: all 0.8s ease 0s;
     opacity: 0;
     visibility: hidden;
@@ -221,9 +224,15 @@ body {
 
 .popup__body {
     min-height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 1rem 0.5rem;
 
 }
@@ -243,14 +252,22 @@ body {
     text-align: center;
     color: #777777;
 
+    -webkit-transition: all 0.8s ease 0s;
+
+    -o-transition: all 0.8s ease 0s;
+
     transition: all 0.8s ease 0s;
     opacity: 0;
-    transform: translate(0px, -100%);
+    -webkit-transform: translate(0px, -100%);
+        -ms-transform: translate(0px, -100%);
+            transform: translate(0px, -100%);
 }
 
 .popup_open .popup__content {
     opacity: 1;
-    transform: translate(0px, 0);
+    -webkit-transform: translate(0px, 0);
+        -ms-transform: translate(0px, 0);
+            transform: translate(0px, 0);
 }
 
 .popup__mess {
@@ -271,14 +288,14 @@ body {
 }
 
 .popup__back-btn:after {
-    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
 }
 
 .popup__ok-btn {
-    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
 
     color: #FFFFFF;

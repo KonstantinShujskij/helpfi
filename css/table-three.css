@@ -59,7 +59,7 @@
 .card__title {
     font-weight: bold;
     font-size: calc((1rem / 16) * 18);
-    line-height: calc((1rem / 16) * 27);
+    line-height: calc((1rem / 16) * 23);
 }
 
 .forecast__item .card__title {
@@ -68,15 +68,16 @@
 
 .forecast__title {
     font-size: calc((1rem / 16) * 15);
-    line-height: calc((1rem / 16) * 22);
+    line-height: calc((1rem / 16) * 18);
     color: #777777;
     opacity: 0.5;
     margin-right: auto;
+    margin-bottom: 0.375rem;
 }
 
 .forecast__value {
     font-size: 1.5rem;
-    line-height: calc((1rem / 16) * 36);
+    line-height: calc((1rem / 16) * 29);
 }
 
 .value-month {
@@ -113,9 +114,17 @@
     border: none;
     border-radius: 50%;
 
+    display: -webkit-inline-box;
+
+    display: -ms-inline-flexbox;
+
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     overflow: hidden;
 
     float: right;
@@ -123,8 +132,13 @@
     padding: 0;
     line-height: 0;
 
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
+
+    background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+
     background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
-    box-shadow: 0px 0.25rem 0.625rem #03a86833;
+    -webkit-box-shadow: 0px 0.25rem 0.625rem #03a86833;
+            box-shadow: 0px 0.25rem 0.625rem #03a86833;
 
 }
 
@@ -180,11 +194,15 @@
 }
 
 .forecast__item {
+    -webkit-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
     transition: 0.3s ease;
 }
 
 .forecast__item:hover {
-    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
 }
 
 @media (max-width: 768px) {

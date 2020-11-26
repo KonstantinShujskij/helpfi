@@ -1,6 +1,9 @@
 (function () {
+    let WIDTH = 0
+
     function resize() {
-        if(window.innerWidth <= 576) {
+        if(window.innerWidth <= 576 && window.innerWidth != WIDTH) {
+            WIDTH = window.innerWidth;
             $('.aside').removeClass('aside_moble');
             $('.aside').removeClass('aside_open');
             $('.main-dark').removeClass('open');
@@ -60,11 +63,13 @@
         $(this).toggleClass('map-aside__switch-btn_service');
     });
 
-    $('.open-btn').click(function() {
+    $('.open-btn').click(function(e) {
         if(window.innerWidth <= 576) {
             $('.aside').removeClass('aside_moble');
             $('.aside').toggleClass('aside_open');
             $('.main-dark').toggleClass('open');
+
+            e.stopPropagation();
         }       
     });
 
@@ -73,8 +78,11 @@
             return;
         }
 
-        $('.aside').removeClass('aside_open');
-        $('.main-dark').removeClass('open');
+        if(window.innerWidth <= 576) {
+            $('.aside').removeClass('aside_open');
+            $('.main-dark').removeClass('open');
+            $('.switch-btn').removeClass('open-btn_mobale');
+        }       
     });
 
 }());

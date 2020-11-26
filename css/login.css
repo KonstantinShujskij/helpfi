@@ -1,6 +1,6 @@
 .login-btn {
-    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
     -webkit-box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
             box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
@@ -17,8 +17,8 @@
 }
 
 .login-btn:after {
-    background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
     background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
     background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
 }
 
