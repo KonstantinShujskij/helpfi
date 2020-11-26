@@ -52,11 +52,26 @@ function init_start() {
     }
 }
 
+function get_offset_table() {
+    let queryDict = {};
+    location.search.substring(1).split('&').forEach((item) => {
+        let param = item.split('=');
+        queryDict[param[0]] = param[1];
+    });
+
+    let offset_top = queryDict['offy'];
+    let table = $('.table-wrap');
+    let table_offset_top = table.position().top;
+    let offset_top_d = table_offset_top - offset_top;
+    $('.main').scrollTop(offset_top_d);
+}
+
 (function () {
     let nice = $(".table__body").niceScroll();
     let nice_two = $(".table-wrap").niceScroll();
     
     init_start();
+    get_offset_table();
 
     $('select').styler({
         selectSmartPositioning: true
@@ -89,5 +104,17 @@ function init_start() {
 
         $(e.target).closest(".popup").removeClass('popup_open');
     });
+
+    $('.monthly-fee-btn').click(function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+
+        let url = $(this).attr('href');
+        let table = $(this).closest('.table-wrap');
+        let offset_top = table.position().top;
+
+        url += "?offy=" + offset_top; 
+        document.location.replace(url);
+    });    
 
 }());

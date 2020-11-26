@@ -170,35 +170,18 @@
 
 @media (max-width: 576px) {
     .open-btn .open-btn__inner:nth-child(1) {
-        -webkit-transform: scaleX(0.7) rotate(30deg);
-            -ms-transform: scaleX(0.7) rotate(30deg);
-                transform: scaleX(0.7) rotate(30deg);
-    }
-    
-    .open-btn .open-btn__inner:nth-child(3) {
-        -webkit-transform: scaleX(0.7) rotate(-30deg);
-            -ms-transform: scaleX(0.7) rotate(-30deg);
-                transform: scaleX(0.7) rotate(-30deg);
-    }
-
-    .open-btn .open-btn__inner:nth-child(2) {
-        transform: scale(0);
-        background-color: transparent;
-    }
-
-    .open-btn_mobale .open-btn__inner:nth-child(1) {
         -webkit-transform: translateY(-0.325rem);
         -ms-transform: translateY(-0.325rem);
             transform: translateY(-0.325rem);
     }
     
-    .open-btn_mobale .open-btn__inner:nth-child(3) {
+    .open-btn .open-btn__inner:nth-child(3) {
         -webkit-transform: translateY(0.325rem);
         -ms-transform: translateY(0.325rem);
             transform: translateY(0.325rem);
     }
 
-    .open-btn_mobale .open-btn__inner:nth-child(2) {
+    .open-btn .open-btn__inner:nth-child(2) {
         transform: scale(1);
         background-color: #777777;
     }
@@ -207,5 +190,22 @@
         -webkit-transform-origin: left;
         -ms-transform-origin:  left;
             transform-origin: left;
+    }
+
+    .open-btn_mobale .open-btn__inner:nth-child(1) {
+        -webkit-transform: scaleX(0.7) rotate(30deg);
+            -ms-transform: scaleX(0.7) rotate(30deg);
+                transform: scaleX(0.7) rotate(30deg);
+    }
+    
+    .open-btn_mobale .open-btn__inner:nth-child(3) {
+        -webkit-transform: scaleX(0.7) rotate(-30deg);
+            -ms-transform: scaleX(0.7) rotate(-30deg);
+                transform: scaleX(0.7) rotate(-30deg);
+    }
+
+    .open-btn_mobale .open-btn__inner:nth-child(2) {
+        transform: scale(0);
+        background-color: transparent;
     }
 }

@@ -1,4 +1,17 @@
 (function () {
+    function resize() {
+        if(window.innerWidth <= 576) {
+            $('.aside').removeClass('aside_moble');
+            $('.aside').removeClass('aside_open');
+            $('.main-dark').removeClass('open');
+            $('.open-btn').removeClass('open-btn_mobale');
+        } 
+    }
+    
+    resize();
+
+    $( window ).resize(resize);
+
     $('img.img-svg').each(function(){
         let $img = $(this);
         let imgClass = $img.attr('class');
