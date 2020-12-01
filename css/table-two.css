@@ -1,0 +1,15 @@
+.table__head {
+    -ms-grid-columns: 17% 0% 14% 0% 16% 0% 16% 0% 16% 0% 21%;
+    grid-template-columns: 17% 14% 16% 16% 16% 21%;
+}
+
+.table__item {
+    -ms-grid-columns: 17% 0% 14% 0% 16% 0% 16% 0% 16% 0% 21%;
+    grid-template-columns: 17% 14% 16% 16% 16% 21%;
+}
+
+.delete-btn:after {
+    background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
+    background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
+}

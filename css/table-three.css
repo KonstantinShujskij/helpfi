@@ -25,7 +25,6 @@
     z-index: 1;
 }
 
-
 .title {
     font-weight: 600;
     font-size: 1rem;
@@ -35,120 +34,8 @@
     margin: 0;
 }
 
-.forecast {
-    margin: 0;
-    padding: 0 15px;
-} 
-
-.card {
-    border: none;
-    border-radius: 0;
-    padding: calc((1rem / 16) * 18) 1.5rem;
-    -webkit-filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.06));
-            filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.06));
-}
-
-.card_active {
-    background: #F2F9FF;
-}
-
-.card_active .card__title {
-    color: #03A868;
-}
-
-.card__title {
-    font-weight: bold;
-    font-size: calc((1rem / 16) * 18);
-    line-height: calc((1rem / 16) * 23);
-}
-
-.forecast__item .card__title {
-    text-align: center;
-}
-
-.forecast__title {
-    font-size: calc((1rem / 16) * 15);
-    line-height: calc((1rem / 16) * 18);
-    color: #777777;
-    opacity: 0.5;
-    margin-right: auto;
-    margin-bottom: 0.375rem;
-}
-
-.forecast__value {
-    font-size: 1.5rem;
-    line-height: calc((1rem / 16) * 29);
-}
-
-.value-month {
-    color: #F95003;
-}
-
-.value-year {
-    color: #03A868;
-}
-
-.caution {
-    color: #BE1000;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin: 0;
-}
-
-.forecast__value.low {
-    color: #F95003;
-}
-
-.forecast__value.low .percentage-place-active{
-    color: #BE1000;
-}
-
-.forecast__value.full {
-    color: #03A868;
-}
-
-.add-places {
-    width: 1.125rem;
-    height: 1.125rem;
-    border: none;
-    border-radius: 50%;
-
-    display: -webkit-inline-box;
-
-    display: -ms-inline-flexbox;
-
-    display: inline-flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    overflow: hidden;
-
-    float: right;
-    margin: 0.25rem 0;
-    padding: 0;
-    line-height: 0;
-
-    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
-
-    background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
-
-    background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
-    -webkit-box-shadow: 0px 0.25rem 0.625rem #03a86833;
-            box-shadow: 0px 0.25rem 0.625rem #03a86833;
-
-}
-
-.add-places span {
-    width: 0.5625rem;
-}
-
 .table__item_active {
-    background: #FEF2EC;
-
+    background-color: #FEF2EC;
 }
 
 .delete-btn {
@@ -157,53 +44,32 @@
     background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%); 
     background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000)); 
     background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
+    -webkit-box-shadow: 0px 0.25rem 0.625rem #f9500380;
+            box-shadow: 0px 0.25rem 0.625rem #f9500380;    
 }
 
-.table__user-today {
-    text-align: center;
-    color: #F95003;
-    font-weight: bold;
-    overflow: hidden;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+.delete-btn:hover{
+    -webkit-box-shadow: 0px 0.25rem 0.625rem rgba(3, 168, 104, 0.24);
+            box-shadow: 0px 0.25rem 0.625rem rgba(3, 168, 104, 0.24);
 }
 
-.table__user-profit>span {
-    width: 4.5rem;
-}
-
-.table__user-today span {
-    width: 2.5rem;
-    text-align: left;
-}
-
-.card_active {
+.forecast__item_active .card {
     background-color: #FEF2EC;
 }
 
-.add-btn:after {
-    background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%);
-    background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
-    background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
+.jq-selectbox__dropdown ul li:hover {
+    background-color: #FEF2EC;
 }
 
-.delete-btn:hover:active {
+.delete-btn:hover {
     -webkit-box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.5);
             box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.5);
 }
 
-.forecast__item {
-    -webkit-transition: 0.3s ease;
-    -o-transition: 0.3s ease;
-    transition: 0.3s ease;
+.table__head-statistics {
+    color: #ff833d;
 }
 
-.forecast__item:hover {
-    -webkit-transform: scale(1.05);
-        -ms-transform: scale(1.05);
-            transform: scale(1.05);
-}
 
 @media (max-width: 768px) {
     .main {

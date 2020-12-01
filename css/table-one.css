@@ -25,7 +25,6 @@
     z-index: 1;
 }
 
-
 .title {
     font-weight: 600;
     font-size: 1rem;
@@ -33,79 +32,6 @@
     text-align: center;
     color: #A8A8A8;
     margin: 0;
-}
-
-.forecast {
-    margin: 0;
-    padding: 0 15px;
-} 
-
-.card {
-    border: none;
-    border-radius: 0;
-    padding: calc((1rem / 16) * 18) 1.5rem;
-    -webkit-filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.06));
-            filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.06));
-}
-
-.card_active {
-    background: #F2F9FF;
-}
-
-.card_active .card__title {
-    color: #03A868;
-}
-
-.card__title {
-    font-weight: bold;
-    font-size: calc((1rem / 16) * 18);
-    line-height: calc((1rem / 16) * 23);
-}
-
-.forecast__item .card__title {
-    text-align: center;
-}
-
-.forecast__title {
-    font-size: calc((1rem / 16) * 15);
-    line-height: calc((1rem / 16) * 18);
-    color: #777777;
-    opacity: 0.5;
-    margin-right: auto;
-    margin-bottom: 0.375rem;
-}
-
-.forecast__value {
-    font-size: 1.5rem;
-    line-height: calc((1rem / 16) * 29);
-}
-
-.value-month {
-    color: #F95003;
-}
-
-.value-year {
-    color: #03A868;
-}
-
-.caution {
-    color: #BE1000;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    margin: 0;
-}
-
-.forecast__value.low {
-    color: #F95003;
-}
-
-.forecast__value.low .percentage-place-active{
-    color: #BE1000;
-}
-
-.forecast__value.full {
-    color: #03A868;
 }
 
 .add-places::after {
@@ -157,31 +83,19 @@
 }
 
 .coments-wrap .table__head{
-    -webkit-box-shadow: inset 0px 12px 18px -18px rgba(0, 0, 0, 0.6);
-            box-shadow: inset 0px 12px 18px -18px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: inset 0px 0.75rem 1.125rem -1.125rem rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0px 0.75rem 1.125rem -1.125rem rgba(0, 0, 0, 0.6);
 }
 
 .coments-wrap .table__item:last-child{
-    -webkit-box-shadow: inset 0px -12px 18px -18px rgba(0, 0, 0, 0.6);
-            box-shadow: inset 0px -12px 18px -18px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: inset 0px -0.75rem 1.125rem  -1.125rem rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0px -0.75rem 1.125rem  -1.125rem rgba(0, 0, 0, 0.6);
 }
 
 .delete-btn::after {
     background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%);
     background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
     background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
-}
-
-.forecast__item {
-    -webkit-transition: 0.3s ease;
-    -o-transition: 0.3s ease;
-    transition: 0.3s ease;
-}
-
-.forecast__item:hover {
-    -webkit-transform: scale(1.05);
-        -ms-transform: scale(1.05);
-            transform: scale(1.05);
 }
 
 @media (max-width: 768px) {

@@ -190,11 +190,15 @@ body {
 }
 
 .orange {
-    color: #F95003;
+    color:#F95003;
 }
 
 .green {
-    color: #03A868;
+    color:#03A868;
+}
+
+.red {
+    color:#BE1000;
 }
 
 .popup {

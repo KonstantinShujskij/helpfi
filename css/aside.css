@@ -354,6 +354,10 @@ a.form-links__item:hover::before {
     color: #FFFFFF;
 }
 
+.aside__link path{
+    fill:#03A868;
+}
+
 .aside__link_active path{
     fill: #FFFFFF;
 }
@@ -414,25 +418,25 @@ a.form-links__item:hover::before {
     margin: 0 auto;
 }
 
-.out-btn {
+.out-btn, .aside-add-btn {
     max-width: 100%;
     width: 100%;
     margin: 0 auto;
     line-height: 1rem;
 }
 
-.out-btn:hover {
+.out-btn:hover, .aside-add-btn:hover {
     -webkit-box-shadow: 0px 0.25rem 0.625rem #03a86833;
             box-shadow: 0px 0.25rem 0.625rem #03a86833;
 }
 
-.out-btn::after {
+.out-btn::after, .aside-add-btn::after {
     background: -o-linear-gradient(left, #03A868 1.6%, #00783D 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(1.6%, #03A868), to(#00783D));
     background: linear-gradient(90deg, #03A868 1.6%, #00783D 100%);
 }
 
-.out-btn.short {
+.out-btn.short, .aside-add-btn.short {
     width: 2.625rem;
     height: 2.625rem;
     display: -webkit-box;
@@ -449,7 +453,9 @@ a.form-links__item:hover::before {
     border-radius: 0.25rem;
 }
 
-.out-btn.short path {
+
+
+.out-btn.short path, .aside-add-btn path {
     fill: #A8A8A8;
     -webkit-transition: 0.3s ease;
     -o-transition: 0.3s ease;
@@ -457,6 +463,10 @@ a.form-links__item:hover::before {
 }
 
 .out-btn.short:hover path {
+    fill: #FFFFFF;
+}
+
+.aside-add-btn.short:hover path {
     fill: #FFFFFF;
 }
 
@@ -470,6 +480,10 @@ a.form-links__item:hover::before {
 
 .aside_moble .short {
     display: block;
+}
+
+.aside_moble .aside-add-btn.short {
+    display: flex;
 }
 
 .aside_moble {

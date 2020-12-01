@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/table.css">
     <link rel="stylesheet" href="css/forecast.css">
-    <link rel="stylesheet" href="css/table-one.css">
+    <link rel="stylesheet" href="css/table-two.css">
 </head>
 <body>
     <div class="wrapper">
@@ -35,7 +35,7 @@
                     <img src="images/search.svg" alt="search">
                 </button>
                 <input type="text" class="search" placeholder="Search for a contact">-->
-
+                
                 <button class="note ml-auto">
                     <img src="images/note.svg" alt="note">
                 </button>
@@ -107,6 +107,12 @@
                             </span>
                             <span class="full">Мои услуги</span>
                         </a>          
+                        <a href="referals-one.html" target="_blank" class="aside__link">
+                            <span class="icon">
+                                <img src="images/aside-referal.svg" class="img-svg" alt="icon">
+                            </span>
+                            <span class="full">Мои рефералы</span>
+                        </a>    
                         <a href="#" class="aside__link aside__link_active">
                             <span class="icon">
                                 <img src="images/aside-business.svg" class="img-svg" alt="icon">
@@ -152,10 +158,20 @@
                             <span class="full">Выход</span>
                         </a>
                     </div>
+                    <div class="out-menu aside__menu mt-0">
+                        <a href="index.html" class="aside-add-btn helpfi___btn full">
+                            <span>Бизнес места</span>
+                        </a>
+                        <a href="index.html" class="aside-add-btn helpfi___btn short">
+                            <span class="icon">
+                                <img src="images/aside-create.svg"  class="img-svg" alt="i">
+                            </span>
+                        </a>
+                    </div>
                 </aside>
                 <main class="main">
                     <section class="forecast row mt-4">
-                        <a href="table_one.html" class="forecast__item forecast__item_active col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
+                        <a href="table_one.html" class="forecast__item col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
                             <div class="card text-nowrap">
                                 <div class="d-flex align-items-end card__title">
                                     <div class="forecast__title">Процент</div>
@@ -187,7 +203,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="table_two.html" class="forecast__item col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
+                        <a href="table_two.html" class="forecast__item forecast__item_active  col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
                             <div class="card text-nowrap">
                                 <div class="d-flex align-items-end card__title">
                                     <div class="forecast__title">Партнеры</div>
@@ -221,43 +237,189 @@
                         </div>
                     </section>
 
-                    <div class="table-wrap empty">               
+                    <div class="table-wrap">               
                         <section id="table" class="table">
                             <div class="table__head">
                                 <div class="table__head-name">Профиль</div>
-                                <div class="table__head-specialty">Специализация</div>
+                                <div class="table__head-specialty">Бизнес пакет</div>
                                 <div class="table__head-orders">
-                                    <div>Заказы</div>
-                                    <div class="table__small">Сегодня | За месяц</div>
+                                    <div>Абонплатных мест</div>
+                                    <div class="table__small">Задействовано / Всего</div>
                                 </div>
                                 <div class="table__head-profit">
-                                    <div>Доход</div>
-                                    <div class="table__small">Сегодня | За месяц</div>
+                                    <div>Процентных мест</div>
+                                    <div class="table__small">Задействовано / Всего</div>
                                 </div>                            
-                                <div class="table__head-ball">Средняя оценка</div>
+                                <div class="table__head-orders">
+                                    <div>Доход</div>
+                                    <div class="table__small">Сегодня | Всего</div>
+                                </div>   
                                 <div class="table__head-statistics">
-                                    <span class="red">4</span>/<span>8</span>
+                                    <span class="red">4</span>/<span>10</span>
                                 </div>
                             </div>
-                            <div class="table__body">
-                                <div class="table-empty">
-                                    <div class="table-empty__content">
-                                        <p class="table-empty__text">У Вас  пока нет  исполнителей</p>
-                                        <h3 class="table-empty__h">ЧТОБ НАЧАТЬ ЗАРАБАТЫВАТЬ,</h3>
-                                        <p class="table-empty__small">
-                                            <span>приглашайте исполнителей по своей реферальной ссылке</span>
-                                            <span class="d-inline-flex align-items-center">
-                                                <a href="#" class="user__id">927 557 775</a>
-                                                <button class="user__copy d-inline">
-                                                    <img src="images/copy.svg" class="w-100" alt="copy">
-                                                </button>
-                                            </span>   
-                                        </p>
-                                        <button class="table-empty__btn ml-auto mr-auto helpfi___btn"><span>Пригласить</span></button>
+                            <div class="table__body">                    
+                                <div class="table__item table__item_active">
+                                    <div class="table__user">
+                                        <div class="online-wrap online-wrap__online">
+                                            <div class="avatar table-avatar">
+                                                <div class="avatar__wrapper">
+                                                    <div class="avatar__anchor">
+                                                        <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table__user-info">
+                                            <span class="table__user-name">Юлия</span>
+                                            <span class="table__user-id">ID 32112</span>
+                                        </div>
+                                    </div>
+                                    <div class="table__user-package">
+                                        <span>ПРЕМИУМ</span>
+                                    </div>
+                                    <div class="table__orders">
+                                        <div class="orange">
+                                            <span>8</span>/<span>8</span>
+                                        </div>
+                                    </div>
+                                    <div class="table__profit">
+                                        <div class="green">
+                                            <span>8</span>/<span>8</span>
+                                        </div>
+                                    </div>                            
+                                    <div class="table__profit">
+                                        <div class="orange">80</div>
+                                        <div class="green">2400</div>
+                                    </div>   
+                                    <div class="table__btn">
+                                        <button class="table-btn helpfi___btn delete-btn">
+                                            <span>Отменить</span>
+                                        </button>
                                     </div>
                                 </div>
+                                <div class="table__item table__item_active">
+                                    <div class="table__user">
+                                        <div class="online-wrap online-wrap__online">
+                                            <div class="avatar table-avatar">
+                                                <div class="avatar__wrapper">
+                                                    <div class="avatar__anchor">
+                                                        <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table__user-info">
+                                            <span class="table__user-name">Юлия</span>
+                                            <span class="table__user-id">ID 32112</span>
+                                        </div>
+                                    </div>
+                                    <div class="table__user-package">
+                                        <span>ПРЕМИУМ</span>
+                                    </div>
+                                    <div class="table__orders">
+                                        <div class="orange">
+                                            <span>8</span>/<span>8</span>
+                                        </div>
+                                    </div>
+                                    <div class="table__profit">
+                                        <div class="green">
+                                            <span>8</span>/<span>8</span>
+                                        </div>
+                                    </div>                            
+                                    <div class="table__profit">
+                                        <div class="orange">80</div>
+                                        <div class="green">2400</div>
+                                    </div>   
+                                    <div class="table__btn">
+                                        <button class="table-btn helpfi___btn delete-btn">
+                                            <span>Отменить</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="table__item">
+                                    <div class="table__user">
+                                        <div class="online-wrap online-wrap__online">
+                                            <div class="avatar table-avatar">
+                                                <div class="avatar__wrapper">
+                                                    <div class="avatar__anchor">
+                                                        <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table__user-info">
+                                            <span class="table__user-name">Юлия</span>
+                                            <span class="table__user-id">ID 32112</span>
+                                        </div>
+                                    </div>
+                                    <div class="table__user-package">
+                                        <span>ПРЕМИУМ</span>
+                                    </div>
+                                    <div class="table__orders">
+                                        <div class="orange">
+                                            <span>8</span>/<span>8</span>
+                                        </div>
+                                    </div>
+                                    <div class="table__profit">
+                                        <div class="green">
+                                            <span>8</span>/<span>8</span>
+                                        </div>
+                                    </div>                            
+                                    <div class="table__profit">
+                                        <div class="orange">80</div>
+                                        <div class="green">2400</div>
+                                    </div>   
+                                    <div class="table__btn">
+                                        <button class="table-btn helpfi___btn">
+                                            <span>Отменить</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="table__item">
+                                    <div class="table__user">
+                                        <div class="online-wrap online-wrap__online">
+                                            <div class="avatar table-avatar">
+                                                <div class="avatar__wrapper">
+                                                    <div class="avatar__anchor">
+                                                        <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table__user-info">
+                                            <span class="table__user-name">Юлия</span>
+                                            <span class="table__user-id">ID 32112</span>
+                                        </div>
+                                    </div>
+                                    <div class="table__user-package">
+                                        <span>ПРЕМИУМ</span>
+                                    </div>
+                                    <div class="table__orders">
+                                        <div class="orange">
+                                            <span>8</span>/<span>8</span>
+                                        </div>
+                                    </div>
+                                    <div class="table__profit">
+                                        <div class="green">
+                                            <span>8</span>/<span>8</span>
+                                        </div>
+                                    </div>                            
+                                    <div class="table__profit">
+                                        <div class="orange">80</div>
+                                        <div class="green">2400</div>
+                                    </div>   
+                                    <div class="table__btn">
+                                        <button class="table-btn helpfi___btn">
+                                            <span>Отменить</span>
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
-                        </section>
+                        </section>               
                     </div>
 
                     <div class="main-dark"></div>
@@ -285,20 +447,5 @@
     <script src="js/jquery.formstyler.min.js"></script>
     <script src="js/aside.js"></script>
     <script src="js/table.js"></script>
-    <script>
-        (function () {
-            $('.table__item').click(function(e) {
-                let elem = $(this).next();
-
-                if(elem.hasClass('hidden')){
-                    $('.coments-wrap').addClass('hidden');
-                    elem.removeClass('hidden');
-                }
-                else {
-                    $('.coments-wrap').addClass('hidden');
-                }
-            });
-        }());
-    </script>
 </body>
-</html>
+</html> 
