@@ -43,17 +43,46 @@
 .coments-wrap .table__head{
     -webkit-box-shadow: inset 0px 0.75rem 1.125rem -1.125rem rgba(0, 0, 0, 0.6);
             box-shadow: inset 0px 0.75rem 1.125rem -1.125rem rgba(0, 0, 0, 0.6);
+    -ms-grid-columns: 25% 0% 27% 0% 33% 0% 15%;
+    grid-template-columns: 25% 27% 33% 15%;
+}
+
+.coments-wrap .table__item{
+    -ms-grid-columns: 25% 0% 27% 0% 33% 0% 15%;
+    grid-template-columns: 25% 27% 33% 15%;
+}
+
+.table__head ~ .table__item{
+    -webkit-box-shadow: inset 0px -0.75rem 1.125rem  -1.125rem rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0px -0.75rem 1.125rem  -1.125rem rgba(0, 0, 0, 0.6);
+}
+
+.table__head ~ .table__item.open{
+    -webkit-box-shadow: none;
+            box-shadow: none;
 }
 
 .coments-wrap .table__item:last-child{
-    -webkit-box-shadow: inset 0px -0.75rem 1.125rem  -1.125rem rgba(0, 0, 0, 0.6);
-            box-shadow: inset 0px -0.75rem 1.125rem  -1.125rem rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: inset 0px -1.5rem 2.25rem -2.25rem rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0px -1.5rem 2.25rem -2.25rem rgba(0, 0, 0, 0.6);
 }
 
 .table__item.open + .coments-wrap {
     display: block;
     visibility: visible;
     opacity: 1;
+}
+
+.coments-wrap .table__item.open {
+    background-color: #fef2ec;
+}
+
+.coments-wrap_second .table__item.open {
+    background-color: #f2f9ff;
+}
+
+.coments-wrap_end .table__item.open{
+    background-color: #ffffff;
 }
 
 @media (max-width: 768px) {

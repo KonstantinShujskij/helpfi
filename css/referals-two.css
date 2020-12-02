@@ -26,28 +26,47 @@
 }
 
 .table__head {
-    -ms-grid-columns: 17% 0% 14% 0% 16% 0% 16% 0% 16% 0% 21%;
-    grid-template-columns: 17% 14% 16% 16% 16% 21%;
-}
+    -ms-grid-columns: 21% 0% 29% 0% 25% 0% 25%;
+    grid-template-columns: 21% 29% 25% 25%;
+} 
 
 .table__item {
-    -ms-grid-columns: 17% 0% 14% 0% 16% 0% 16% 0% 16% 0% 21%;
-    grid-template-columns: 17% 14% 16% 16% 16% 21%;
+    -ms-grid-columns: 21% 0% 29% 0% 25% 0% 25%;
+    grid-template-columns: 21% 29% 25% 25%;
 }
 
-.delete-btn:after {
-    background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%);
-    background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
-    background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
+.forecast__item_active .card {
+    background-color: #FEF2EC;
 }
 
-
-
-@media (max-width: 1340px) {
-    .table__head-orders {
-        padding: 0;
-    }
+.jq-selectbox__dropdown ul li:hover {
+    background-color: #FEF2EC;
 }
+
+.table__item_active {
+    background-color: #FEF2EC;
+}
+
+.table__head-date {
+    padding-right: 26%;
+    padding-left: 1rem;
+}
+
+.table__head-ball {
+    text-align: right;
+    padding-right: 1.5rem;
+}
+
+.table__ball {
+    justify-content: flex-end;
+    padding-right: 1.5rem;
+}
+
+.table__data {
+    padding-right: 26%;
+    padding-left: 1rem;
+}
+
 
 @media (max-width: 768px) {
     .main {

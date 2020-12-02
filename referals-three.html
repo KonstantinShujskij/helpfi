@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/table.css">
     <link rel="stylesheet" href="css/forecast.css">
-    <link rel="stylesheet" href="css/table-one.css">
+    <link rel="stylesheet" href="css/referals-three.css">
 </head>
 <body>
     <div class="wrapper">
@@ -107,13 +107,13 @@
                             </span>
                             <span class="full">Мои услуги</span>
                         </a>          
-                        <a href="#" target="_blank" class="aside__link">
+                        <a href="#" target="_blank" class="aside__link aside__link_active">
                             <span class="icon">
                                 <img src="images/aside-referal.svg" class="img-svg" alt="icon">
                             </span>
                             <span class="full">Мои рефералы</span>
                         </a>    
-                        <a href="#" class="aside__link aside__link_active">
+                        <a href="#" class="aside__link">
                             <span class="icon">
                                 <img src="images/aside-business.svg" class="img-svg" alt="icon">
                             </span>
@@ -161,7 +161,7 @@
                 </aside>
                 <main class="main">
                     <section class="forecast row mt-4">
-                        <a href="table_one.html" class="forecast__item forecast__item_active col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
+                        <a href="referals-three.html" class="forecast__item forecast__item_active col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
                             <div class="card text-nowrap">
                                 <div class="d-flex align-items-end card__title">
                                     <div class="forecast__title">Процент</div>
@@ -177,7 +177,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="table_three.html" class="forecast__item col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
+                        <a href="referals-two.html" class="forecast__item col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
                             <div class="card text-nowrap">
                                 <div class="d-flex align-items-end card__title">
                                     <div class="forecast__title">Абонплата</div>
@@ -193,7 +193,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="table_two.html" class="forecast__item col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
+                        <a href="referals-one.html" class="forecast__item col-12 mx-auto col-sm-6 col-lg-6 col-xl-3 mb-3 mb-xl-0">
                             <div class="card text-nowrap">
                                 <div class="d-flex align-items-end card__title">
                                     <div class="forecast__title">Партнеры</div>
@@ -227,507 +227,197 @@
                         </div>
                     </section>
 
-                    <div class="table-wrap">               
-                        <section id="table" class="table">
-                            <div class="table__head">
-                                <div class="table__head-name">Профиль</div>
-                                <div class="table__head-specialty">Специализация</div>
-                                <div class="table__head-orders">
-                                    <div>Заказы</div>
-                                    <div class="table__small">Сегодня | За месяц</div>
+                    <div class="tables">
+                        <div class="table-wrap">               
+                            <section id="table" class="table">
+                                <div class="table__head">
+                                    <div class="table__head-name">Профиль</div>
+                                    <div class="table__head-date">
+                                        <div class="pr-3">Дата</div>
+                                        <div class="table__small">регистрации</div>
+                                    </div>
                                 </div>
-                                <div class="table__head-profit">
-                                    <div>Доход</div>
-                                    <div class="table__small">Сегодня | За месяц</div>
-                                </div>                            
-                                <div class="table__head-ball">Средняя оценка</div>
-                                <div class="table__head-statistics">
-                                    <span class="red">4</span>/<span>8</span>
-                                </div>
-                            </div>
-                            <div class="table__body">                    
-                                <div class="table__item table__item_active">
-                                    <div class="table__user">
-                                        <div class="online-wrap online-wrap__online">
-                                            <div class="avatar table-avatar">
-                                                <div class="avatar__wrapper">
-                                                    <div class="avatar__anchor">
-                                                        <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                <div class="table__body">                    
+                                    <div class="table__item">
+                                        <div class="table__user">
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="table__user-info">
+                                                <span class="table__user-name">Юлия</span>
+                                                <span class="table__user-id">ID 32112</span>
+                                            </div>
                                         </div>
-                                        <div class="table__user-info">
-                                            <span class="table__user-name">Юлия</span>
-                                            <span class="table__user-id">ID 32112</span>
-                                        </div>
-                                    </div>
-                                    <div class="table__user-specialty">
-                                        <div class="select-wrap">
-                                            <img class="select-arrow" src="images/select-arrow.svg">
-                                            <select class="specialty-select">
-                                                <option>Швея</option>
-                                                <option>Водитель</option>
-                                            </select>
-                                        </div>                            
-                                    </div>
-                                    <div class="table__orders">
-                                        <div class="orange">20</div>
-                                        <div class="green">400</div>
-                                    </div>
-                                    <div class="table__profit">
-                                        <div class="orange">800</div>
-                                        <div class="green">24 000</div>
-                                    </div>                            
-                                    <div class="table__ball">
-                                        <div class="table__stars" ball="5.0"></div>                            
-                                        <span>5.0</span>
-                                    </div>
-                                    <div class="table__btn">
-                                        <button class="table-btn helpfi___btn delete-btn">
-                                            <span>Отменить</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="coments-wrap hidden">                        
-                                    <div class="table__head">
-                                        <div class="table__head-date">Дата и время</div>
-                                        <div class="table__head-specialty">Специализация</div>
-                                        <div class="table__head-orders">Стоимость</div>
-                                        <div class="table__head-profit">Доход</div>                            
-                                        <div class="table__head-ball">Оценка</div>
-                                        <div class="table__head-review">Отзыв</div>
-                                    </div>
-                                    <div class="table__item">
                                         <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
-                                                </div>
-                                            </div>                            
-                                        </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                            <span>27.11.2020</span>
                                         </div>
                                     </div>
                                     <div class="table__item">
-                                        <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
-                                                </div>
-                                            </div>                            
-                                        </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
-                                        </div>
-                                    </div>
-                                    <div class="table__item">
-                                        <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
-                                                </div>
-                                            </div>                            
-                                        </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
-                                        </div>
-                                    </div>
-                                </div>     
-                                
-                                <div class="table__item table__item_active">
-                                    <div class="table__user">
-                                        <div class="online-wrap online-wrap__online">
-                                            <div class="avatar table-avatar">
-                                                <div class="avatar__wrapper">
-                                                    <div class="avatar__anchor">
-                                                        <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                        <div class="table__user">
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="table__user-info">
+                                                <span class="table__user-name">Юлия</span>
+                                                <span class="table__user-id">ID 32112</span>
+                                            </div>
                                         </div>
-                                        <div class="table__user-info">
-                                            <span class="table__user-name">Юлия</span>
-                                            <span class="table__user-id">ID 32112</span>
-                                        </div>
-                                    </div>
-                                    <div class="table__user-specialty">
-                                        <div class="select-wrap">
-                                            <img class="select-arrow" src="images/select-arrow.svg">
-                                            <select class="specialty-select">
-                                                <option>Швея</option>
-                                                <option>Водитель</option>
-                                            </select>
-                                        </div>                            
-                                    </div>
-                                    <div class="table__orders">
-                                        <div class="orange">20</div>
-                                        <div class="green">400</div>
-                                    </div>
-                                    <div class="table__profit">
-                                        <div class="orange">800</div>
-                                        <div class="green">24 000</div>
-                                    </div>                            
-                                    <div class="table__ball">
-                                        <div class="table__stars" ball="5.0"></div>                            
-                                        <span>5.0</span>
-                                    </div>
-                                    <div class="table__btn">
-                                        <button class="table-btn helpfi___btn delete-btn">
-                                            <span>Отменить</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="coments-wrap hidden">                        
-                                    <div class="table__head">
-                                        <div class="table__head-date">Дата и время</div>
-                                        <div class="table__head-specialty">Специализация</div>
-                                        <div class="table__head-orders">Стоимость</div>
-                                        <div class="table__head-profit">Доход</div>                            
-                                        <div class="table__head-ball">Оценка</div>
-                                        <div class="table__head-review">Отзыв</div>
-                                    </div>
-                                    <div class="table__item">
                                         <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
-                                                </div>
-                                            </div>                            
-                                        </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                            <span>27.11.2020</span>
                                         </div>
                                     </div>
                                     <div class="table__item">
-                                        <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
+                                        <div class="table__user">
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>                            
+                                            </div>
+                                            <div class="table__user-info">
+                                                <span class="table__user-name">Юлия</span>
+                                                <span class="table__user-id">ID 32112</span>
+                                            </div>
                                         </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                        <div class="table__data">
+                                            <span>27.11.2020</span>
                                         </div>
                                     </div>
                                     <div class="table__item">
-                                        <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
+                                        <div class="table__user">
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>                            
+                                            </div>
+                                            <div class="table__user-info">
+                                                <span class="table__user-name">Юлия</span>
+                                                <span class="table__user-id">ID 32112</span>
+                                            </div>
                                         </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                        <div class="table__data">
+                                            <span>27.11.2020</span>
                                         </div>
                                     </div>
                                 </div>
+                            </section>               
+                        </div>
 
-                                <div class="table__item table__item_active">
-                                    <div class="table__user">
-                                        <div class="online-wrap online-wrap__online">
-                                            <div class="avatar table-avatar">
-                                                <div class="avatar__wrapper">
-                                                    <div class="avatar__anchor">
-                                                        <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                        <div class="table-wrap">               
+                            <section id="table" class="table">
+                                <div class="table__head">
+                                    <div class="table__head-name">Профиль</div>
+                                    <div class="table__head-date">
+                                        <div class="pr-3">Дата</div>
+                                        <div class="table__small">регистрации</div>
+                                    </div>
+                                </div>
+                                <div class="table__body">                    
+                                    <div class="table__item">
+                                        <div class="table__user">
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="table__user-info">
+                                                <span class="table__user-name">Юлия</span>
+                                                <span class="table__user-id">ID 32112</span>
+                                            </div>
                                         </div>
-                                        <div class="table__user-info">
-                                            <span class="table__user-name">Юлия</span>
-                                            <span class="table__user-id">ID 32112</span>
-                                        </div>
-                                    </div>
-                                    <div class="table__user-specialty">
-                                        <div class="select-wrap">
-                                            <img class="select-arrow" src="images/select-arrow.svg">
-                                            <select class="specialty-select">
-                                                <option>Швея</option>
-                                                <option>Водитель</option>
-                                            </select>
-                                        </div>                            
-                                    </div>
-                                    <div class="table__orders">
-                                        <div class="orange">20</div>
-                                        <div class="green">400</div>
-                                    </div>
-                                    <div class="table__profit">
-                                        <div class="orange">800</div>
-                                        <div class="green">24 000</div>
-                                    </div>                            
-                                    <div class="table__ball">
-                                        <div class="table__stars" ball="4.5"></div>                            
-                                        <span>4.5</span>
-                                    </div>
-                                    <div class="table__btn">
-                                        <button class="table-btn helpfi___btn delete-btn">
-                                            <span>Отменить</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="coments-wrap hidden">                        
-                                    <div class="table__head">
-                                        <div class="table__head-date">Дата и время</div>
-                                        <div class="table__head-specialty">Специализация</div>
-                                        <div class="table__head-orders">Стоимость</div>
-                                        <div class="table__head-profit">Доход</div>                            
-                                        <div class="table__head-ball">Оценка</div>
-                                        <div class="table__head-review">Отзыв</div>
-                                    </div>
-                                    <div class="table__item">
                                         <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
-                                                </div>
-                                            </div>                            
-                                        </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                            <span>27.11.2020</span>
                                         </div>
                                     </div>
                                     <div class="table__item">
-                                        <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
-                                                </div>
-                                            </div>                            
-                                        </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
-                                        </div>
-                                    </div>
-                                    <div class="table__item">
-                                        <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
-                                                </div>
-                                            </div>                            
-                                        </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="table__item">
-                                    <div class="table__user">
-                                        <div class="online-wrap online-wrap__online">
-                                            <div class="avatar table-avatar">
-                                                <div class="avatar__wrapper">
-                                                    <div class="avatar__anchor">
-                                                        <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                        <div class="table__user">
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="table__user-info">
+                                                <span class="table__user-name">Юлия</span>
+                                                <span class="table__user-id">ID 32112</span>
+                                            </div>
                                         </div>
-                                        <div class="table__user-info">
-                                            <span class="table__user-name">Юлия</span>
-                                            <span class="table__user-id">ID 32112</span>
-                                        </div>
-                                    </div>
-                                    <div class="table__user-specialty">
-                                        <div class="select-wrap">
-                                            <img class="select-arrow" src="images/select-arrow.svg">
-                                            <select class="specialty-select">
-                                                <option>Швея</option>
-                                                <option>Водитель</option>
-                                            </select>
-                                        </div>                            
-                                    </div>
-                                    <div class="table__orders">
-                                        <div class="orange">20</div>
-                                        <div class="green">400</div>
-                                    </div>
-                                    <div class="table__profit">
-                                        <div class="orange">800</div>
-                                        <div class="green">24 000</div>
-                                    </div>                            
-                                    <div class="table__ball">
-                                        <div class="table__stars" ball="2.3"></div>                            
-                                        <span>2.3</span>
-                                    </div>
-                                    <div class="table__btn">
-                                        <button class="table-btn helpfi___btn">
-                                            <span>Выбрать</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="coments-wrap hidden">                        
-                                    <div class="table__head">
-                                        <div class="table__head-date">Дата и время</div>
-                                        <div class="table__head-specialty">Специализация</div>
-                                        <div class="table__head-orders">Стоимость</div>
-                                        <div class="table__head-profit">Доход</div>                            
-                                        <div class="table__head-ball">Оценка</div>
-                                        <div class="table__head-review">Отзыв</div>
-                                    </div>
-                                    <div class="table__item">
                                         <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
-                                                </div>
-                                            </div>                            
-                                        </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                            <span>27.11.2020</span>
                                         </div>
                                     </div>
                                     <div class="table__item">
-                                        <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
+                                        <div class="table__user">
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>                            
+                                            </div>
+                                            <div class="table__user-info">
+                                                <span class="table__user-name">Юлия</span>
+                                                <span class="table__user-id">ID 32112</span>
+                                            </div>
                                         </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                        <div class="table__data">
+                                            <span>27.11.2020</span>
                                         </div>
                                     </div>
                                     <div class="table__item">
-                                        <div class="table__data">
-                                            <div>29.07.2020</div>
-                                            <div>17:00</div>
-                                        </div>
-                                        <div class="table__user-specialty">
-                                            <div class="select-wrap">
-                                                <div class="specialty-select">
-                                                    Массажист
+                                        <div class="table__user">
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>                            
+                                            </div>
+                                            <div class="table__user-info">
+                                                <span class="table__user-name">Юлия</span>
+                                                <span class="table__user-id">ID 32112</span>
+                                            </div>
                                         </div>
-                                        <div class="table__orders">200</div>
-                                        <div class="table__profit">20</div>                            
-                                        <div class="table__ball">
-                                            <div class="table__stars" ball="3.5"></div>                            
-                                            <span>3.5</span>
-                                        </div>
-                                        <div class="table__head-review-text">
-                                            <p class="text-wrap">Отличный специалист, выполнила работу ...</p>
+                                        <div class="table__data">
+                                            <span>27.11.2020</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </section>               
+                            </section>               
+                        </div>                    
                     </div>
+
+                    
 
                     <div class="main-dark"></div>
                 </main>

@@ -40,10 +40,7 @@
     margin: 0;
 }
 
-.forecast {
-    margin: 0;
-    padding: 0 15px;
-} 
+
 
 .card {
     height: 100%;
@@ -52,6 +49,7 @@
     padding: calc((1rem / 16) * 18) 1.5rem;
     -webkit-filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.06));
             filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.06));
+    border-radius: 0.25rem ;
 }
 
 .card_active {
@@ -68,24 +66,6 @@
     line-height: calc((1rem / 16) * 27);
 }
 
-.forecast__item .card__title {
-    text-align: center;
-}
-
-.forecast__title {
-    font-size: calc((1rem / 16) * 15);
-    line-height: calc((1rem / 16) * 18);
-    color: #777777;
-    opacity: 0.5;
-    margin-right: auto;
-    margin-bottom: 0.375rem;
-}
-
-.forecast__value {
-    font-size: 1.5rem;
-    line-height: calc((1rem / 16) * 29);
-}
-
 .value-month {
     color: #F95003;
 }
@@ -96,8 +76,12 @@
 
 .stock {
     margin: 0;
-    padding: 0 15px;
+    padding: 0 0.75rem;
 }
+
+.stock > div {
+    padding: 0 0.75rem;
+} 
 
 .promocode {
     margin-left: auto;
@@ -199,7 +183,7 @@
 
 .packages {
     margin: 0;
-    padding: 0 15px;
+    padding: 0 0.75rem;
 }
 
 .packaged {
@@ -424,22 +408,15 @@
     min-width: 8.25rem;
 }
 
-.forecast__item {
-    -webkit-transition: 0.3s ease;
-    -o-transition: 0.3s ease;
-    transition: 0.3s ease;
-}
-
-.forecast__item:hover {
-    -webkit-transform: scale(1.05);
-        -ms-transform: scale(1.05);
-            transform: scale(1.05);
-}
-
 .row-title {
     margin: 0;
     padding: 0 15px;
 }
+
+.col-package  {
+    padding: 0.75rem;
+}
+
 
 @media (min-width: 1266px) {
     .col-package  {

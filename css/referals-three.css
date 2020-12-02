@@ -1,0 +1,113 @@
+.content-wrap {
+    min-height: calc(100vh - 3.75rem);
+    max-height: calc(100vh - 3.75rem);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.main {
+    width: calc(100% - 3.5rem);
+    margin-left: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-bottom: 1rem;
+
+    position: relative;
+    z-index: 1;
+}
+
+.tables {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.table-wrap {
+    width: calc(50% - 2.25rem);
+}
+
+.tables .table-wrap:nth-child(1) {
+    margin-left:1.5rem;
+    margin-right: 0.75rem;
+}
+
+.tables .table-wrap:nth-child(2) {
+    margin-left: 0.75rem;
+    margin-right: 1.5rem;
+}
+
+.table {
+    margin: 0;
+    min-width: 18rem;
+    border-radius: 0.25rem;    
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    overflow: visible;   
+}
+
+.table__head {
+    -ms-grid-columns: 50% 0% 50%;
+    grid-template-columns: 50% 50%;
+}
+
+.table__item {
+    -ms-grid-columns: 50% 0% 50%;
+    grid-template-columns: 50% 50%;
+}
+
+.table__head-name {
+    box-sizing: border-box;
+    padding-left: 1.5rem;
+    padding-right: 0;
+}
+
+.table__head-date {
+    box-sizing: border-box;
+    padding: 0;
+    padding-right: 1.5rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+} 
+
+.table__data {
+    padding-right: 1.5rem;
+    align-items: flex-end;
+}
+
+@media (max-width: 914px) {
+    .tables {
+        flex-direction: column;
+    }
+    
+    .table-wrap {
+        width: calc(100% - 3rem);
+        margin: 0.5rem 1.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        -webkit-transition: 0.6s;
+        -o-transition: 0.6s;
+        transition: 0.6s;
+    }
+}
+
+@media (max-width: 576px) {
+    .main {
+        margin: 0;
+        width: 100%;
+    }
+}

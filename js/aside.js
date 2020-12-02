@@ -31,23 +31,23 @@
             $img.replaceWith($svg);
         }, 'xml');
     });
-   
-    $('.user__copy').click(function() {
+
+    function copy_code() {
         let $tmp = $("<textarea>");
         $("body").append($tmp);
+        $('.code-wrap').addClass('code-wrap_copied');
       
-        $tmp.val($(this).siblings(".user__id").text()).select();
+        $tmp.val($(".user__id").text()).select();
         document.execCommand("copy");
         $tmp.remove();
+    }
+   
+    $('.user__copy').click(function() {
+        copy_code();
     });    
 
     $('.user__id').click(function() {
-        let $tmp = $("<textarea>");
-        $("body").append($tmp);
-      
-        $tmp.val($(this).text()).select();
-        document.execCommand("copy");
-        $tmp.remove();
+        copy_code();
     });    
 
     $('.switch-btn').click(function() {
