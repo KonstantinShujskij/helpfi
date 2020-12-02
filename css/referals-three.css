@@ -86,6 +86,8 @@
     align-items: flex-end;
 }
 
+
+
 @media (max-width: 914px) {
     .tables {
         flex-direction: column;

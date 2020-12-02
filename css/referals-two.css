@@ -47,6 +47,10 @@
     background-color: #FEF2EC;
 }
 
+.forecast__item_active .card__title {
+    color: #F95003;
+}
+
 .table__head-date {
     padding-right: 26%;
     padding-left: 1rem;

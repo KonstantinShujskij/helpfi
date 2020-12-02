@@ -95,45 +95,37 @@ a.forecast__item:hover {
 
 
 @media (max-width: 1320px) {
-    .forecast__item .card {
-        padding-left: 0.5rem;  
-        padding-right: 0.5rem;
-    }
-
     .forecast__value {
-        font-size: 1.25rem;
+        font-size: 1rem;
+    }
+    .card__title .forecast__title, .card__title .forecast__value {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 1200px) {
-    .forecast__item .card{
-        padding-left: 1.5rem;  
-        padding-right: 1.5rem;
-    }
-
     .forecast__value {
         font-size: 1.5rem;
+    }
+    .card__title .forecast__title, .card__title .forecast__value {
+        font-size: 1.125rem;
     }
 }
 
 @media (max-width: 850px) {
-    .main_moble .forecast__item .card {
-        padding-left: 0.5rem;  
-        padding-right: 0.5rem;
-    }
-
     .main_moble .forecast__value {
-        font-size: 1.25rem;
+        font-size: 1rem;
+    }
+    .card__title .forecast__title, .card__title .forecast__value {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 768px) {
-    .main_moble .forecast__item .card {
-        padding-left: 1.5rem;  
-        padding-right: 1.5rem;
-    }
-
     .main_moble .forecast__value {
         font-size: 1.5rem;
+    }
+    .card__title .forecast__title, .card__title .forecast__value {
+        font-size: 1.125rem;
     }
 }

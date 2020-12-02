@@ -57,6 +57,10 @@
     background-color: #FEF2EC;
 }
 
+.forecast__item_active .card__title {
+    color: #F95003;
+}
+
 .jq-selectbox__dropdown ul li:hover {
     background-color: #FEF2EC;
 }
