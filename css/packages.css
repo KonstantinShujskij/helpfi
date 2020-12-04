@@ -1,0 +1,181 @@
+@font-face {
+    font-family: "Century Gothic bold"; 
+    src: url(../fonts/Century\ Gothic\ bold.ttf);
+}
+
+.main {
+    width: 100%;
+    display: block;
+    max-height: 100vh;
+    overflow: auto;
+    padding-top: 1.5rem;
+}
+
+.packages {
+    margin: 0;
+    padding: 0 0.75rem;
+}
+
+.packaged {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.packaged_active {
+    background: #F2F9FF;
+}
+
+.packaged:hover {
+    background: #F2F9FF;
+    
+    -webkit-transform: scale(1.06);    
+        -ms-transform: scale(1.06);    
+            transform: scale(1.06);
+    z-index: 3;
+}
+
+.packaged__img {
+    width: 100%;
+    padding-top: 63%;
+    position: relative;
+    -webkit-filter: drop-shadow(0px 0.25rem 0.5rem #00000040);
+            filter: drop-shadow(0px 0.25rem 0.5rem #00000040);
+    margin-bottom: 1rem;
+}
+
+.packaged__img-wrap {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+.packaged__img img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+
+.small-paragraph {
+    font-size: calc((1rem / 16) * 15);
+    line-height: 1.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+}
+
+.small-paragraph .paragraph__value {
+    font-family: "Century Gothic bold";
+    font-size: calc((1rem / 16) * 14);
+    line-height: 1.125rem;
+    font-weight: 700;
+}
+
+.paragraph {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: calc((1rem / 16) * 14);
+    line-height: 1.5rem;
+    padding: 0.75rem 0;
+    overflow-x: visible;
+    white-space: nowrap;
+    margin-bottom: -0.5rem;
+}
+
+
+.paragraph .icon {
+    margin-right: 1rem;
+    width: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.paragraph__value {
+    font-weight: bold;
+    color: #03A868;
+}
+
+.paragraph__value_low {
+    color: #BE1000;
+}
+
+.paragraph__value_abonplata {
+    color: #F95003;
+}
+
+
+.packaged__btn {
+    background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
+    background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
+    -webkit-box-shadow: 0px 0.25rem 0.625rem #03a8683d;
+            box-shadow: 0px 0.25rem 0.625rem #03a8683d;
+    color: #FFFFFF;
+    border-color: #03A868;
+    border-right-color: #00783D;
+
+    margin: auto;    
+    margin-top: calc((1rem / 16) * 13);
+    margin-bottom: 0; 
+}
+
+.packaged {
+    padding: 1.5rem;
+    border: none;
+}
+
+@media (min-width: 1266px) {
+    .col-package  {
+        -ms-flex: 0 0 25%;
+        -webkit-box-flex: 0;
+                flex: 0 0 25%;
+        max-width: 25%;    
+    }
+}
+
+@media (max-width: 1266px) {
+    .col-package  {
+        -ms-flex: 0 0 33%;
+        -webkit-box-flex: 0;
+                flex: 0 0 33%;
+        max-width: 33%;    
+    }
+}
+
+
+@media (max-width: 992px) {
+    .col-package  {
+        -ms-flex: 0 0 50%;
+        -webkit-box-flex: 0;
+                flex: 0 0 50%;
+        max-width: 50%;    
+    }
+}
+
+@media (max-width: 692px) {
+    .col-package  {
+        -ms-flex: 0 0 100%;
+        -webkit-box-flex: 0;
+                flex: 0 0 100%;
+        max-width: 100%;    
+    }
+}
+
+
