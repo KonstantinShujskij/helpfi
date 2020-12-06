@@ -20,12 +20,23 @@
         -ms-user-select: none;
             user-select: none;
             scrollbar-width: none;
-
 }
 
 ::-webkit-scrollbar {
     width: 0;
+    height: 0;
+    display: none;
 }
+
+.aside::-webkit-scrollbar { width: 0.3125rem; height: 0.3125rem; display: block;}
+.aside::-webkit-scrollbar-button {  display: none; }
+.aside::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+.aside::-webkit-scrollbar-thumb { height: 3rem; background-color: #C4C4C4; border-radius: 0.1875rem;}
+
+.main::-webkit-scrollbar { width: 0.3125rem; height: 0.3125rem; display: block;}
+.main::-webkit-scrollbar-button {  display: none; }
+.main::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+.main::-webkit-scrollbar-thumb { height: 3rem; background-color: #C4C4C4; border-radius: 0.1875rem;}
 
 ::-ms-clear {
     display: none;

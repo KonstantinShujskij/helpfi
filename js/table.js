@@ -67,8 +67,15 @@ function get_offset_table() {
 }
 
 (function () {
-    let nice = $(".table__body").niceScroll();
-    let nice_two = $(".table-wrap").niceScroll();
+    let nice_two = $(".table-wrap").niceScroll({
+        autohidemode:'leave'
+    });
+    
+    function resize() {
+        nice_two.resize();
+    }    
+    resize();
+    $( window ).resize(resize);
     
     init_start();
     get_offset_table();

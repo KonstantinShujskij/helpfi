@@ -20,15 +20,15 @@
                 <div class="card text-nowrap">
                     <div class="d-flex align-items-end card__title">
                         <div class="forecast__title">Процентных</div>
-                        <div class="forecast__value">21 чел.</div>
+                        <div class="forecast__value"><span class="percentage-place">8</span> чел.</div>
                     </div>
                     <div class="d-flex align-items-end">
                         <div class="forecast__title">За месяц</div>
-                        <div class="forecast__value low"><span class="percentage-place">20 ₴</span></div>
+                        <div class="forecast__value low"><span class="percent-month">20</span> ₴</div>
                     </div>
                     <div class="d-flex align-items-end">
                         <div class="forecast__title">За год</div>
-                        <div class="forecast__value full"><span class="ticket-place">2000 ₴</span></div>
+                        <div class="forecast__value full"><span class="percent-year">2000</span> ₴</div>
                     </div>
                 </div>
             </a>
@@ -36,15 +36,15 @@
                 <div class="card text-nowrap">
                     <div class="d-flex align-items-end card__title">
                         <div class="forecast__title">Абонплатных</div>
-                        <div class="forecast__value">12 чел.</div>
+                        <div class="forecast__value"><span class="ticket-place">8</span> чел.</div>
                     </div>
                     <div class="d-flex align-items-end">
                         <div class="forecast__title">За месяц</div>
-                        <div class="forecast__value low"><span class="percentage-place">50 ₴</span></div>
+                        <div class="forecast__value low"><span class="ticket-month">50</span> ₴</div>
                     </div>
                     <div class="d-flex align-items-end">
                         <div class="forecast__title">За год</div>
-                        <div class="forecast__value full"><span class="ticket-place">1500 ₴</span></div>
+                        <div class="forecast__value full"><span class="ticket-year">1500</span> ₴</div>
                     </div>
                 </div>
             </a>
@@ -52,15 +52,15 @@
                 <div class="card text-nowrap">
                     <div class="d-flex align-items-end card__title">
                         <div class="forecast__title">Партнерских</div>
-                        <div class="forecast__value">11 чел.</div>
+                        <div class="forecast__value"><span class="partner-place">16</span> чел.</div>
                     </div>
                     <div class="d-flex align-items-end">
                         <div class="forecast__title">За месяц</div>
-                        <div class="forecast__value low"><span class="percentage-place">180 ₴</span></div>
+                        <div class="forecast__value low"><span class="partner-month">180</span> ₴</div>
                     </div>
                     <div class="d-flex align-items-end">
                         <div class="forecast__title">За год</div>
-                        <div class="forecast__value full"><span class="ticket-place">5 400 ₴</span></div>
+                        <div class="forecast__value full"><span class="partner-year">5 400</span> ₴</div>
                     </div>
                 </div>
             </a>
@@ -72,11 +72,11 @@
                     </div>
                     <div class="d-flex align-items-end">
                         <div class="forecast__title">За месяц</div>
-                        <div class="forecast__value low"><span class="percentage-place">2050 ₴</span></div>
+                        <div class="forecast__value low"><span class="income-month">2050</span> ₴</div>
                     </div>
                     <div class="d-flex align-items-end">
                         <div class="forecast__title">За год</div>
-                        <div class="forecast__value full"><span class="ticket-place">61 500 ₴</span></div>
+                        <div class="forecast__value full"><span class="income-year">61 500</span> ₴</div>
                     </div>
                 </div>
             </div>
@@ -84,14 +84,17 @@
             
         <sections class="packages row mt-4">                          
             <div class="col-package col-12 mx-auto mb-4 col-md-8 mb-xl-0 pb-4">
-                <div class="card packaged" percentage-place="0" 
-                                                ticket-place="1"
-                                                fee-month="0"
-                                                fee-year="0"
-                                                percent-month="1499"
-                                                percent-year="17 988"
-                                                income-month="1499"
-                                                income-year="17 988">
+                <div class="card packaged"  percentage-place="1" 
+                                            ticket-place="1"
+                                            partner-place="2"
+                                            ticket-month="20"
+                                            ticket-year="2000"
+                                            percent-month="50"
+                                            percent-year="1500"
+                                            partner-month="180"
+                                            partner-year="5 400"
+                                            income-month="2050"
+                                            income-year="61 500">
                     <div class="packaged__img" sale="- 40%">
                         <div class="packaged__img-wrap">
                             <img src="images/start.png" alt="img">
@@ -144,18 +147,24 @@
                         <span class="paragraph__value">от 200 $</span>
                     </div>
 
-                    <button class="packaged__btn helpfi___btn" pacekage-type="start"><span>Подробнее</span></button>
+                    <a href="#" class="packaged__btn helpfi___btn" pacekage-type="start"><span>Подробнее</span></a>
+                    <div class="paragraph caution">
+                        <span>осталось <span class="paragraph__value paragraph__value_low">169</span> пакетов</span>                                
+                    </div>
                 </div>
             </div>      
             <div class="col-package col-12 mx-auto mb-4 col-md-8 mb-xl-0 pb-4">
                 <div class="card packaged"  percentage-place="2" 
                                             ticket-place="2"
-                                            fee-month="400"
-                                            fee-year="4800"
-                                            percent-month="2997"
-                                            percent-year="35 964"
-                                            income-month="3397"
-                                            income-year="40 764">
+                                            partner-place="4"
+                                            ticket-month="20"
+                                            ticket-year="2000"
+                                            percent-month="50"
+                                            percent-year="1500"
+                                            partner-month="180"
+                                            partner-year="5 400"
+                                            income-month="2050"
+                                            income-year="61 500">
                     <div class="packaged__img" sale="- 40%">
                         <div class="packaged__img-wrap">
                             <img src="images/basic.png" alt="img">
@@ -208,19 +217,24 @@
                         <span class="paragraph__value">от 400 $</span>
                     </div>
 
-
-                    <button class="packaged__btn helpfi___btn" pacekage-type="basic"><span>Подробнее</span></button>
+                    <a href="#" class="packaged__btn helpfi___btn" pacekage-type="basic"><span>Подробнее</span></a>
+                    <div class="paragraph caution">
+                        <span>осталось <span class="paragraph__value paragraph__value_low">89</span> пакетов</span>                                
+                    </div>
                 </div>
             </div>      
             <div class="col-package col-12 mx-auto mb-4 col-md-8 mb-xl-0 pb-4">
-                <div class="card packaged"          percentage-place="4" 
-                                                    ticket-place="4"
-                                                    fee-month="800"
-                                                    fee-year="9600"
-                                                    percent-month="5994"
-                                                    percent-year="71 928"
-                                                    income-month="6794"
-                                                    income-year="81 258">
+                <div class="card packaged"  percentage-place="4" 
+                                            ticket-place="4"
+                                            partner-place="8"
+                                            ticket-month="20"
+                                            ticket-year="2000"
+                                            percent-month="50"
+                                            percent-year="1500"
+                                            partner-month="180"
+                                            partner-year="5 400"
+                                            income-month="2050"
+                                            income-year="61 500">
                     <div class="packaged__img leader" sale="- 40%" sentence="топ продаж">
                         <div class="packaged__img-wrap">
                             <img src="images/standart.png" alt="img">
@@ -273,18 +287,24 @@
                         <span class="paragraph__value">от 800 $</span>
                     </div>
 
-                    <button class="packaged__btn helpfi___btn" pacekage-type="standart"><span>Подробнее</span></button>
+                    <a href="#" class="packaged__btn helpfi___btn" pacekage-type="standart"><span>Подробнее</span></a>
+                    <div class="paragraph caution">
+                        <span>осталось <span class="paragraph__value paragraph__value_low">54</span> пакетов</span>                                
+                    </div>
                 </div>
             </div>      
             <div class="col-package col-12 mx-auto mb-4 col-md-8 mb-xl-0 pb-4">
-                <div class="card packaged"                          percentage-place="8" 
-                                                                    ticket-place="8"
-                                                                    fee-month="1600"
-                                                                    fee-year="19 200"
-                                                                    percent-month="11 988"
-                                                                    percent-year="143 856"
-                                                                    income-month="13 588"
-                                                                    income-year="163 056">
+                <div class="card packaged"  percentage-place="8" 
+                                            ticket-place="8"
+                                            partner-place="16"
+                                            ticket-month="20"
+                                            ticket-year="2000"
+                                            percent-month="50"
+                                            percent-year="1500"
+                                            partner-month="180"
+                                            partner-year="5 400"
+                                            income-month="2050"
+                                            income-year="61 500">
                     <div class="packaged__img low" sale="- 40%" sentence="заканчивается">
                         <div class="packaged__img-wrap">
                             <img src="images/premium.png" alt="img">
@@ -337,13 +357,36 @@
                         <span class="paragraph__value">от 1600 $</span>
                     </div>
 
-                    <button class="packaged__btn helpfi___btn" pacekage-type="premium"><span>Подробнее</span></button>
+                    <a href="#" class="packaged__btn helpfi___btn" pacekage-type="premium"><span>Подробнее</span></a>
+                    <div class="paragraph caution">
+                        <span>осталось <span class="paragraph__value paragraph__value_low">27</span> пакетов</span>                                
+                    </div>
                 </div>
             </div>                    
         </sections>
     </main>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <script>
+        (function () {
+            $('.packaged').mouseover(function() {
+                $('.percentage-place').text($(this).attr('percentage-place'));
+                $('.percent-month').text($(this).attr('percent-month'));
+                $('.percent-year').text($(this).attr('percent-year'));
+
+                $('.ticket-place').text($(this).attr('ticket-place'));
+                $('.ticket-month').text($(this).attr('ticket-month'));
+                $('.ticket-year').text($(this).attr('ticket-year'));
+
+                $('.partner-place').text($(this).attr('partner-place'));
+                $('.partner-month').text($(this).attr('partner-month'));
+                $('.partner-year').text($(this).attr('partner-year'));
+                
+                $('.income-month').text($(this).attr('income-month'));
+                $('.income-year').text($(this).attr('income-year'));
+            });
+        }());
+
+    </script>
 </body>
 </html>

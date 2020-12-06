@@ -81,16 +81,18 @@
     background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
     background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
     background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
-    -webkit-box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
-            box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.24);
+    -webkit-box-shadow: 0px 0.25rem 0.625rem #03a8683d;
+            box-shadow: 0px 0.25rem 0.625rem #03a8683d;
     color: #FFFFFF;
     border-color: #03A868;
     border-right-color: #00783D;
+    max-width: 15rem;
+    width: fit-content;
 }
 
 .siginup-btn:hover {
-    -webkit-box-shadow: 0px 4px 10px rgba(249, 80, 3, 0.24);
-            box-shadow: 0px 4px 10px rgba(249, 80, 3, 0.24);    
+    -webkit-box-shadow: 0px 0.25rem 0.625rem #f950033d;
+            box-shadow: 0px 0.25rem 0.625rem #f950033d;    
     border-color: #F95003;
     border-right-color: #BE1000;   
 }

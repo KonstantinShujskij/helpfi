@@ -197,6 +197,7 @@ function validate_phone(phone) {
         } 
 
         $(this).val(phone);
+        $(this).trigger("input");
     });
 
     $('.phone').on( "input", function(e){     

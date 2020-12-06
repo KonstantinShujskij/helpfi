@@ -97,6 +97,14 @@
         width: calc(100% - 3rem);
         margin: 0.5rem 1.5rem !important;
     }
+
+    .table-wrap:nth-child(2) {
+        margin-top: -1rem !important;
+    }
+
+    .table-wrap:nth-child(2) .table__head {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {

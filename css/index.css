@@ -24,7 +24,7 @@
 
     overflow-x: hidden;
     overflow-y: scroll;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
 
     position: relative;
     z-index: 1;
@@ -45,11 +45,10 @@
 .card {
     height: 100%;
     border: none;
-    border-radius: 0;
     padding: calc((1rem / 16) * 18) 1.5rem;
     -webkit-filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.06));
             filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.06));
-    border-radius: 0.25rem ;
+    border-radius: 0.5rem ;
 }
 
 .card_active {
@@ -324,6 +323,7 @@
     font-family: "Century Gothic bold";
     font-weight: bold;
     font-size: 3rem;
+    margin-top: 0.5rem;
     margin-right: 0.25rem;
     color: #BE1000;
 }
@@ -430,6 +430,7 @@
 
 .col-package  {
     padding: 0.75rem;
+    padding-bottom: 0;
 }
 
 

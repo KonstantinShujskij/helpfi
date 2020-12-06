@@ -149,6 +149,8 @@ $('img.img-svg').each(function(){
         } 
 
         $(this).val(phone);
+        $(this).trigger("input");
+
     });
 
     $('.phone').on( "input", function(e){     

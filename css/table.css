@@ -7,9 +7,10 @@
         flex-shrink: 0;
     border-radius: 0.5rem;
     box-shadow: 0px 0.375rem 1.125rem #0000000f;
+    margin-bottom: 0;
 }
 
-.table-wrap::-webkit-scrollbar {
+::-webkit-scrollbar {
     height: 0;
     width: 0;
 }
@@ -32,24 +33,22 @@
     border-radius: 0 0 0.5rem 0.5rem;
 }
 
-.table-wrap.empty {
-    min-height: 20rem;
-    height: calc(100% - 11.875rem);
-    overflow-x: hidden !important;
-}
-
-.empty .table {
-    height: calc(100% - 0.0625rem);
-}
-
-.empty .table__body {
-    height: calc(100% - 3.375rem);
-    max-height: calc(100% - 3.375rem);    
-    min-height: 10px;
-}
-
 .table__body::-webkit-scrollbar {
     height: 0;
+    width: 0;
+    display: none;
+}
+
+.table::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+    display: none;
+}
+
+.table-wrap::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+    display: none;
 }
 
 .table__head {
@@ -408,6 +407,23 @@
 
 /*---------------------*/
 
+.table-wrap.empty {
+    height: 100%;
+    min-height: 20rem;
+    flex-shrink: 1;
+    overflow-x: hidden !important;
+}
+
+.empty .table {
+    height: calc(100% - 0.0625rem);
+}
+
+.empty .table__body {
+    height: calc(100% - 3rem);
+    max-height: calc(100% - 3rem);    
+    min-height: 1rem;
+}
+
 .table-empty {
     position: absolute;
     left: 0;
@@ -427,7 +443,7 @@
         -ms-flex-align: center;
             align-items: center;
 
-    padding: 3rem 1.5rem;
+    padding: 0 1.5rem;
 
     background-color: #FFFFFF;
     border-top: 1px solid #e8e9eb;
@@ -444,6 +460,7 @@
     line-height: calc((1rem / 16) * 29);
     text-align: center;
     color: #777777;
+    margin: 3rem auto;
 }
 
 .table-empty__text {
@@ -474,8 +491,8 @@
 
 @media (max-width: 1340px) {
     .table__head {
-        -ms-grid-columns: 20% 0% 18% 0% 15% 0% 14% 0% 15% 0% 19%;
-        grid-template-columns: 20% 18% 15% 14% 15% 19%;
+        -ms-grid-columns: 20% 0% 17.5% 0% 14.5% 0% 14% 0% 15% 0% 19%;
+        grid-template-columns: 20% 17.5% 14.5% 14% 15% 19%;
     } 
 
     .table__head-profit {
@@ -483,8 +500,8 @@
     }
     
     .table__item {
-        -ms-grid-columns: 20% 0% 18% 0% 15% 0% 14% 0% 15% 0% 19%;
-        grid-template-columns: 20% 18% 15% 14% 15% 19%;
+        -ms-grid-columns: 20% 0% 17.5% 0% 14.5% 0% 14% 0% 15% 0% 19%;
+        grid-template-columns: 20% 17.5% 14.5% 14% 15% 19%;
     }
 }
 

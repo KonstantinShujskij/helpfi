@@ -12,13 +12,20 @@
 
     $('.packaged').mouseover(function() {
         $('.percentage-place').text($(this).attr('percentage-place'));
-        $('.ticket-place').text($(this).attr('ticket-place'));
-        $('.fee-month').text($(this).attr('fee-month'));
-        $('.fee-year').text($(this).attr('fee-year'));
         $('.percent-month').text($(this).attr('percent-month'));
         $('.percent-year').text($(this).attr('percent-year'));
+
+        $('.ticket-place').text($(this).attr('ticket-place'));
+        $('.ticket-month').text($(this).attr('ticket-month'));
+        $('.ticket-year').text($(this).attr('ticket-year'));
+
+        $('.partner-place').text($(this).attr('partner-place'));
+        $('.partner-month').text($(this).attr('partner-month'));
+        $('.partner-year').text($(this).attr('partner-year'));
+        
         $('.income-month').text($(this).attr('income-month'));
         $('.income-year').text($(this).attr('income-year'));
+
 
         //$('.packaged').removeClass('packaged_active');
         //$(this).addClass('packaged_active');
