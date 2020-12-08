@@ -70,11 +70,6 @@
             box-shadow: 0px 4px 10px rgba(3, 168, 104, 0.5);
 }
 
-.table__head-statistics {
-    color: #ff833d;
-}
-
-
 @media (max-width: 768px) {
     .main {
         -webkit-transition: 0.6s;

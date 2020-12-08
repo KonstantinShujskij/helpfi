@@ -26,13 +26,13 @@
 }
 
 .table__head {
-    -ms-grid-columns: 17% 0% 14% 0% 16% 0% 16% 0% 16% 0% 21%;
-    grid-template-columns: 17% 14% 16% 16% 16% 21%;
+    -ms-grid-columns: 17% 0% 11% 0% 14% 0% 14% 0% 14% 0% 12% 0% 18%;
+    grid-template-columns: 17% 11% 14% 14% 14% 12% 18%;
 }
 
 .table__item {
-    -ms-grid-columns: 17% 0% 14% 0% 16% 0% 16% 0% 16% 0% 21%;
-    grid-template-columns: 17% 14% 16% 16% 16% 21%;
+    -ms-grid-columns: 17% 0% 11% 0% 14% 0% 14% 0% 14% 0% 12% 0% 18%;
+    grid-template-columns: 17% 11% 14% 14% 14% 12% 18%;
 }
 
 .delete-btn:after {
@@ -42,9 +42,12 @@
 }
 
 
-
-@media (max-width: 1340px) {
+@media (max-width: 1640px) {
     .table__head-orders {
+        padding: 0;
+    }
+
+    .table__head-profit {
         padding: 0;
     }
 }

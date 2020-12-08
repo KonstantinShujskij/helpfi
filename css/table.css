@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Century Gothic bold"; 
+    src: url(../fonts/Century\ Gothic\ bold.ttf);
+}
+
 .table-wrap {
     width: calc(100% - 3rem);
     margin: 1.5rem;
@@ -119,6 +124,14 @@
     line-height: 0.75rem;
 }
 
+.table__bold {
+    font-family: "Century Gothic bold";
+    font-style: normal;
+    font-weight: bold;
+    font-size: calc((1rem / 16) * 14);
+    line-height: 1.125rem;
+}
+
 .table__head-ball {
     padding: calc((1rem / 16) * 15) 1rem calc((1rem / 16) * 17) 1rem;
     text-align: center;
@@ -131,13 +144,12 @@
     font-weight: normal;
     font-size: 1.5rem;
     line-height: calc((1rem / 16) * 29);
-    color: #03A868;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 }
 
-.table__head-statistics div{
+.table__head-statistics > div{
     width: 9.75rem;
     text-align: center;
 }

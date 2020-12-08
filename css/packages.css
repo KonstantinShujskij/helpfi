@@ -13,12 +13,13 @@
 
 
 .title {
-    font-weight: 600;
+    font-family: "Century Gothic bold"; 
+    font-weight: bold;
     font-size: 1rem;
-    line-height: 1.5rem;
+    line-height: 1rem;
     text-align: center;
     color: #A8A8A8;
-    margin: 0;
+    margin: 0.25rem 0;
 } 
 
 .packages {
@@ -76,8 +77,8 @@
 
 
 .small-paragraph {
-    font-size: calc((1rem / 16) * 15);
-    line-height: 1.125rem;
+    font-size: calc((1rem / 16) * 14);
+    line-height: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,8 +88,26 @@
 .small-paragraph .paragraph__value {
     font-family: "Century Gothic bold";
     font-size: calc((1rem / 16) * 14);
-    line-height: 1.125rem;
+    line-height: 1rem;
     font-weight: 700;
+}
+
+.small-paragraph__inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: fit-content;
+    font-size: calc((1rem / 16) * 14);
+    line-height: 1.5rem;
+}
+
+.small-paragraph__inner span{
+    line-height: 1rem;
+    font-size: calc((1rem / 16) * 14);
+}
+
+.small-paragraph__inner span:not(.paragraph__value){
+    min-width: 6.25rem;
 }
 
 .paragraph {

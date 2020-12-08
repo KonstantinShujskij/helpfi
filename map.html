@@ -226,7 +226,16 @@
                 
                 <main class="main">
                     <section class="map">
-                        <div class="gmap gmapClass w-100 h-100" id="googlemap"></div>
+                        <div class="gmap w-100 h-100" id="googlemap"></div>
+
+                        <div class="map__scale-control">
+                            <button class="map__plus-btn">
+                                <span>+</span>
+                            </button>
+                            <button class="map__minus-btn">
+                                <span>-</span>
+                            </button>
+                        </div>
                     </section>
 
                     <div class="main-dark open"></div>
@@ -240,10 +249,10 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGp2RWbdOrgRMzk5Y569J2QHxVoGUwmXo&amp;v=3.exp&amp;libraries=places,geometry&amp;types=establishment"></script>
-    <script src='/js/script.js'></script>
-    <script src='/js/tag.js'></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+    <script src='js/tag.js'></script>
 
-    <script src="/js/jquery.autocomplete.min.js"></script>
+    <script src="js/jquery.autocomplete.min.js"></script>
     <script src="js/cities.js"></script>
     <script src="js/drv.js"></script>
     <script src='js/mapver.js'></script>

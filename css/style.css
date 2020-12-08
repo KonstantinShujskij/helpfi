@@ -11,6 +11,20 @@
     src: url(../fonts/Century\ Gothic.ttf);
 }
 
+:root {
+    --white: #FFFFFF;
+    --red: #BE1000;
+    --orange: #F95003;
+    --green: #03A868;
+    --green-dark: #00783D;
+    --grey-light: #C4C4C4;
+    --grey: #A8A8A8;
+    --grey-dark: #777777;
+
+    --radius: 0.5rem;
+    --padding: 1.5rem;
+}
+
 * {
     -ms-overflow-style: none;
     -webkit-box-sizing: border-box;
@@ -30,13 +44,13 @@
 
 .aside::-webkit-scrollbar { width: 0.3125rem; height: 0.3125rem; display: block;}
 .aside::-webkit-scrollbar-button {  display: none; }
-.aside::-webkit-scrollbar-track-piece { background-color: #ffffff;}
-.aside::-webkit-scrollbar-thumb { height: 3rem; background-color: #C4C4C4; border-radius: 0.1875rem;}
+.aside::-webkit-scrollbar-track-piece { background-color: var(--white);}
+.aside::-webkit-scrollbar-thumb { height: 3rem; background-color: var(--grey-light); border-radius: 0.1875rem;}
 
 .main::-webkit-scrollbar { width: 0.3125rem; height: 0.3125rem; display: block;}
 .main::-webkit-scrollbar-button {  display: none; }
-.main::-webkit-scrollbar-track-piece { background-color: #ffffff;}
-.main::-webkit-scrollbar-thumb { height: 3rem; background-color: #C4C4C4; border-radius: 0.1875rem;}
+.main::-webkit-scrollbar-track-piece { background-color: var(--white);}
+.main::-webkit-scrollbar-thumb { height: 3rem; background-color: var(--grey-light); border-radius: 0.1875rem;}
 
 ::-ms-clear {
     display: none;
@@ -92,7 +106,7 @@ body {
     width: 100%;
 
     background: #F5F6F8;
-    color: #777777;
+    color: var(--grey-dark);
 
     font-size: calc((1rem / 16) * 12);
     font-family: "Century Gothic", sans-serif;
@@ -138,7 +152,7 @@ body {
 }
 
 .nicescroll-rails div { 
-    background: #C4C4C4 !important;
+    background: var(--grey-light) !important;
     border-radius: calc((1rem / 16) * 3);
     width: calc((1rem / 16) * 5);
 }  
@@ -146,7 +160,7 @@ body {
 .helpfi___btn {
     padding: calc((1rem / 16) * 12);
     background-color: transparent;
-    border: calc(1rem / 16) solid #A8A8A8;
+    border: calc(1rem / 16) solid var(--grey);
     border-radius: 0.25rem;
     max-width: 10.5rem;
     width: 9.75rem;
@@ -156,7 +170,7 @@ body {
     line-height: calc((1rem / 16) * 19);
     text-transform: uppercase;
 
-    color: #A8A8A8;
+    color: var(--grey);
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
@@ -175,9 +189,9 @@ body {
     bottom: calc(-1rem / 16); 
 
     border-radius: 0.25rem;
-    background: -o-linear-gradient(left, #F95003 0%, #BE1000 100%);
-    background: -webkit-gradient(linear, left top, right top, from(#F95003), to(#BE1000));
-    background: linear-gradient(90deg, #F95003 0%, #BE1000 100%);
+    background: -o-linear-gradient(left, var(--orange) 0%, var(--red) 100%);
+    background: -webkit-gradient(linear, left top, right top, from(var(--orange)), to(var(--red)));
+    background: linear-gradient(90deg, var(--orange) 0%, var(--red) 100%);
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s;
@@ -195,21 +209,21 @@ body {
 }
 
 .helpfi___btn:hover {
-    color: #FFFFFF;
-    -webkit-box-shadow: 0px 0.25rem 0.625rem rgba(249, 80, 3, 0.24);
-            box-shadow: 0px 0.25rem 0.625rem rgba(249, 80, 3, 0.24);    
+    color: var(--white);
+    -webkit-box-shadow: 0px 0.25rem 0.625rem #f950033d;
+            box-shadow: 0px 0.25rem 0.625rem #f950033d;    
 }
 
 .orange {
-    color:#F95003;
+    color:var(--orange);
 }
 
 .green {
-    color:#03A868;
+    color:var(--green);
 }
 
 .red {
-    color:#BE1000;
+    color:var(--red);
 }
 
 .popup {
@@ -253,7 +267,7 @@ body {
 }
 
 .popup__content {
-    background-color: #FFFFFF;
+    background-color: var(--white);
     min-width: 73%;
     width: 66rem;
     padding: 6.25rem;
@@ -265,7 +279,7 @@ body {
     font-size: 1.5rem;
     line-height: 1.8125rem;
     text-align: center;
-    color: #777777;
+    color: var(--grey-dark);
 
     -webkit-transition: all 0.8s ease 0s;
 
@@ -290,7 +304,7 @@ body {
 }
 
 .popup__h {
-    color: #03A868;
+    color: var(--green);
     margin-top: 8rem;
 }
 
@@ -303,17 +317,17 @@ body {
 }
 
 .popup__back-btn:after {
-    background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
-    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
-    background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
+    background: -o-linear-gradient(left, var(--green) 0%, var(--green-dark) 100%);
+    background: -webkit-gradient(linear, left top, right top, from(var(--green)), to(var(--green-dark)));
+    background: linear-gradient(90deg, var(--green) 0%, var(--green-dark) 100%);
 }
 
 .popup__ok-btn {
-    background: -o-linear-gradient(left, #03A868 0%, #00783D 100%);
-    background: -webkit-gradient(linear, left top, right top, from(#03A868), to(#00783D));
-    background: linear-gradient(90deg, #03A868 0%, #00783D 100%);
+    background: -o-linear-gradient(left, var(--green) 0%, var(--green-dark) 100%);
+    background: -webkit-gradient(linear, left top, right top, from(var(--green)), to(var(--green-dark)));
+    background: linear-gradient(90deg, var(--green) 0%, var(--green-dark) 100%);
 
-    color: #FFFFFF;
+    color: var(--white);
     border: none;
     overflow: hidden;
 }
@@ -324,7 +338,7 @@ body {
 
 @media (max-width: 768px) {
     .popup__content {
-        padding: 1.5rem;
+        padding: var(--padding);
     }
     
 }
