@@ -40,16 +40,22 @@
     line-height: 1rem;
 }
 
+.table__business {
+    font-weight: 700;
+    font-family: "Century Gothic bold";
+    margin-top: 0.25rem;
+}
+
 .coments-wrap .table__head{
     -webkit-box-shadow: inset 0px 0.75rem 1.125rem -1.125rem rgba(0, 0, 0, 0.6);
             box-shadow: inset 0px 0.75rem 1.125rem -1.125rem rgba(0, 0, 0, 0.6);
-    -ms-grid-columns: 25% 0% 27% 0% 33% 0% 15%;
-    grid-template-columns: 25% 27% 33% 15%;
+    -ms-grid-columns: 19% 0% 10% 0% 11% 0% 36% 0% 12% 0% 12%;
+    grid-template-columns: 19% 10% 11% 36% 12% 12%;
 }
 
 .coments-wrap .table__item{
-    -ms-grid-columns: 25% 0% 27% 0% 33% 0% 15%;
-    grid-template-columns: 25% 27% 33% 15%;
+    -ms-grid-columns: 19% 0% 10% 0% 11% 0% 36% 0% 12% 0% 12%;
+    grid-template-columns: 19% 10% 11% 36% 12% 12%;
 }
 
 .table__item.open + .coments-wrap > item:last-of-type {
