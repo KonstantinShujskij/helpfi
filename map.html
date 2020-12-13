@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,10 @@
     <link rel="shortcut icon" href="favicon.png" type="image/png">
   
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">    
+    <link rel="stylesheet" href="css/jquery.formstyler.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/aside.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/map.css">
@@ -27,6 +30,18 @@
                         <img src="images/alpfa.svg" alt="alpfa">
                     </span>
                 </a>    
+
+                <div class="map-aside__switch-wrap">
+                    <button class="map-aside__switch-btn">
+                        <span class="icon car-icon mr-auto ">
+                            <img class="img-svg" src="images/car.svg" alt="">
+                        </span>
+                        <span class="icon people-icon ml-auto">
+                            <img class="img-svg" src="images/people.svg" alt="">
+                        </span>
+                        <span class="tumbler"></span>                            
+                    </button>
+                </div>
 
                 <!--<button class="ml-auto search-btn">
                     <img src="images/search.svg" alt="search">
@@ -112,21 +127,30 @@
                             </button>
                         </div>
                     </div>
-                    <div class="map-aside">
-                        <div class="map-aside__inner">                            
-                            <div class="map-aside__list-head">
-                                <span>введите местоположение</span>
-                                <span class="icon">
-                                    <img src="images/cor.svg" alt="ico" class="w-100 h-100" >
-                                </span>
-                            </div>
-                            <div class="map-aside__list-head map-aside__list-head_active">
-                                <span>какую услугу найти?</span>
-                                <span class="icon">
-                                    <img src="images/menu.svg" alt="ico" class="w-100 h-100" >
-                                </span>
-                            </div>
-                            <div class="map-aside__list">
+                </aside>
+                
+                <main class="main">
+                    
+                    <div class="map-aside map-aside__service">
+                        <div class="map-aside__inner ">    
+                            <label class="input-wrap input-wrap_inp" value="Мое местоположение">
+                                <div type=button class="input-btn geo-btn">
+                                    <span class="icon">
+                                        <img src="images/geo.svg" class="img-svg" alt="icon">
+                                    </span>                                
+                                </div>
+                                <input id="search-from" type="text" class="input" onfocus="setActiveMarker(0)">
+                            </label>   
+                            <label class="input-wrap input-wrap__cat" value="Какую услугу найти?">
+                                <div type=button class="input-btn list-btn">
+                                    <span class="icon">
+                                        <img src="images/menu.svg" class="img-svg" alt="icon">
+                                    </span>                                
+                                </div>
+                                <input id="search" name="search_category" type="text" class="input">
+                            </label>                          
+                            
+                            <div class="map-aside__list map-aside__list_hidden">
                                 <div class="map-aside__item">
                                     <span class="icon cat-icon">
                                         <img src="images/desctop-icon.svg" alt="icon">
@@ -211,29 +235,263 @@
                             </div>
                         </div>
                     </div>
-                    <div class="map-aside__switch-wrap">
-                        <button class="map-aside__switch-btn">
-                            <span class="icon car-icon mr-auto ">
-                                <img class="img-svg" src="images/car.svg" alt="">
-                            </span>
-                            <span class="icon people-icon ml-auto">
-                                <img class="img-svg" src="images/people.svg" alt="">
-                            </span>
-                            <span class="tumbler"></span>                            
-                        </button>
+                    <div class="map-aside map-aside__taxi map-aside__open">
+                        <div class="map-aside__inner">     
+                            
+                            <div class="map-aside__top">
+                                <label class="input-wrap input-wrap_inp" value="Мое местоположение ">
+                                    <div type=button class="input-btn geo-btn">
+                                        <span class="icon">
+                                            <img src="images/geo.svg" class="img-svg" alt="icon">
+                                        </span>                                
+                                    </div>
+                                    <input id="start-point" type="text" class="input">
+                                </label>                      
+    
+                                <label class="input-wrap way-point-one hidden" value="Где остановтимся?">
+                                    <div type=button class="input-btn clear-btn" onclick="delWaypoint('one')">
+                                        <span class="icon">
+                                            <img src="images/cross.svg" class="img-svg" alt="icon">
+                                        </span>                                
+                                    </div>
+                                    <input id="way-point-one" type="text" class="input">
+                                </label>     
+    
+                                <label class="input-wrap way-point-two hidden" value="Где остановтимся?">
+                                    <div type=button class="input-btn clear-btn" onclick="delWaypoint('two')">
+                                        <span class="icon">
+                                            <img src="images/cross.svg" class="img-svg" alt="icon">
+                                        </span>                                
+                                    </div>
+                                    <input id="way-point-two" type="text" class="input">
+                                </label>
+    
+                                <label class="input-wrap" value="Куда ехать?">
+                                    <div type=button class="input-btn add-btn" style="right: 0.9rem;" onclick="addWaypoint()">
+                                        <span class="icon">
+                                            <img src="images/plus.svg" class="img-svg" alt="icon">
+                                        </span>                                
+                                    </div>
+                                    <input id="finish-point" type="text" class="input">
+                                </label>
+                            </div>
+
+                            <div class="map-aside__footer">
+                                <div class="d-flex w-100" style="position: relative; z-index: 10;">
+                                    <button class="map-footer__left-btn">
+                                        <span>
+                                            <img src="images/taxi.svg" alt="taxi">
+                                        </span>
+                                    </button>
+                                    <button class="helpfi___btn map-footer__btn map-footer__btn_active order-btn-one">
+                                        <span>ЗАКАЗАТЬ</span>
+                                    </button>
+                                    <button class="helpfi___btn map-footer__btn order-btn-two" onclick="advOrderSubmit()">
+                                        <span>ПОДТВЕРДИТЬ</span>
+                                    </button>
+                                    <button class="helpfi___btn map-footer__btn order-btn-three" onclick="backToFirstStep()">
+                                        <span>НАЗАД</span>
+                                    </button>
+                                    <button class="map-footer__right-btn">
+                                        <span>
+                                            <img src="images/clock.svg" alt="time">
+                                        </span>
+                                    </button>
+                                </div>                                
+
+                                <div class="footer__popup time-order">
+                                    <div class="footer-popup__item">
+                                        <div class="footer-popup__item-info justify-content-end">
+                                            Заказать на сейчас
+                                        </div>
+                                        <label class="map-footer__right-btn" src_img="images/clock.svg">
+                                            <span>
+                                                <img src="images/clock.svg" alt="time">
+                                            </span>                                        
+                                            <input type="radio" name="when" value="when-quarter" id="when-quarter" class="footer__radio">
+                                        </label>
+                                    </div>
+                                  
+                                    <div class="footer-popup__item">
+                                        <div class="footer-popup__item-info">
+                                            <select class="form-control input-short form-select" name="time-date" id="time-date" onchange="fillTime()">
+                                                <option value="td">Сегодня</option>
+                                                <option value="tm">Завтра</option>
+                                            </select>
+                                            <select class="form-control input-time form-select" name="time-hours" id="time-hours" onchange="fillMinutes()"></select>
+                                            <i class="timedots">:</i>
+                                            <select class="form-control input-time form-select" name="time-mins" id="time-mins"></select>
+                                        </div>
+                                        <label class="map-footer__right-btn" src_img="images/calendar.svg">
+                                            <span>
+                                                <img src="images/calendar.svg" alt="time">
+                                            </span>
+                                            <input type="radio" name="when" value="when-time" id="when-time" class="footer__radio">
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="footer__popup taxi-order">
+                                    <div class="footer-popup__item">                                        
+                                        <label class="map-footer__left-btn" src_img="images/tow-truck.svg">
+                                            <span>
+                                                <img src="images/tow-truck.svg" alt="time">
+                                            </span>                                        
+                                            <input type="radio" name="what" id="what-support" class="footer__radio" onclick="setDrvType(3)">
+                                        </label>
+                                        <div class="footer-popup__item-info justify-content-start">
+                                            Техпомощь
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="footer-popup__item">
+                                        <label class="map-footer__left-btn" src_img="images/truck.svg">
+                                            <span>
+                                                <img src="images/truck.svg" alt="time">
+                                            </span>                                        
+                                            <input type="radio" name="what" id="what-truck" class="footer__radio" onclick="setDrvType(2)">
+                                        </label>
+                                        <div class="footer-popup__item-info justify-content-start">
+                                            Грузовик
+                                        </div>
+                                    </div>
+
+                                    <div class="footer-popup__item">
+                                        <label class="map-footer__left-btn" src_img="images/buss.svg">
+                                            <span>
+                                                <img src="images/buss.svg" alt="time">
+                                            </span>                                        
+                                            <input type="radio" name="what" id="what-bus" class="footer__radio" onclick="setDrvType(1)">
+                                        </label>
+                                        <div class="footer-popup__item-info justify-content-start">
+                                            Автобус
+                                        </div>
+                                    </div>
+
+                                    <div class="footer-popup__item">
+                                        <label class="map-footer__left-btn" src_img="images/universal.svg">
+                                            <span>
+                                                <img src="images/universal.svg" alt="time">
+                                            </span>                                        
+                                            <input type="radio" name="what" id="what-uni" class="footer__radio" onclick="setDrvType(4)">
+                                        </label>
+                                        <div class="footer-popup__item-info justify-content-start">
+                                            Универсал
+                                        </div>
+                                    </div>
+
+                                    <div class="footer-popup__item">
+                                        <label class="map-footer__left-btn" src_img="images/taxi.svg">
+                                            <span>
+                                                <img src="images/taxi.svg" alt="time">
+                                            </span>                                        
+                                            <input type="radio" checked="checked" name="what" id="what-auto" class="footer__radio" onclick="setDrvType(0)">
+                                        </label>
+                                        <div class="footer-popup__item-info justify-content-start">
+                                            Легковая
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="footer__popup info-order">
+                                    <label class="input-wrap" value="Имя">
+                                        <div type=button class="input-btn clear-btn">
+                                            <span class="icon">
+                                                <img src="images/cross.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+                                        <input id="order-name" type="text" class="input" name="order-gratuity" autocomplete="off">
+                                    </label>
+
+                                    <label class="input-wrap phone-wrap d-flex" value="Телефон">
+                                        <div type=button class="input-btn clear-btn">
+                                            <span class="icon">
+                                                <img src="images/cross.svg" class="img-svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <select class="phone__select">
+                                            <option value="ua">+38</option>
+                                        </select>
+                                        <input id="order-phone" type="tel" class="input phone" name="login" pattern="^[(]{1}[0-9]{3}[)]{1} [0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$" required>
+                                        <div class="flag" country="+38"></div>
+                                    </label>                                    
+                                    
+
+                                    <label class="input-wrap input-wrap__textarea" value="Комментарий">
+                                        <div type=button class="input-btn clear-btn">
+                                            <span class="icon">
+                                                <img src="images/cross.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+                                        <textarea class="input" rows="4" id="order-comment-adv" name="order-comment" maxlength="400"></textarea> 
+                                    </label>
+    
+                                    <label class="input-wrap" value="Чаевые">
+                                        <div type=button class="input-btn clear-btn">
+                                            <span class="icon">
+                                                <img src="images/cross.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+                                        <input id="order-gratuity" type="text" class="input tea" autocomplete="off">
+                                    </label>
+
+                                    <label for="captcha">
+                                        <img id="captchaImg" alt="" src="captcha.php?PHPSESSID=fvl92hdoy5g3mvvbem90mzj0an">
+                                        <i class="ico-vt-refresh plink" title="Показать другой вариант" onclick="refreshCaptcha()"></i>
+                                    </label>
+                                    
+                                    <label class="input-wrap" value="Капча">
+                                        <div type=button class="input-btn clear-btn">
+                                            <span class="icon">
+                                                <img src="images/cross.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+                                        <input id="captcha" type="text" class="input code" name="captcha" maxlength="4" autocomplete="off" pattern="^[0-9\s]+$" onkeyup="p=/[^0-9]/g; if (p.test(this.value)) this.value = this.value.replace(p, '')">
+                                    </label>                           
+                                                               
+                                </div>
+
+                                <div class="footer__popup answer-order">
+                                                          
+                                </div>
+                            </div>
+
+                            
+                        </div>
                     </div>
-                </aside>
-                
-                <main class="main">
+
+                <div class="map-aside__switch-wrap">
+                    <button class="map-aside__switch-btn">
+                        <span class="icon car-icon mr-auto ">
+                            <img class="img-svg" src="images/car.svg" alt="">
+                        </span>
+                        <span class="icon people-icon ml-auto">
+                            <img class="img-svg" src="images/people.svg" alt="">
+                        </span>
+                        <span class="tumbler"></span>                            
+                    </button>
+                </div>
                     <section class="map">
                         <div class="gmap w-100 h-100" id="googlemap"></div>
 
                         <div class="map__scale-control">
                             <button class="map__plus-btn">
-                                <span>+</span>
+                                <span class="icon">
+                                    <img src="images/plus.svg" class="img-svg" alt="+">
+                                </span>
                             </button>
                             <button class="map__minus-btn">
-                                <span>-</span>
+                                <span class="icon">
+                                    <img src="images/minus.svg" class="img-svg" alt="-">
+                                </span>
+                            </button>
+                        </div>
+
+                        <div class="map__screan-control">
+                            <button class="map__screan-btn">
+                                <span class="icon">
+                                    <img src="images/full-screan.svg" class="img-svg" alt="[]">
+                                </span>
                             </button>
                         </div>
                     </section>
@@ -250,14 +508,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGp2RWbdOrgRMzk5Y569J2QHxVoGUwmXo&amp;v=3.exp&amp;libraries=places,geometry&amp;types=establishment"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
-    <script src='js/tag.js'></script>
+    <script src="js/jquery.formstyler.min.js"></script>
+    <script src="js/tag.js"></script>
 
     <script src="js/jquery.autocomplete.min.js"></script>
     <script src="js/cities.js"></script>
+    <script src="js/mapver.js"></script>
     <script src="js/drv.js"></script>
-    <script src='js/mapver.js'></script>
 
     <script src="js/aside.js"></script>
-    <script src='js/map.js'></script>
+    <script src="js/map.js"></script>
+
 </body>
 </html>

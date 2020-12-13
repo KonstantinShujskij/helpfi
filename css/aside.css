@@ -603,6 +603,22 @@ a.form-links__item:hover::before {
     visibility: hidden;
 }
 
+.content-wrap {
+    min-height: calc(100vh - 3.75rem) !important;
+    max-height: calc(100vh - 3.75rem) !important;
+    min-height: calc(var(--vh, 1vh) * 100 - 3.75rem) !important;
+    max-height: calc(var(--vh, 1vh) * 100 - 3.75rem) !important;
+    transition: 0.3s ease;
+}
+
+.wrapper {
+    max-height: 100vh !important;
+    min-height: 100vh !important;
+    min-height: calc(var(--vh, 1vh) * 100) !important;
+    max-height: calc(var(--vh, 1vh) * 100) !important;
+    transition: 0.3s ease;
+}
+
 
 @media (max-width: 768px) {
     .aside {                

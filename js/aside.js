@@ -1,5 +1,5 @@
 (function () {
-    let WIDTH = 0
+    let WIDTH = 0;
 
     function resize() {
         if(window.innerWidth <= 576 && window.innerWidth != WIDTH) {
@@ -59,10 +59,6 @@
         }
     });
 
-    $('.map-aside__switch-btn').click(function() {
-        $(this).toggleClass('map-aside__switch-btn_service');
-    });
-
     $('.open-btn').click(function(e) {
         if(window.innerWidth <= 576) {
             $('.aside').removeClass('aside_moble');
@@ -83,6 +79,15 @@
             $('.main-dark').removeClass('open');
             $('.switch-btn').removeClass('open-btn_mobale');
         }       
+    });
+
+    
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    window.addEventListener('resize', () => {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
 
 }());

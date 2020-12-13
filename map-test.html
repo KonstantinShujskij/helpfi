@@ -1,0 +1,440 @@
+ <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELPFI</title>  
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+  
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/aside.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/map.css">
+
+    <style>
+        .map-aside {
+            display: none;
+        }
+        .map-aside__switch-wrap {
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="fullscreen flex-column">
+            <section class="top">    
+                <button class="open-btn switch-btn">
+                    <div class="open-btn__inner"></div>
+                    <div class="open-btn__inner"></div>
+                    <div class="open-btn__inner"></div>
+                </button>       
+                <a href="index.html" class="logo">
+                    <img src="images/logo.svg" alt="logo">
+                    <span class="logo__alpfa">
+                        <img src="images/alpfa.svg" alt="alpfa">
+                    </span>
+                </a>    
+
+                <!--<button class="ml-auto search-btn">
+                    <img src="images/search.svg" alt="search">
+                </button>
+                <input type="text" class="search" placeholder="Search for a contact">-->
+                <button class="note note_active ml-auto">
+                    <img src="images/note.svg" alt="note">
+                </button>
+            </section>
+
+            <div class="d-flex flex-row content-wrap">
+                <aside class="aside">
+                    <div class="aside-inner-wrap">
+                        <div class="form-links">
+                            <div class="full">
+                                <a href="login.html" class="form-links__item">ВОЙТИ</a>
+                                <span class="form-links__item"> | </span>
+                                <a href="signup.html" class="form-links__item">РЕГИСТРАЦИЯ</a>  
+                            </div>
+                            <div class="short">
+                                <a href="login.html" class="form-links__icon">
+                                    <span class="icon">
+                                        <img src="images/aside-login.svg" class="img-svg" alt="icon">
+                                    </span>
+                                </a>
+                            </div>                    
+                        </div>
+
+                        <div class="one-menu aside__menu">
+                            <a href="#" class="aside__link aside__link_active">
+                                <span class="icon">
+                                    <img src="images/aside-search.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="full">Найти услугу</span>
+                            </a>
+                            <a href="https://helpfi.me/st/executor_reg.php" target="_blank" class="aside__link">
+                                <span class="icon">
+                                    <img src="images/aside-create.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="full">Создать услугу</span>
+                            </a>
+                        </div>  
+                        
+                        <hr class="aside__hr">   
+
+                        <div class="two-menu aside__menu">
+                            <a href="#" class="aside__link">
+                                <span class="icon">
+                                    <img src="images/aside-info.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="full">О проекте</span>
+                            </a>
+                            <a href="#" class="aside__link">
+                                <span class="icon">
+                                    <img src="images/aside-heart.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="full">Помощь проекту</span>
+                            </a>
+                            <a href="#" class="aside__link">
+                                <span class="icon">
+                                    <img src="images/aside-phone.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="full">Контакты</span>
+                            </a>
+                            <a href="#" class="aside__link">
+                                <span class="icon">
+                                    <img src="images/aside-share.svg" class="img-svg" alt="icon">
+                                </span>
+                                <span class="full">Поделиться</span>
+                            </a>
+                        </div>  
+
+                        <hr class="aside__hr">   
+
+                        <div class="out-menu aside__menu">
+                            <button class="join-btn helpfi___btn full">
+                                <span>Стать партнером</span>
+                            </button>
+                            <button class="join-btn short">
+                                <span class="icon">
+                                    <img src="images/aside-partner.svg" alt="i">
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="map-aside">
+                        <div class="map-aside__inner">                            
+                            <div class="map-aside__list-head">
+                                <span>введите местоположение</span>
+                                <span class="icon">
+                                    <img src="images/cor.svg" alt="ico" class="w-100 h-100" >
+                                </span>
+                            </div>
+                            <div class="map-aside__list-head map-aside__list-head_active">
+                                <span>какую услугу найти?</span>
+                                <span class="icon">
+                                    <img src="images/menu.svg" alt="ico" class="w-100 h-100" >
+                                </span>
+                            </div>
+                            <div class="map-aside__list">
+                                <div class="map-aside__item">
+                                    <span class="icon cat-icon">
+                                        <img src="images/desctop-icon.svg" alt="icon">
+                                    </span>
+                                    <span>IT услуги</span>
+                                    <span class="icon arrow-icon">
+                                        <img src="images/aside-arrow.svg" alt="icon">
+                                    </span>
+                                </div>
+                                <div class="map-aside__item">
+                                    <span class="icon cat-icon">
+                                        <img src="images/car-icon.svg" alt="icon">
+                                    </span>
+                                    <span>Автоуслуги</span>
+                                    <span class="icon arrow-icon">
+                                        <img src="images/aside-arrow.svg" alt="icon">
+                                    </span>
+                                </div>
+                                <div class="map-aside__item">
+                                    <span class="icon cat-icon">
+                                        <img src="images/document-icon.svg" alt="icon">
+                                    </span>
+                                    <span>Деловые услуги</span>
+                                    <span class="icon arrow-icon">
+                                        <img src="images/aside-arrow.svg" alt="icon">
+                                    </span>
+                                </div>
+                                <div class="map-aside__item">
+                                    <span class="icon cat-icon">
+                                        <img src="images/bad-icon.svg" alt="icon">
+                                    </span>
+                                    <span>Дом и семья</span>
+                                    <span class="icon arrow-icon">
+                                        <img src="images/aside-arrow.svg" alt="icon">
+                                    </span>
+                                </div>
+                                <div class="map-aside__item">
+                                    <span class="icon cat-icon">
+                                        <img src="images/dreal-icon.svg" alt="icon">
+                                    </span>
+                                    <span>Домашний мастер</span>
+                                    <span class="icon arrow-icon">
+                                        <img src="images/aside-arrow.svg" alt="icon">
+                                    </span>
+                                </div>
+                                <div class="map-aside__item">
+                                    <span class="icon cat-icon">
+                                        <img src="images/cooke-icon.svg" alt="icon">
+                                    </span>
+                                    <span>Доставка еды</span>
+                                    <span class="icon arrow-icon">
+                                        <img src="images/aside-arrow.svg" alt="icon">
+                                    </span>
+                                </div>
+                                <div class="map-aside__item">
+                                    <span class="icon cat-icon">
+                                        <img src="images/key-icon.svg" alt="icon">
+                                    </span>
+                                    <span>Жилье</span>
+                                    <span class="icon arrow-icon">
+                                        <img src="images/aside-arrow.svg" alt="icon">
+                                    </span>
+                                </div>
+                                <div class="map-aside__item">
+                                    <span class="icon cat-icon">
+                                        <img src="images/heals-icon.svg" alt="icon">
+                                    </span>
+                                    <span>Здоровье</span>
+                                    <span class="icon arrow-icon">
+                                        <img src="images/aside-arrow.svg" alt="icon">
+                                    </span>
+                                </div>
+                                <div class="map-aside__item">
+                                    <span class="icon cat-icon">
+                                        <img src="images/anemal-icon.svg" alt="icon">
+                                    </span>
+                                    <span>Зооуслуги</span>
+                                    <span class="icon arrow-icon">
+                                        <img src="images/aside-arrow.svg" alt="icon">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-aside__switch-wrap">
+                        <button class="map-aside__switch-btn">
+                            <span class="icon car-icon mr-auto ">
+                                <img class="img-svg" src="images/car.svg" alt="">
+                            </span>
+                            <span class="icon people-icon ml-auto">
+                                <img class="img-svg" src="images/people.svg" alt="">
+                            </span>
+                            <span class="tumbler"></span>                            
+                        </button>
+                    </div>
+                </aside>
+
+                <main class="main">
+                    <section class="map">
+                        <div class="gmap gmapClass w-100 h-100" id="googlemap"></div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>    
+    
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGp2RWbdOrgRMzk5Y569J2QHxVoGUwmXo&callback=initMap&libraries=&v=weekly" defer></script>
+    <script src="/js/jquery.autocomplete.min.js"></script>
+    <script src="js/cities.js"></script>
+    <script src="js/aside.js"></script>
+    
+    <script>
+        let map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("googlemap"), {
+                center: { lat: 50.43092243867438, lng: 30.556696489161755 },
+                zoom: 12,
+                styles: [
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#e9e9e9"
+            },
+            {
+                "lightness": 17
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#f5f5f5"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 17
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 29
+            },
+            {
+                "weight": 0.2
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 18
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#f5f5f5"
+            },
+            {
+                "lightness": 21
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#dedede"
+            },
+            {
+                "lightness": 21
+            }
+        ]
+    },
+    {
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#ffffff"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "saturation": 36
+            },
+            {
+                "color": "#333333"
+            },
+            {
+                "lightness": 40
+            }
+        ]
+    },
+    {
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            },
+            {
+                "lightness": 19
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#fefefe"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#fefefe"
+            },
+            {
+                "lightness": 17
+            },
+            {
+                "weight": 1.2
+            }
+        ]
+    }
+]
+            });
+        }
+    </script>
+</body>
+</html>

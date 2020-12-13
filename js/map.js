@@ -286,7 +286,6 @@ jQuery(document).ready(function ($) {
 
     $("#out-info").on('click', '#contacts-message', function () {
         alert('Данная функция находится в разработке. Приносим свои извинения за неудобство.');
-
     });
 
     $(window).resize(function () {
@@ -317,6 +316,217 @@ jQuery(document).ready(function ($) {
     // $(".services-droplist > a").show();
     // });
 
+    String.prototype.replaceAt = function(index, replacement) {
+        return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+    }
+    
+    String.prototype.insertAt = function(index, replacement) {
+        return this.substr(0, index) + replacement + this.substr(index);
+    }
+
+    let cods = ['050', '066', '095', '099', '039', '067', '068', '096', '097', '098', '063', '093', '073', '091', '092', '094', '070', '080', '090', '044'];
+
+    function validate_phone(phone) {
+        for(let i = 0; i < phone.length; i++) {
+            if(isNaN(phone[i])) {
+                phone = phone.replaceAt(i, ' ')
+            }
+        }
+        phone = phone.replace(/\s+/g, '').trim();
+    
+        let format_phone = '';
+    
+        if(phone.length >= 1) {
+            format_phone += "(";
+        }
+        if(phone.length >= 3) {
+            format_phone += phone.substr(0, 3);
+        }
+        else {
+            format_phone += phone;
+        }
+    
+        if(phone.length >= 4) {
+            format_phone += ") ";
+        }
+        if(phone.length >= 6) {
+            format_phone += phone.substr(3, 3);
+        }
+        else {
+            format_phone += phone.substr(3);
+        }
+    
+        if(phone.length >= 7) {
+            format_phone += "-";
+        }
+        if(phone.length >= 8) {
+            format_phone += phone.substr(6, 2);
+        }
+        else {
+            format_phone += phone.substr(6);
+        }
+    
+        if(phone.length >= 9) {
+            format_phone += "-";
+        }
+        if(phone.length >= 10) {
+            format_phone += phone.substr(8, 2);
+        }
+        else {
+            format_phone += phone.substr(8);
+        }
+    
+        return format_phone;
+    }
+
+    $('.phone__select').styler({
+        selectSmartPositioning: false,
+        onSelectClosed: function() {
+            let select_text = $($($(this[0]).children()[1]).children()[0]).text();
+            $('.phone-wrap').children('.flag').attr('country', select_text);
+        }
+    });
+
+    $('.phone').bind('paste', function(e) {
+        e.preventDefault();
+        let phone = (e.originalEvent || e).clipboardData.getData('text/plain');
+
+        phone = validate_phone(phone);
+
+        if(phone !== '' && !/^[(]{1}[0-9]{3}[)]{1} [0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/.test(phone) ) {
+            $(this).parent('.input-wrap').addClass('input-wrap_error');
+        }
+        else if (phone.length > 4 && cods.indexOf( phone.substr(1, 3) ) == -1) {
+            $(this).parent('.input-wrap').addClass('input-wrap_error');
+        }
+        else {
+            $(this).parent('.input-wrap').removeClass('input-wrap_error');
+        }
+        if(phone === '') {
+            $(this).parent('.input-wrap').removeClass('input-wrap_error');
+        } 
+
+        $(this).val(phone);
+        $(this).trigger("input");
+
+    });
+
+    $('.phone').on( "input", function(e){     
+        let simbol = e.originalEvent.data;
+        if(isNaN(simbol) && simbol != undefined){
+            phone = phone.substr(0, phone.length - 1);
+            $(this).val(phone);
+            $(this).parent('.input-wrap').addClass('input-wrap_error');
+
+            if(/^[(]{1}[0-9]{3}[)]{1} [0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/.test(phone) && cods.indexOf( phone.substr(1, 3) ) != -1) {
+                $(this).parent('.input-wrap').removeClass('input-wrap_error');
+            }
+
+            return;
+        }      
+        
+        let phone = $(this).val();
+        phone = validate_phone(phone);
+
+        if(phone !== '' && !/^[(]{1}[0-9]{3}[)]{1} [0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/.test(phone) ) {
+            $(this).parent('.input-wrap').addClass('input-wrap_error');
+        }
+        else if (phone.length > 4 && cods.indexOf( phone.substr(1, 3) ) == -1) {
+            $(this).parent('.input-wrap').addClass('input-wrap_error');
+        }
+        else {
+            $(this).parent('.input-wrap').removeClass('input-wrap_error');
+        }
+        if(phone === '') {
+            $(this).parent('.input-wrap').removeClass('input-wrap_error');
+        } 
+
+        $(this).val(phone);
+    });
+
+    $('.tea').on( "input", function(e){         
+        let phone = $(this).val();
+        for(let i = 0; i < phone.length; i++) {
+            if(isNaN(phone[i])) {
+                phone = phone.replaceAt(i, ' ')
+            }
+        }
+        phone = phone.replace(/\s+/g, '').trim();
+
+        phone_int = parseInt(phone);
+        if(phone_int >= 1000000) { console.log("GGG"); phone_int = 1000000; }
+
+        phone = "" + phone_int;
+        let phone_format = "";
+
+        if(phone_int >= 1000000) { phone_format = "1 000 000"; }
+        else if(phone >= 100000) { phone_format += phone.substr(0, 3) + " " + phone.substr(3); }
+        else if(phone >= 10000) { phone_format += phone.substr(0, 2) + " " + phone.substr(2); }
+        else if(phone >= 1000) { phone_format += phone.substr(0, 1) + " " + phone.substr(1); }
+        else { phone_format += phone; }      
+
+        $(this).val(phone_format);
+    });
+
+    $('.input-wrap').children('.input').on( "input", function(e){
+        if($(this).val() !== '') {
+            $(this).parent().addClass('input-wrap_inp');
+        }
+        else {
+            $(this).parent().removeClass('input-wrap_inp');
+        }
+    });
+
+    $(document).click( function(e){
+        if ( $(e.target).closest('.input-wrap').length ) {
+            $('.input-wrap').removeClass('input-wrap_focus');
+            $(e.target).closest('.input-wrap').addClass('input-wrap_focus');
+            return;
+        }
+
+        $('.input-wrap').removeClass('input-wrap_focus');
+    });   
+
+    $('.clear-btn').on( "click", function(){
+        $(this).siblings('input').val('');
+        $(this).siblings('textarea').val('');
+        $(this).parent('.input-wrap').removeClass('input-wrap_error');
+    });
+
+    $('button.map-footer__right-btn').on( "click", function(){
+        $('.taxi-order').removeClass('open');
+        $('.answer-order').removeClass('open');
+        $('.info-order').removeClass('open');
+        $('.time-order').toggleClass('open');
+    });
+
+    $('button.map-footer__left-btn').on( "click", function(){
+        $('.time-order').removeClass('open');
+        $('.answer-order').removeClass('open');
+        $('.info-order').removeClass('open');
+        $('.taxi-order').toggleClass('open');
+    });
+
+    $('label.map-footer__right-btn').on( "click", function(){
+        let src = $(this).attr('src_img');
+        $('button.map-footer__right-btn').children('span').children('img').attr('src', src);
+        $('.time-order').removeClass('open');
+    });
+
+    $('label.map-footer__left-btn').on( "click", function(){
+        let src = $(this).attr('src_img');
+        $('button.map-footer__left-btn').children('span').children('img').attr('src', src);
+        $('.taxi-order').removeClass('open');
+    });
+
+    $('.map-aside__switch-btn').click(function() {
+        $('.map-aside__switch-btn').toggleClass('map-aside__switch-btn_service');
+        $('.map-aside__taxi').toggleClass('map-aside__open');
+    });
+
+    $('.list-btn').click(function() {
+        $('.map-aside__list').toggleClass('map-aside__list_hidden');
+    });
 });
 
 function calcDistance(p1, p2) {
