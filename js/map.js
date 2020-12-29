@@ -1,72 +1,16 @@
 jQuery(document).ready(function ($) {
-    $(".switcher .switch input").on("change", function (event) {
-        event.stopPropagation();
-        event.preventDefault();
-        
-        if (!$(this).prop("checked")) {
-            location.href = "taxi.php";
-        } else {
-            location.href = "service.php";
-        }
-    });
 
-    var markers = [];
-
-    $(".back-btn").on('click', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        if ($(this).hasClass('step1')) {
-
-        } else if ($(this).hasClass('step2')) {
-
-            $(".addService").remove();
-
-            for (i = 0; i < markers.length; i++) {
-                markers[i].setMap(null);
-            }
-            $(this).parent().removeClass('active');
-            $(".category-wrapper").hide();
-            $(".services-droplist > a").show();
-            $(".switcher").show();
-            if($('.m_btn_back:visible').height() < 1) {
-                $('.search-from').show();
-            }
-            $(this).removeClass('step2').addClass('step1');
-            $('.services-droplist').removeClass('active');
-
-            $(".-floating-label").text('Категории');
-            $("#out-info").text("");
-        } else if ($(this).hasClass('step3')) {
-            $("#out-info").parent().after("<a class='addService' href='https://helpfi.me/index.php?act=clntreg&ref=11111'>Регистрация</a>");
-
-            for (i = 0; i < markers.length; i++) {
-                markers[i].setMap(null);
-            }
-            $(this).removeClass('step3').addClass('step2');
-
-            $(".category-wrapper[var='" + $(this).attr('var') + "']").show();
-            var s = $(".services-droplist > .service-list__item[var='" + $(this).attr('var') + "'] .service-list__label").text();
-            $('.-floating-label').text(s);
-            $("#out-info").text("");
-        }
-    });
 
     $(".services-droplist .service-list__item[var]").on("click", function () {
-        var noDisplay = false;
-        $("#out-info").text("");
-        if ($(this).hasClass('service-list__child')) {
-            $('.category-wrapper').hide();
-            noDisplay = true;
-            $(".back-btn").removeClass('step2').addClass('step3');
-        }
-        $.post("/send.php", {
-                'secret': $(this).attr("var"),
-                'cat': $(this).attr('var'),
+        $.post("https://helpfi.me/send.php", {
+                'secret': 1,
+                'cat': 1,
                 'ya': {lat: _originMarker.getPosition().lat(), lng: _originMarker.getPosition().lng()},
-                main: $('.back-btn').attr("var")
+                main: 1
             },
             function (data) {
+                alert(data);
+
                 d = $.parseJSON(data);
                 for (i = 0; i < markers.length; i++) {
                     markers[i].setMap(null);
@@ -77,8 +21,6 @@ jQuery(document).ready(function ($) {
                     var infowindow = new google.maps.InfoWindow();
                     var marker;
                     if (d.data.performers.length) {
-
-
                         for (k in d.data.performers) {
                             v = d.data.performers[k];
                             $('.user-contacts').hide();
@@ -224,97 +166,11 @@ jQuery(document).ready(function ($) {
                         }
                     }
                     ifRegidtration();
-
                 }
                 //console.log( d );
             });
 
     });
-
-    $(".services-droplist > .service-list__item[var]").on("click", function () {
-        $(".select-area").addClass("active");
-        $(".-floating-label").text($(this).find(".service-list__label").text());
-        $(".services-droplist > a").hide();
-        $(".category-wrapper[var='" + $(this).attr('var') + "']").show();
-        // $(".switcher").hide();
-        $('.search-from').hide();
-        $(".back-btn").removeClass('step1').addClass('step2').attr('var', $(this).attr('var'));
-        $('.services-droplist').addClass('active');
-
-    });
-
-    $(".service-list__item.has-subcategory").on('click', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        if ($(this).hasClass('selected'))
-            $(".service-list__item.has-subcategory").removeClass('selected');
-        else {
-            $(".service-list__item.has-subcategory").removeClass('selected');
-            $(this).addClass('selected').next().slideDown();
-        }
-
-        $(".service-list__item.has-subcategory").each(function () {
-            if (!$(this).hasClass('selected')) $(this).next().slideUp();
-        });
-
-        $('.-floating-label').text($(this).find('.service-list__label').text());
-    });
-
-    $(".service-list__child").on('click', function () {
-        $(".back-btn").removeClass('step2').addClass('step3');
-        $(".-floating-label").text($(this).find(".service-list__label").text());
-        return false;
-    });
-
-    $("#out-info").on("click", ".mini-info", function () {
-        $(this).siblings().hide();
-        $(this).next().show();
-
-        // $('.-floating-label').text($(this).find('.name').text());
-    });
-
-    $("#out-info").on('click', '.call-user', function () {
-        $('.user-control').hide();
-        $('.user-contacts').show();
-    });
-
-    $("#out-info").on('click', '.call-cancel', function () {
-        $('.user-control').show();
-        $('.user-contacts').hide();
-    });
-
-    $("#out-info").on('click', '#contacts-message', function () {
-        alert('Данная функция находится в разработке. Приносим свои извинения за неудобство.');
-    });
-
-    $(window).resize(function () {
-        // var a=$(window).height(),b=220;700>a&&(a=480,b=0);
-        // $("#googlemap.gmap").height( a+200 );
-        // console.log( a );
-    });
-
-
-    /*var marker = new google.maps.Marker({
-      position: {lat:50.450418, lng:30.523541},
-      map: _map,
-      title: 'Hello World!'
-    });*/
-
-    // $(".select-area").on('click', function() {
-    // $(".switcher").hide();
-    // $('aside.control-panel').css('border-top', 'none');
-    // $(".search-to").hide();
-    // $(".select-area").addClass("active");
-    // $(".-floating-label").text('Категории').css({'font-size': '16px', 'left': '65px'});
-    // $(".services-droplist").slideDown();
-    // $(".back-btn").addClass('step1');
-    // });
-
-    // $(".-floating-label").on("click", function() {
-    // $(".category-wrapper").hide();
-    // $(".services-droplist > a").show();
-    // });
 
     String.prototype.replaceAt = function(index, replacement) {
         return this.substr(0, index) + replacement + this.substr(index + replacement.length);
@@ -491,43 +347,229 @@ jQuery(document).ready(function ($) {
         $(this).siblings('input').val('');
         $(this).siblings('textarea').val('');
         $(this).parent('.input-wrap').removeClass('input-wrap_error');
+        $(this).parent('.input-wrap').removeClass('input-wrap_inp');
+    });
+
+    $(".geo-btn").click(function () {
+        $(this).parent('.input-wrap').addClass('input-wrap_inp');
     });
 
     $('button.map-footer__right-btn').on( "click", function(){
-        $('.taxi-order').removeClass('open');
-        $('.answer-order').removeClass('open');
-        $('.info-order').removeClass('open');
-        $('.time-order').toggleClass('open');
+        $('.map-aside-item.time-order').toggleClass('hidden');
+        $('.map-aside-item.taxi-order').addClass('hidden');
+        $('.map-aside-item.answer-order').addClass('hidden');
+        $('.map-aside-item.info-order').addClass('hidden');
     });
 
     $('button.map-footer__left-btn').on( "click", function(){
-        $('.time-order').removeClass('open');
-        $('.answer-order').removeClass('open');
-        $('.info-order').removeClass('open');
-        $('.taxi-order').toggleClass('open');
+        $('.map-aside-item.taxi-order').toggleClass('hidden');
+        $('.map-aside-item.time-order').addClass('hidden');
+        $('.map-aside-item.answer-order').addClass('hidden');
+        $('.map-aside-item.info-order').addClass('hidden');
     });
 
     $('label.map-footer__right-btn').on( "click", function(){
         let src = $(this).attr('src_img');
         $('button.map-footer__right-btn').children('span').children('img').attr('src', src);
-        $('.time-order').removeClass('open');
+
+        $('.map-aside-item.time-order').addClass('hidden');
     });
 
     $('label.map-footer__left-btn').on( "click", function(){
         let src = $(this).attr('src_img');
         $('button.map-footer__left-btn').children('span').children('img').attr('src', src);
-        $('.taxi-order').removeClass('open');
+
+        $('.map-aside-item.taxi-order').addClass('hidden');
     });
 
     $('.map-aside__switch-btn').click(function() {
         $('.map-aside__switch-btn').toggleClass('map-aside__switch-btn_service');
-        $('.map-aside__taxi').toggleClass('map-aside__open');
+        
+        $('.map-aside-item').addClass('hidden');
+        $('.map-aside-item.geo-self').removeClass('hidden');
+
+        if($(this).hasClass('map-aside__switch-btn_service')) {
+            $('.map-aside-item.search-servise').removeClass('hidden');
+            $('.map-aside-item.servise-list').removeClass('hidden');
+        }
+        else {
+            $('.map-aside-item.finish-point').removeClass('hidden');
+            $('.map-aside-item.map-aside__footer').removeClass('hidden');
+        }
+
+    
     });
 
-    $('.list-btn').click(function() {
-        $('.map-aside__list').toggleClass('map-aside__list_hidden');
+    $('.list-btn').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        $('.map-aside-footer').toggleClass('hidden');
     });
+
+    /////////
+
+    $(".servise-list .map-aside__item").on("click", function () {
+        let catgory_index = $(this).attr("var");
+        let name = $(this).children('.servise-name').text();
+
+        $('.back__btn').attr('step', 'one');
+        $('.back__btn').attr('servise', name);
+        $('.back__btn').attr('servise-id', catgory_index);
+
+        $('#search').val(name);
+        $('.map-aside-item').addClass('hidden');
+        $('.map-aside-item.geo-self').removeClass('hidden');
+        $('.map-aside-item[var=' + catgory_index + ']').removeClass('hidden');
+        $('.map-aside-item.search-servise').removeClass('hidden');
+        $('.map-aside-item.search-servise').addClass('search-servise_back');
+        $('.map-aside-item.search-servise').children('.input-wrap').addClass('input-wrap_inp');
+    });
+
+    $(".servise-cat .map-aside__item").on("click", function () {
+        let elem = $(this).next();
+        if(!elem.hasClass('map-aside__podcat')) { return; }
+
+        if(elem.hasClass('hidden')){
+            $(".servise-cat .map-aside__item").removeClass("map-aside__item_open");
+            $(this).addClass("map-aside__item_open");
+            $('.map-aside__podcat').addClass('hidden');
+            elem.removeClass('hidden');
+        }
+        else {
+            $(this).removeClass("map-aside__item_open");
+            elem.addClass('hidden');
+        }
+    });
+
+    $(".back__btn").on("click", function () {
+
+        $('.map-aside-item').addClass('hidden');
+        $('.map-aside-item.geo-self').removeClass('hidden');
+        $('.map-aside-item.search-servise').removeClass('hidden');
+
+        let step = $(this).attr('step');
+
+        if(step === 'one') {
+            $('#search').val('');
+            $('.map-aside-item.search-servise').children('.input-wrap').removeClass('input-wrap_inp');        
+            $('.map-aside-item.search-servise').removeClass('search-servise_back');
+            $('.map-aside-item.servise-list').removeClass('hidden');
+            $('.map-aside__podcat').addClass('hidden');        
+            $(".servise-cat .map-aside__item").removeClass("map-aside__item_open");
+
+        }
+        else if(step === 'two') {
+            $('.input-wrap__cat').attr('value', 'Какую услугу найти?');
+
+            let cat_id = $(this).attr('servise-id');  
+            let service = $(this).attr('servise');
+
+            $('#search').val(service);
+            $('.map-aside-item[var=' + cat_id + ']').removeClass('hidden');
+            $('.map-aside-item.create-servise').addClass('hidden');  
+            $('.map-aside-item.search-servise').removeClass('search-servise_users'); 
+            $('#search').removeAttr('readonly');
+
+            $('.back__btn').attr('step', 'one');
+        }
+        else if(step === 'three') {
+            $('.input-wrap__cat').attr('value', 'Выбрать исполнителя');
+
+            $('.map-aside-item.user-info').addClass('hidden');  
+            $('.map-aside-item.users-list').removeClass('hidden');  
+            $('.map-aside-item.create-servise').removeClass('hidden');  
+            $('.map-aside-item.search-servise').removeClass('search-servise_user'); 
+
+            $('.back__btn').attr('step', 'two');
+        }
+       
+    });
+
+    $(".map-aside__podcat .map-aside__item").on("click", function () {
+        let catgory_index = $(this).attr("var");
+        let name = $(this).text();
+        $('.back__query').text(name);
+
+        $('.back__btn').attr('step', 'two');
+        $('.input-wrap__cat').attr('value', 'Выбрать исполнителя');
+
+        $('.map-aside-item').addClass('hidden');
+        $('.map-aside-item.geo-self').removeClass('hidden');
+        $('.map-aside-item.search-servise').removeClass('hidden');
+        $('.map-aside-item.users-list').removeClass('hidden');
+        $('.map-aside-item.create-servise').removeClass('hidden');
+        $('.map-aside-item.search-servise').addClass('search-servise_users');
+
+        $('#search').attr('readonly', 'readonly');
+
+    });    
+
+    $(".user-item").on("click", function () {
+        let user_id = $(this).attr("user-id");
+
+        $('.back__btn').attr('step', 'three');
+        $('.input-wrap__cat').attr('value', 'Портфолио');
+
+        $('.map-aside-item').addClass('hidden');
+        $('.map-aside-item.search-servise').removeClass('hidden');
+        $('.map-aside-item.user-info').removeClass('hidden');
+        $('.map-aside-item.search-servise').addClass('search-servise_user');
+        $('.map-aside-item.search-servise').removeClass('search-servise_users'); 
+
+        $('#search').attr('readonly', 'readonly');
+
+    });   
+    
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    window.addEventListener('resize', () => {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
+
+    init_start();
+    
+     
 });
+
+function init_start() {
+    let balls = $(".table__stars");
+    for(let j = 0; j < balls.length; j++) {
+        let ball = $(balls[j]).attr("ball");
+        ball = parseFloat(ball);
+
+        for(let i = 0; i < parseInt(ball); i++) {
+            $(balls[j]).append('<span class="icon"><img src="images/star-all.svg" class="img-svg" alt="icon"></span>');
+        }
+
+        let part = ball - parseInt(ball);
+
+        let index = '0';
+        
+        if(part >= 0.9) {
+            index = 'all';
+        }
+        else if(part >= 0.7) {       
+            index = '5';
+        }
+        else if(part >= 0.4) {
+            index = '3';
+        }
+        else if(part >= 0.2){
+            index = '1';
+        }
+
+        if(ball < 5.0) {
+            $(balls[j]).append('<span class="icon"><img src="images/star-' + index + '.svg" class="img-svg" alt="icon"></span>');
+        }
+
+        for(let i = 0; i < 5 - 1 - parseInt(ball); i++) {
+            $(balls[j]).append('<span class="icon"><img src="images/star-0.svg" class="img-svg" alt="icon"></span>');
+        }
+    }
+}
 
 function calcDistance(p1, p2) {
     return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);

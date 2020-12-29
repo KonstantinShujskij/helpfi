@@ -32,13 +32,13 @@
                 </a>    
 
                 <div class="map-aside__switch-wrap">
-                    <button class="map-aside__switch-btn">
-                        <span class="icon car-icon mr-auto ">
-                            <img class="img-svg" src="images/car.svg" alt="">
-                        </span>
-                        <span class="icon people-icon ml-auto">
+                    <button class="map-aside__switch-btn map-aside__switch-btn_service">
+                        <span class="icon people-icon mr-auto">
                             <img class="img-svg" src="images/people.svg" alt="">
                         </span>
+                        <span class="icon car-icon ml-auto">
+                            <img class="img-svg" src="images/car.svg" alt="">
+                        </span>                        
                         <span class="tumbler"></span>                            
                     </button>
                 </div>
@@ -131,343 +131,732 @@
                 
                 <main class="main">
                     
-                    <div class="map-aside map-aside__service">
-                        <div class="map-aside__inner ">    
-                            <label class="input-wrap input-wrap_inp" value="Мое местоположение">
-                                <div type=button class="input-btn geo-btn">
-                                    <span class="icon">
-                                        <img src="images/geo.svg" class="img-svg" alt="icon">
-                                    </span>                                
-                                </div>
-                                <input id="search-from" type="text" class="input" onfocus="setActiveMarker(0)">
-                            </label>   
-                            <label class="input-wrap input-wrap__cat" value="Какую услугу найти?">
-                                <div type=button class="input-btn list-btn">
-                                    <span class="icon">
-                                        <img src="images/menu.svg" class="img-svg" alt="icon">
-                                    </span>                                
-                                </div>
-                                <input id="search" name="search_category" type="text" class="input">
-                            </label>                          
-                            
-                            <div class="map-aside__list map-aside__list_hidden">
-                                <div class="map-aside__item">
-                                    <span class="icon cat-icon">
-                                        <img src="images/desctop-icon.svg" alt="icon">
-                                    </span>
-                                    <span>IT услуги</span>
-                                    <span class="icon arrow-icon">
-                                        <img src="images/aside-arrow.svg" alt="icon">
-                                    </span>
-                                </div>
-                                <div class="map-aside__item">
-                                    <span class="icon cat-icon">
-                                        <img src="images/car-icon.svg" alt="icon">
-                                    </span>
-                                    <span>Автоуслуги</span>
-                                    <span class="icon arrow-icon">
-                                        <img src="images/aside-arrow.svg" alt="icon">
-                                    </span>
-                                </div>
-                                <div class="map-aside__item">
-                                    <span class="icon cat-icon">
-                                        <img src="images/document-icon.svg" alt="icon">
-                                    </span>
-                                    <span>Деловые услуги</span>
-                                    <span class="icon arrow-icon">
-                                        <img src="images/aside-arrow.svg" alt="icon">
-                                    </span>
-                                </div>
-                                <div class="map-aside__item">
-                                    <span class="icon cat-icon">
-                                        <img src="images/bad-icon.svg" alt="icon">
-                                    </span>
-                                    <span>Дом и семья</span>
-                                    <span class="icon arrow-icon">
-                                        <img src="images/aside-arrow.svg" alt="icon">
-                                    </span>
-                                </div>
-                                <div class="map-aside__item">
-                                    <span class="icon cat-icon">
-                                        <img src="images/dreal-icon.svg" alt="icon">
-                                    </span>
-                                    <span>Домашний мастер</span>
-                                    <span class="icon arrow-icon">
-                                        <img src="images/aside-arrow.svg" alt="icon">
-                                    </span>
-                                </div>
-                                <div class="map-aside__item">
-                                    <span class="icon cat-icon">
-                                        <img src="images/cooke-icon.svg" alt="icon">
-                                    </span>
-                                    <span>Доставка еды</span>
-                                    <span class="icon arrow-icon">
-                                        <img src="images/aside-arrow.svg" alt="icon">
-                                    </span>
-                                </div>
-                                <div class="map-aside__item">
-                                    <span class="icon cat-icon">
-                                        <img src="images/key-icon.svg" alt="icon">
-                                    </span>
-                                    <span>Жилье</span>
-                                    <span class="icon arrow-icon">
-                                        <img src="images/aside-arrow.svg" alt="icon">
-                                    </span>
-                                </div>
-                                <div class="map-aside__item">
-                                    <span class="icon cat-icon">
-                                        <img src="images/heals-icon.svg" alt="icon">
-                                    </span>
-                                    <span>Здоровье</span>
-                                    <span class="icon arrow-icon">
-                                        <img src="images/aside-arrow.svg" alt="icon">
-                                    </span>
-                                </div>
-                                <div class="map-aside__item">
-                                    <span class="icon cat-icon">
-                                        <img src="images/anemal-icon.svg" alt="icon">
-                                    </span>
-                                    <span>Зооуслуги</span>
-                                    <span class="icon arrow-icon">
-                                        <img src="images/aside-arrow.svg" alt="icon">
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="map-aside map-aside__taxi map-aside__open">
-                        <div class="map-aside__inner">     
-                            
-                            <div class="map-aside__top">
-                                <label class="input-wrap input-wrap_inp" value="Мое местоположение ">
-                                    <div type=button class="input-btn geo-btn">
-                                        <span class="icon">
-                                            <img src="images/geo.svg" class="img-svg" alt="icon">
-                                        </span>                                
-                                    </div>
-                                    <input id="start-point" type="text" class="input">
-                                </label>                      
-    
-                                <label class="input-wrap way-point-one hidden" value="Где остановтимся?">
-                                    <div type=button class="input-btn clear-btn" onclick="delWaypoint('one')">
-                                        <span class="icon">
-                                            <img src="images/cross.svg" class="img-svg" alt="icon">
-                                        </span>                                
-                                    </div>
-                                    <input id="way-point-one" type="text" class="input">
-                                </label>     
-    
-                                <label class="input-wrap way-point-two hidden" value="Где остановтимся?">
-                                    <div type=button class="input-btn clear-btn" onclick="delWaypoint('two')">
-                                        <span class="icon">
-                                            <img src="images/cross.svg" class="img-svg" alt="icon">
-                                        </span>                                
-                                    </div>
-                                    <input id="way-point-two" type="text" class="input">
-                                </label>
-    
-                                <label class="input-wrap" value="Куда ехать?">
-                                    <div type=button class="input-btn add-btn" style="right: 0.9rem;" onclick="addWaypoint()">
-                                        <span class="icon">
-                                            <img src="images/plus.svg" class="img-svg" alt="icon">
-                                        </span>                                
-                                    </div>
-                                    <input id="finish-point" type="text" class="input">
-                                </label>
-                            </div>
-
-                            <div class="map-aside__footer">
-                                <div class="d-flex w-100" style="position: relative; z-index: 10;">
-                                    <button class="map-footer__left-btn">
-                                        <span>
-                                            <img src="images/taxi.svg" alt="taxi">
-                                        </span>
-                                    </button>
-                                    <button class="helpfi___btn map-footer__btn map-footer__btn_active order-btn-one">
-                                        <span>ЗАКАЗАТЬ</span>
-                                    </button>
-                                    <button class="helpfi___btn map-footer__btn order-btn-two" onclick="advOrderSubmit()">
-                                        <span>ПОДТВЕРДИТЬ</span>
-                                    </button>
-                                    <button class="helpfi___btn map-footer__btn order-btn-three" onclick="backToFirstStep()">
-                                        <span>НАЗАД</span>
-                                    </button>
-                                    <button class="map-footer__right-btn">
-                                        <span>
-                                            <img src="images/clock.svg" alt="time">
-                                        </span>
-                                    </button>
-                                </div>                                
-
-                                <div class="footer__popup time-order">
-                                    <div class="footer-popup__item">
-                                        <div class="footer-popup__item-info justify-content-end">
-                                            Заказать на сейчас
+                    <div class="map-aside">
+                        <div class="map-aside__inner">   
+                            <div class="map-aside-top">
+                                <div class="map-aside-item geo-self">
+                                    <label class="input-wrap input-wrap_inp" value="Введите адрес">
+                                        <div type=button class="input-btn geo-btn">
+                                            <span class="icon">
+                                                <img src="images/geo.svg" class="img-svg" alt="icon">
+                                            </span>                                
                                         </div>
-                                        <label class="map-footer__right-btn" src_img="images/clock.svg">
+                                        <div type=button class="input-btn clear-btn">
+                                            <span class="icon">
+                                                <img src="images/cross.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+                                        <input id="start-point" type="text" class="input">
+                                    </label>  
+                                </div>                 
+
+                                <div class="map-aside-item search-servise">
+                                    <label class="input-wrap input-wrap__cat" value="Какую услугу найти?">
+                                        <button class="icon arrow-icon back__btn">
+                                            <img src="images/aside-arrow.svg" class="img-svg" alt="icon">
+                                        </button>
+                                        <div type=button class="input-btn list-btn">
+                                            <span class="icon">
+                                                <img src="images/menu.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+                                        <div type=button class="input-btn clear-btn">
+                                            <span class="icon">
+                                                <img src="images/cross.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+
+                                        <div type=button class="input-btn filter-btn">
+                                            <span class="icon">
+                                                <img src="images/filter.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+                                        <div type=button class="input-btn share-btn">
+                                            <span class="icon">
+                                                <img src="images/share.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+                                        <input id="search" name="search_category" type="text" class="input" autocomplete="off">
+                                    </label>   
+                                </div>    
+                                
+                                <div class="map-aside-item way-point-one hidden">
+                                    <label class="input-wrap" value="Где остановтимся?">
+                                        <div type=button class="input-btn clear-btn" onclick="delWaypoint('one')">
+                                            <span class="icon">
+                                                <img src="images/cross.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+                                        <input id="way-point-one" type="text" class="input">
+                                    </label> 
+                                </div>                 
+    
+                                <div class="map-aside-item way-point-two hidden">
+                                    <label class="input-wrap" value="Где остановтимся?">
+                                        <div type=button class="input-btn clear-btn" onclick="delWaypoint('two')">
+                                            <span class="icon">
+                                                <img src="images/cross.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+                                        <input id="way-point-two" type="text" class="input">
+                                    </label>
+                                </div>
+    
+                                <div class="map-aside-item finish-point hidden">
+                                    <label class="input-wrap input-wrap_inp" value="Куда ехать?">
+                                        <div type=button class="input-btn add-btn" style="right: 0.9rem;" onclick="addWaypoint()">
+                                            <span class="icon">
+                                                <img src="images/plus.svg" class="img-svg" alt="icon">
+                                            </span>                                
+                                        </div>
+                                        <input id="finish-point" type="text" class="input" value="По городу">
+                                    </label>
+                                </div>    
+                                
+                                <div class="map-aside-item map-aside__footer hidden">
+                                    <div class="footer-btns">
+                                        <button class="helpfi___btn map-footer__left-btn">
+                                            <span>
+                                                <img src="images/taxi.svg" alt="taxi">
+                                            </span>
+                                        </button>
+                                        <button class="helpfi___btn map-footer__btn map-footer__btn_active order-btn-one">
+                                            <span>ЗАКАЗАТЬ</span>
+                                        </button>
+                                        <button class="helpfi___btn map-footer__btn order-btn-two" onclick="advOrderSubmit()">
+                                            <span>ПОДТВЕРДИТЬ</span>
+                                        </button>
+                                        <button class="helpfi___btn map-footer__btn order-btn-three" onclick="backToFirstStep()">
+                                            <span>НАЗАД</span>
+                                        </button>
+                                        <button class="helpfi___btn map-footer__right-btn">
                                             <span>
                                                 <img src="images/clock.svg" alt="time">
-                                            </span>                                        
-                                            <input type="radio" name="when" value="when-quarter" id="when-quarter" class="footer__radio">
-                                        </label>
-                                    </div>
-                                  
-                                    <div class="footer-popup__item">
-                                        <div class="footer-popup__item-info">
-                                            <select class="form-control input-short form-select" name="time-date" id="time-date" onchange="fillTime()">
-                                                <option value="td">Сегодня</option>
-                                                <option value="tm">Завтра</option>
-                                            </select>
-                                            <select class="form-control input-time form-select" name="time-hours" id="time-hours" onchange="fillMinutes()"></select>
-                                            <i class="timedots">:</i>
-                                            <select class="form-control input-time form-select" name="time-mins" id="time-mins"></select>
-                                        </div>
-                                        <label class="map-footer__right-btn" src_img="images/calendar.svg">
-                                            <span>
-                                                <img src="images/calendar.svg" alt="time">
                                             </span>
-                                            <input type="radio" name="when" value="when-time" id="when-time" class="footer__radio">
-                                        </label>
-                                    </div>
-                                </div>
+                                        </button>
+                                    </div>                                
 
-                                <div class="footer__popup taxi-order">
-                                    <div class="footer-popup__item">                                        
-                                        <label class="map-footer__left-btn" src_img="images/tow-truck.svg">
-                                            <span>
-                                                <img src="images/tow-truck.svg" alt="time">
-                                            </span>                                        
-                                            <input type="radio" name="what" id="what-support" class="footer__radio" onclick="setDrvType(3)">
-                                        </label>
-                                        <div class="footer-popup__item-info justify-content-start">
-                                            Техпомощь
-                                        </div>
+                                </div>      
+                            </div>   
+                            
+                            <div class="map-aside-item time-order hidden">
+                                <div class="footer-popup__item">
+                                    <div class="footer-popup__item-info justify-content-end">
+                                        Заказать на сейчас
                                     </div>
-                                  
-                                    <div class="footer-popup__item">
-                                        <label class="map-footer__left-btn" src_img="images/truck.svg">
-                                            <span>
-                                                <img src="images/truck.svg" alt="time">
-                                            </span>                                        
-                                            <input type="radio" name="what" id="what-truck" class="footer__radio" onclick="setDrvType(2)">
-                                        </label>
-                                        <div class="footer-popup__item-info justify-content-start">
-                                            Грузовик
-                                        </div>
-                                    </div>
-
-                                    <div class="footer-popup__item">
-                                        <label class="map-footer__left-btn" src_img="images/buss.svg">
-                                            <span>
-                                                <img src="images/buss.svg" alt="time">
-                                            </span>                                        
-                                            <input type="radio" name="what" id="what-bus" class="footer__radio" onclick="setDrvType(1)">
-                                        </label>
-                                        <div class="footer-popup__item-info justify-content-start">
-                                            Автобус
-                                        </div>
-                                    </div>
-
-                                    <div class="footer-popup__item">
-                                        <label class="map-footer__left-btn" src_img="images/universal.svg">
-                                            <span>
-                                                <img src="images/universal.svg" alt="time">
-                                            </span>                                        
-                                            <input type="radio" name="what" id="what-uni" class="footer__radio" onclick="setDrvType(4)">
-                                        </label>
-                                        <div class="footer-popup__item-info justify-content-start">
-                                            Универсал
-                                        </div>
-                                    </div>
-
-                                    <div class="footer-popup__item">
-                                        <label class="map-footer__left-btn" src_img="images/taxi.svg">
-                                            <span>
-                                                <img src="images/taxi.svg" alt="time">
-                                            </span>                                        
-                                            <input type="radio" checked="checked" name="what" id="what-auto" class="footer__radio" onclick="setDrvType(0)">
-                                        </label>
-                                        <div class="footer-popup__item-info justify-content-start">
-                                            Легковая
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="footer__popup info-order">
-                                    <label class="input-wrap" value="Имя">
-                                        <div type=button class="input-btn clear-btn">
-                                            <span class="icon">
-                                                <img src="images/cross.svg" class="img-svg" alt="icon">
-                                            </span>                                
-                                        </div>
-                                        <input id="order-name" type="text" class="input" name="order-gratuity" autocomplete="off">
+                                    <label class="helpfi___btn map-footer__right-btn" src_img="images/clock.svg">
+                                        <span>
+                                            <img src="images/clock.svg" alt="time">
+                                        </span>                                        
+                                        <input type="radio" name="when" value="when-quarter" id="when-quarter" class="footer__radio">
                                     </label>
-
-                                    <label class="input-wrap phone-wrap d-flex" value="Телефон">
-                                        <div type=button class="input-btn clear-btn">
-                                            <span class="icon">
-                                                <img src="images/cross.svg" class="img-svg" alt="icon">
-                                            </span>
-                                        </div>
-                                        <select class="phone__select">
-                                            <option value="ua">+38</option>
+                                </div>
+                                
+                                <div class="footer-popup__item">
+                                    <div class="footer-popup__item-info">
+                                        <select class="form-control input-short form-select" name="time-date" id="time-date" onchange="fillTime()">
+                                            <option value="td">Сегодня</option>
+                                            <option value="tm">Завтра</option>
                                         </select>
-                                        <input id="order-phone" type="tel" class="input phone" name="login" pattern="^[(]{1}[0-9]{3}[)]{1} [0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$" required>
-                                        <div class="flag" country="+38"></div>
-                                    </label>                                    
-                                    
-
-                                    <label class="input-wrap input-wrap__textarea" value="Комментарий">
-                                        <div type=button class="input-btn clear-btn">
-                                            <span class="icon">
-                                                <img src="images/cross.svg" class="img-svg" alt="icon">
-                                            </span>                                
-                                        </div>
-                                        <textarea class="input" rows="4" id="order-comment-adv" name="order-comment" maxlength="400"></textarea> 
+                                        <select class="form-control input-time form-select" name="time-hours" id="time-hours" onchange="fillMinutes()"></select>
+                                        <i class="timedots">:</i>
+                                        <select class="form-control input-time form-select" name="time-mins" id="time-mins"></select>
+                                    </div>
+                                    <label class="helpfi___btn map-footer__right-btn" src_img="images/calendar.svg">
+                                        <span>
+                                            <img src="images/calendar.svg" alt="time">
+                                        </span>
+                                        <input type="radio" name="when" value="when-time" id="when-time" class="footer__radio">
                                     </label>
-    
-                                    <label class="input-wrap" value="Чаевые">
-                                        <div type=button class="input-btn clear-btn">
-                                            <span class="icon">
-                                                <img src="images/cross.svg" class="img-svg" alt="icon">
-                                            </span>                                
-                                        </div>
-                                        <input id="order-gratuity" type="text" class="input tea" autocomplete="off">
-                                    </label>
-
-                                    <label for="captcha">
-                                        <img id="captchaImg" alt="" src="captcha.php?PHPSESSID=fvl92hdoy5g3mvvbem90mzj0an">
-                                        <i class="ico-vt-refresh plink" title="Показать другой вариант" onclick="refreshCaptcha()"></i>
-                                    </label>
-                                    
-                                    <label class="input-wrap" value="Капча">
-                                        <div type=button class="input-btn clear-btn">
-                                            <span class="icon">
-                                                <img src="images/cross.svg" class="img-svg" alt="icon">
-                                            </span>                                
-                                        </div>
-                                        <input id="captcha" type="text" class="input code" name="captcha" maxlength="4" autocomplete="off" pattern="^[0-9\s]+$" onkeyup="p=/[^0-9]/g; if (p.test(this.value)) this.value = this.value.replace(p, '')">
-                                    </label>                           
-                                                               
-                                </div>
-
-                                <div class="footer__popup answer-order">
-                                                          
                                 </div>
                             </div>
 
-                            
+                            <div class="map-aside-item taxi-order hidden">
+                                <div class="footer-popup__item">                                        
+                                    <label class="helpfi___btn map-footer__left-btn" src_img="images/tow-truck.svg">
+                                        <span>
+                                            <img src="images/tow-truck.svg" alt="time">
+                                        </span>                                        
+                                        <input type="radio" name="what" id="what-support" class="footer__radio" onclick="setDrvType(3)">
+                                    </label>
+                                    <div class="footer-popup__item-info justify-content-start">
+                                        Техпомощь
+                                    </div>
+                                </div>
+                              
+                                <div class="footer-popup__item">
+                                    <label class="helpfi___btn map-footer__left-btn" src_img="images/truck.svg">
+                                        <span>
+                                            <img src="images/truck.svg" alt="time">
+                                        </span>                                        
+                                        <input type="radio" name="what" id="what-truck" class="footer__radio" onclick="setDrvType(2)">
+                                    </label>
+                                    <div class="footer-popup__item-info justify-content-start">
+                                        Грузовик
+                                    </div>
+                                </div>
+
+                                <div class="footer-popup__item">
+                                    <label class="helpfi___btn map-footer__left-btn" src_img="images/buss.svg">
+                                        <span>
+                                            <img src="images/buss.svg" alt="time">
+                                        </span>                                        
+                                        <input type="radio" name="what" id="what-bus" class="footer__radio" onclick="setDrvType(1)">
+                                    </label>
+                                    <div class="footer-popup__item-info justify-content-start">
+                                        Автобус
+                                    </div>
+                                </div>
+
+                                <div class="footer-popup__item">
+                                    <label class="helpfi___btn map-footer__left-btn" src_img="images/universal.svg">
+                                        <span>
+                                            <img src="images/universal.svg" alt="time">
+                                        </span>                                        
+                                        <input type="radio" name="what" id="what-uni" class="footer__radio" onclick="setDrvType(4)">
+                                    </label>
+                                    <div class="footer-popup__item-info justify-content-start">
+                                        Универсал
+                                    </div>
+                                </div>
+
+                                <div class="footer-popup__item">
+                                    <label class="helpfi___btn map-footer__left-btn" src_img="images/taxi.svg">
+                                        <span>
+                                            <img src="images/taxi.svg" alt="time">
+                                        </span>                                        
+                                        <input type="radio" checked="checked" name="what" id="what-auto" class="footer__radio" onclick="setDrvType(0)">
+                                    </label>
+                                    <div class="footer-popup__item-info justify-content-start">
+                                        Легковая
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="map-aside-item info-order hidden">
+                                <label class="input-wrap" value="Имя">
+                                    <div type=button class="input-btn clear-btn">
+                                        <span class="icon">
+                                            <img src="images/cross.svg" class="img-svg" alt="icon">
+                                        </span>                                
+                                    </div>
+                                    <input id="order-name" type="text" class="input" name="order-gratuity" autocomplete="off">
+                                </label>
+
+                                <label class="input-wrap phone-wrap d-flex" value="Телефон">
+                                    <div type=button class="input-btn clear-btn">
+                                        <span class="icon">
+                                            <img src="images/cross.svg" class="img-svg" alt="icon">
+                                        </span>
+                                    </div>
+                                    <select class="phone__select">
+                                        <option value="ua">+38</option>
+                                    </select>
+                                    <input id="order-phone" type="tel" class="input phone" name="login" pattern="^[(]{1}[0-9]{3}[)]{1} [0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$" required>
+                                    <div class="flag" country="+38"></div>
+                                </label>                                                              
+
+                                <label class="input-wrap input-wrap__textarea" value="Комментарий">
+                                    <div type=button class="input-btn clear-btn">
+                                        <span class="icon">
+                                            <img src="images/cross.svg" class="img-svg" alt="icon">
+                                        </span>                                
+                                    </div>
+                                    <textarea class="input" rows="4" id="order-comment-adv" name="order-comment" maxlength="400"></textarea> 
+                                </label>
+
+                                <label class="input-wrap" value="Чаевые">
+                                    <div type=button class="input-btn clear-btn">
+                                        <span class="icon">
+                                            <img src="images/cross.svg" class="img-svg" alt="icon">
+                                        </span>                                
+                                    </div>
+                                    <input id="order-gratuity" type="text" class="input tea" autocomplete="off">
+                                </label>
+
+                                <label for="captcha">
+                                    <img alt="5079" src="images/captcha.jpg">
+                                    <img id="captchaImg" class="hidden" alt="5079" src="images/captcha.jpg">
+                                    <i class="ico-vt-refresh plink" title="Показать другой вариант" onclick="refreshCaptcha()"></i>
+                                </label>
+                                
+                                <label class="input-wrap" value="Капча">
+                                    <div type=button class="input-btn clear-btn">
+                                        <span class="icon">
+                                            <img src="images/cross.svg" class="img-svg" alt="icon">
+                                        </span>                                
+                                    </div>
+                                    <input id="captcha" type="text" class="input code" name="captcha" maxlength="4" autocomplete="off" pattern="^[0-9\s]+$" onkeyup="p=/[^0-9]/g; if (p.test(this.value)) this.value = this.value.replace(p, '')">
+                                </label>                           
+                                                           
+                            </div>
+
+                            <div class="map-aside-item answer-order hidden">
+                                                              
+                            </div>
+
+                            <div class="map-aside-footer">
+                                <div class="map-aside-item servise-list">
+                                    <div class="map-aside__list">
+                                        <div class="map-aside__item" var="1726">
+                                            <span class="icon cat-icon">
+                                                <img src="images/desctop-icon.svg" alt="icon">
+                                            </span>
+                                            <span class="servise-name">IT услуги</span>    
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>                                    
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/car-icon.svg" alt="icon">
+                                            </span>
+                                            <span class="servise-name">Автоуслуги</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>      
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/document-icon.svg" alt="icon">
+                                            </span>
+                                            <span class="servise-name">Деловые услуги</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>      
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/bad-icon.svg" alt="icon">
+                                            </span>
+                                            <span class="servise-name">Дом и семья</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>      
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/dreal-icon.svg" alt="icon">
+                                            </span>
+                                            <span class="servise-name">Домашний мастер</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>      
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/cooke-icon.svg" alt="icon">
+                                            </span>
+                                            <span class="servise-name">Доставка еды</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>      
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/key-icon.svg" alt="icon">
+                                            </span>
+                                            <span class="servise-name">Жилье</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>      
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/heals-icon.svg" alt="icon">
+                                            </span>
+                                            <span class="servise-name">Здоровье</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>      
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/anemal-icon.svg" alt="icon">
+                                            </span>
+                                            <span class="servise-name">Зооуслуги</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>      
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="map-aside-item servise-cat hidden" var="1726">
+                                    <div class="map-aside__list">
+                                        <div class="map-aside__item" var="1">
+                                            <span>IT услуги</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__podcat hidden">
+                                            <div class="map-aside__item" var="1">
+                                                <span>One</span>
+                                            </div>
+                                            <div class="map-aside__item" var="1">
+                                                <span>Two</span>
+                                            </div>
+                                            <div class="map-aside__item" var="1">
+                                                <span>Three</span>
+                                            </div>                                       
+                                        </div>
+
+                                        <div class="map-aside__item" var="1">
+                                            <span>IT услуги</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__podcat hidden">
+                                            <div class="map-aside__item" var="1">
+                                                <span>One</span>
+                                            </div>
+                                            <div class="map-aside__item" var="1">
+                                                <span>Two</span>
+                                            </div>
+                                            <div class="map-aside__item" var="1">
+                                                <span>Three</span>
+                                            </div>                                       
+                                        </div>
+
+                                        <div class="map-aside__item" var="1">
+                                            <span>IT услуги</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__podcat hidden">
+                                            <div class="map-aside__item" var="1">
+                                                <span>One</span>
+                                            </div>
+                                            <div class="map-aside__item" var="1">
+                                                <span>Two</span>
+                                            </div>
+                                            <div class="map-aside__item" var="1">
+                                                <span>Three</span>
+                                            </div>                                       
+                                        </div>
+
+                                        <div class="map-aside__item" var="1">
+                                            <span>IT услуги</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__podcat hidden">
+                                            <div class="map-aside__item" var="1">
+                                                <span>One</span>
+                                            </div>
+                                            <div class="map-aside__item" var="1">
+                                                <span>Two</span>
+                                            </div>
+                                            <div class="map-aside__item" var="1">
+                                                <span>Three</span>
+                                            </div>                                       
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="map-aside-item servise-cat hidden" var="1">
+                                    <div class="map-aside__list">
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/desctop-icon.svg" alt="icon">
+                                            </span>
+                                            <span>IT услуги</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/car-icon.svg" alt="icon">
+                                            </span>
+                                            <span>Автоуслуги</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/document-icon.svg" alt="icon">
+                                            </span>
+                                            <span>Деловые услуги</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/bad-icon.svg" alt="icon">
+                                            </span>
+                                            <span>Дом и семья</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/dreal-icon.svg" alt="icon">
+                                            </span>
+                                            <span>Домашний мастер</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/cooke-icon.svg" alt="icon">
+                                            </span>
+                                            <span>Доставка еды</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/key-icon.svg" alt="icon">
+                                            </span>
+                                            <span>Жилье</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/heals-icon.svg" alt="icon">
+                                            </span>
+                                            <span>Здоровье</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                        <div class="map-aside__item" var="1">
+                                            <span class="icon cat-icon">
+                                                <img src="images/anemal-icon.svg" alt="icon">
+                                            </span>
+                                            <span>Зооуслуги</span>
+                                            <span class="icon arrow-icon">
+                                                <img src="images/aside-arrow.svg" alt="icon">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="map-aside-item users-list hidden">
+                                    <div class="map-aside__list">
+                                        <div class="user-item" user-id='1'>
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="user-item__info">
+                                                <div class="user-item__name">Юлия</div>
+                                                <div class="table__ball">
+                                                    <div class="table__stars" ball="5.0"></div>                            
+                                                    <div>
+                                                        <span>5 (321)</span> 
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <img class="user-item__mess-icon" src="images/mess.svg" alt="icon"> 
+                                                    <span>235</span>
+                                                </div>
+                                            </div>
+                                            <div class="user-item__status">
+                                                <div class="user-item__flag">Свободен</div>
+                                                <div class="user-item__distance">0,7 км</div>
+                                                <div class="user-item__adres">ул. Пушкинская 10</div>
+                                            </div>
+                                        </div>
+                                        <div class="user-item" user-id='2'>
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="user-item__info">
+                                                <div class="user-item__name">Юлия</div>
+                                                <div class="table__ball">
+                                                    <div class="table__stars" ball="5.0"></div>                            
+                                                    <div>
+                                                        <span>5 (321)</span> 
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <img class="user-item__mess-icon" src="images/mess.svg" alt="icon"> 
+                                                    <span>235</span>
+                                                </div>
+                                            </div>
+                                            <div class="user-item__status">
+                                                <div class="user-item__flag">Свободен</div>
+                                                <div class="user-item__distance">0,7 км</div>
+                                                <div class="user-item__adres">ул. Пушкинская 10</div>
+                                            </div>
+                                        </div>
+                                        <div class="user-item" user-id='3'>
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="user-item__info">
+                                                <div class="user-item__name">Юлия</div>
+                                                <div class="table__ball">
+                                                    <div class="table__stars" ball="5.0"></div>                            
+                                                    <div>
+                                                        <span>5 (321)</span> 
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <img class="user-item__mess-icon" src="images/mess.svg" alt="icon"> 
+                                                    <span>235</span>
+                                                </div>
+                                            </div>
+                                            <div class="user-item__status">
+                                                <div class="user-item__flag">Свободен</div>
+                                                <div class="user-item__distance">0,7 км</div>
+                                                <div class="user-item__adres">ул. Пушкинская 10</div>
+                                            </div>
+                                        </div>
+                                        <div class="user-item" user-id='4'>
+                                            <div class="online-wrap online-wrap__online">
+                                                <div class="avatar table-avatar">
+                                                    <div class="avatar__wrapper">
+                                                        <div class="avatar__anchor">
+                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="user-item__info">
+                                                <div class="user-item__name">Юлия</div>
+                                                <div class="table__ball">
+                                                    <div class="table__stars" ball="5.0"></div>                            
+                                                    <div>
+                                                        <span>5 (321)</span> 
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <img class="user-item__mess-icon" src="images/mess.svg" alt="icon"> 
+                                                    <span>235</span>
+                                                </div>
+                                            </div>
+                                            <div class="user-item__status">
+                                                <div class="user-item__flag">Свободен</div>
+                                                <div class="user-item__distance">0,7 км</div>
+                                                <div class="user-item__adres">ул. Пушкинская 10</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="map-aside-item user-info hidden">
+                                    <div class="user-item">
+                                        <div class="online-wrap online-wrap__online">
+                                            <div class="avatar table-avatar">
+                                                <div class="avatar__wrapper">
+                                                    <div class="avatar__anchor">
+                                                        <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-item__info">
+                                            <div class="user-item__name">Юлия</div>
+                                            <div class="table__ball">
+                                                <div class="table__stars" ball="5.0"></div>                            
+                                                <div>
+                                                    <span>5 (321)</span> 
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <img class="user-item__mess-icon" src="images/mess.svg" alt="icon"> 
+                                                <span>235</span>
+                                            </div>
+                                        </div>
+                                        <div class="user-item__status">
+                                            <div class="user-item__flag">Свободен</div>
+                                            <div class="user-item__distance">0,7 км</div>
+                                            <div class="user-item__adres">ул. Пушкинская 10</div>
+                                        </div>
+                                    </div>
+                                    <div class="user-service-list">
+                                        <div class="user-service">1) Дизайн одежды и подбор материалов.</div>
+                                        <div class="user-service">2) Индивидуальный пошив </div>
+                                        <div class="user-service">3) Различные виды ручного декорирования: вышивка, дырки, потертости  на  джинсах.</div>
+                                        <div class="user-service">4) Создание аксессуаров.</div>
+                                        <div class="user-service">5) Ремонт и реставрация одежды.</div>
+                                        <div class="user-service">6) Перешив и модернизация одежды.</div>
+                                        <div class="user-service">7) Замена молний, пуговиц, заклепок</div>
+                                    </div>
+                                    <div class="user-info__service">
+                                        <div class="mr-auto">Другие услуги швеи</div>
+                                        <div class="green">от 1200₴</div>
+                                    </div>
+                                    <div class="user-info__service">
+                                        <div class="mr-auto">Пошив одежды</div>
+                                        <div class="green">от 1500₴</div>
+                                    </div>
+                                    <div class="user-info__service">
+                                        <div class="mr-auto">Пошив текстиля</div>
+                                        <div class="green">от 1000₴</div>
+                                    </div>
+                                    <div class="user-info__service">
+                                        <div class="mr-auto">Ремонт одежды</div>
+                                        <div class="green">от 500₴</div>
+                                    </div>
+
+                                    <div class="user-info__img-wrap">
+                                        <div class="user-info__img">
+                                            <img src="images/user-service.png" alt="img" class="w-100 h-100">
+                                            <div class="user-info-img-title">
+                                                <span class="ml-auto mr-auto">Рабочая форма</span>
+                                                <span>2/4</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="user-info__btns">
+                                        <button class="helpfi___btn mr-2 mess-btn">
+                                            <span>НАПИСАТЬ</span>
+                                        </button>
+                                        <button class="helpfi___btn phone-btn">
+                                            <span>ПОЗВОНИТЬ</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="map-aside-item create-servise hidden">
+                                    <a href="https://helpfi.me/st/executor_reg.php" class="helpfi___btn">
+                                        <span>СОЗДАТЬ УСЛУГУ</span>
+                                    </a>
+                                </div>                  
+                            </div>
                         </div>
                     </div>
 
                 <div class="map-aside__switch-wrap">
-                    <button class="map-aside__switch-btn">
-                        <span class="icon car-icon mr-auto ">
-                            <img class="img-svg" src="images/car.svg" alt="">
-                        </span>
-                        <span class="icon people-icon ml-auto">
+                    <button class="map-aside__switch-btn map-aside__switch-btn_service">
+                        <span class="icon people-icon mr-auto">
                             <img class="img-svg" src="images/people.svg" alt="">
                         </span>
+                        <span class="icon car-icon ml-auto">
+                            <img class="img-svg" src="images/car.svg" alt="">
+                        </span>                        
                         <span class="tumbler"></span>                            
                     </button>
                 </div>

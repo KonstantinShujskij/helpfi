@@ -147,10 +147,6 @@ body {
             flex: 1 1 auto;
 }
 
-.hidden {
-    display: none;
-}
-
 .nicescroll-rails div { 
     background: var(--grey-light) !important;
     border-radius: calc((1rem / 16) * 3);
@@ -334,6 +330,10 @@ body {
 
 .popup__btns {
     margin-top: 2rem;
+}
+
+.hidden {
+    display: none !important;
 }
 
 @media (max-width: 768px) {

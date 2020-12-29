@@ -1403,7 +1403,7 @@ $(document).ready(function () {/*mobileVersion();*/
                     console.log("captca 0");
                     $(".captcha").removeClass("hidden");
                     refreshCaptcha();
-                    $(".info-order").addClass('open');
+                    $(".info-order").removeClass('hidden');
                     $(".order-btn-one").removeClass('map-footer__btn_active');
                     $(".order-btn-two").addClass('map-footer__btn_active');
                 }

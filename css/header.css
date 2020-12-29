@@ -1,5 +1,6 @@
 .top {
     min-height: 3.75rem;
+    max-height: 3.75rem;
     width: 100%;
     background-color: #FFFFFF;
     padding: 1rem 2rem;
