@@ -1,5 +1,6 @@
-jQuery(document).ready(function ($) {
+let markers = [];
 
+jQuery(document).ready(function ($) {
 
     $(".services-droplist .service-list__item[var]").on("click", function () {
         $.post("https://helpfi.me/send.php", {
@@ -407,40 +408,7 @@ jQuery(document).ready(function ($) {
         $('.map-aside-footer').toggleClass('hidden');
     });
 
-    /////////
-
-    $(".servise-list .map-aside__item").on("click", function () {
-        let catgory_index = $(this).attr("var");
-        let name = $(this).children('.servise-name').text();
-
-        $('.back__btn').attr('step', 'one');
-        $('.back__btn').attr('servise', name);
-        $('.back__btn').attr('servise-id', catgory_index);
-
-        $('#search').val(name);
-        $('.map-aside-item').addClass('hidden');
-        $('.map-aside-item.geo-self').removeClass('hidden');
-        $('.map-aside-item[var=' + catgory_index + ']').removeClass('hidden');
-        $('.map-aside-item.search-servise').removeClass('hidden');
-        $('.map-aside-item.search-servise').addClass('search-servise_back');
-        $('.map-aside-item.search-servise').children('.input-wrap').addClass('input-wrap_inp');
-    });
-
-    $(".servise-cat .map-aside__item").on("click", function () {
-        let elem = $(this).next();
-        if(!elem.hasClass('map-aside__podcat')) { return; }
-
-        if(elem.hasClass('hidden')){
-            $(".servise-cat .map-aside__item").removeClass("map-aside__item_open");
-            $(this).addClass("map-aside__item_open");
-            $('.map-aside__podcat').addClass('hidden');
-            elem.removeClass('hidden');
-        }
-        else {
-            $(this).removeClass("map-aside__item_open");
-            elem.addClass('hidden');
-        }
-    });
+    ///////// 
 
     $(".back__btn").on("click", function () {
 
@@ -486,25 +454,6 @@ jQuery(document).ready(function ($) {
        
     });
 
-    $(".map-aside__podcat .map-aside__item").on("click", function () {
-        let catgory_index = $(this).attr("var");
-        let name = $(this).text();
-        $('.back__query').text(name);
-
-        $('.back__btn').attr('step', 'two');
-        $('.input-wrap__cat').attr('value', 'Выбрать исполнителя');
-
-        $('.map-aside-item').addClass('hidden');
-        $('.map-aside-item.geo-self').removeClass('hidden');
-        $('.map-aside-item.search-servise').removeClass('hidden');
-        $('.map-aside-item.users-list').removeClass('hidden');
-        $('.map-aside-item.create-servise').removeClass('hidden');
-        $('.map-aside-item.search-servise').addClass('search-servise_users');
-
-        $('#search').attr('readonly', 'readonly');
-
-    });    
-
     $(".user-item").on("click", function () {
         let user_id = $(this).attr("user-id");
 
@@ -530,9 +479,234 @@ jQuery(document).ready(function ($) {
     });
 
     init_start();
-    
-     
+       
+    load_categories(); 
+
 });
+
+
+function load_categories() {
+    fetch('https://helpfi.me/api/categories.php').then((response) => {
+        return response.json();
+    }).then((data) => {
+        let categories = data.categories;
+
+        for (key in categories) {
+            $(".servise-list .map-aside__list").append(create_map_aside_item(key, categories[key].name));
+        }
+
+        set_map_aside_item_event();
+
+    }).catch(() => {
+        let categories = {"1":{"id":1,"name":"IT услуги"},"42":{"id":42,"name":"Автоуслуги"},"79":{"id":79,"name":"Деловые услуги"},"212":{"id":212,"name":"Дом и семья"},"294":{"id":294,"name":"Домашний мастер"},"1699":{"id":1699,"name":"Доставка еды"},"1710":{"id":1710,"name":"Жилье"},"549":{"id":549,"name":"Здоровье"},"752":{"id":752,"name":"Клининговые услуги"},"912":{"id":912,"name":"Красота"},"1036":{"id":1036,"name":"Логистика"},"1069":{"id":1069,"name":"Образование и курсы"},"1173":{"id":1173,"name":"Организация праздников"},"1726":{"id":1726,"name":"Пассажирские перевозки"},"1657":{"id":1657,"name":"Прокат товаров"},"1211":{"id":1211,"name":"Ремонт техники"},"1323":{"id":1323,"name":"Спорт и туризм"},"1393":{"id":1393,"name":"Страхование"},"1397":{"id":1397,"name":"Строительные работы"},"707":{"id":707,"name":"Услуги для житвотных"},"1573":{"id":1573,"name":"Услуги курьеров"},"1677":{"id":1677,"name":"Услуги спецтехники"},"1624":{"id":1624,"name":"Фото, Видео"}};
+
+        for (key in categories) {
+            $(".servise-list .map-aside__list").append(create_map_aside_item(key, categories[key].name));
+        }
+
+        set_map_aside_item_event();
+    });
+}
+
+function load_cat(id, fun) {
+    fetch('https://helpfi.me/api/categories.php?categoryId=' + id).then((response) => {
+        return response.json();
+    }).then((data) => {
+        let categories = data.categories;
+
+        let cat = $('<div class="map-aside-item servise-cat hidden" var="' + id + '"></div>');
+
+        for (key in categories) {
+            cat.append(create_map_aside_item(key, categories[key].name, false));
+        }
+
+        $('.map-aside-footer').append(cat);
+
+        set_servise_cat_event();
+        fun();
+
+    }).catch(() => {
+        let categories = {"2":{"id":2,"name":"Игры"},"1212":{"id":1212,"name":"Компьютерная помощь"},"7":{"id":7,"name":"Компьютерные программы"},"16":{"id":16,"name":"Мобильные приложения"},"23":{"id":23,"name":"Настройка Wi-Fi"},"29":{"id":29,"name":"Разработка сайтов"},"38":{"id":38,"name":"Установка Windows"}};
+
+        let cat = $('<div class="map-aside-item servise-cat hidden" var="' + id + '"></div>');
+
+        for (key in categories) {
+            cat.append(create_map_aside_item(key, categories[key].name, false));
+        }
+
+        $('.map-aside-footer').append(cat);
+
+        set_servise_cat_event();
+        fun();
+
+    });
+}
+
+function load_podcat(id, elem, fun) {
+    fetch('https://helpfi.me/api/categories.php?subCategoryId=' + id).then((response) => {
+        return response.json();
+    }).then((data) => {
+        let categories = data.categories;
+
+        let podcat = $('<div class="map-aside__podcat hidden"></div>');
+
+        for (key in categories) {
+            podcat.append(create_map_aside_item(key, categories[key].name, false, false));
+        }
+
+        $(elem).after(podcat);
+
+        set_servise_podcat_event();
+        fun(elem);
+
+    }).catch(() => {
+        let categories = {"3":{"id":3,"name":"Озвучивание игр"},"4":{"id":4,"name":"Программирование игр"},"5":{"id":5,"name":"Разработка игр"},"6":{"id":6,"name":"Тестирование игр"}};
+
+        let podcat = $('<div class="map-aside__podcat hidden"></div>');
+
+        for (key in categories) {
+            podcat.append(create_map_aside_item(key, categories[key].name, false, false));
+        }
+
+        $(elem).after(podcat);
+
+        set_servise_podcat_event();
+        fun(elem);
+
+    });
+}
+
+function create_map_aside_item(id, name, icon=true, arrow=true) {
+    let item = '<div class="map-aside__item" var="' + id + '">';
+
+        if(icon) {
+            item += '<span class="icon cat-icon">' +
+                        '<img src="https://helpfi.me/my_images/icons/service-list__icon.icon-' + id + '.svg" alt="icon">' +
+                    '</span>';
+        }
+
+            item += '<span class="servise-name">' + name + '</span>';
+
+        if(arrow) {
+            item += '<span class="icon arrow-icon">' +
+                        '<img src="images/aside-arrow.svg" alt="icon">' +
+                    '</span>' +                                
+                '</div>';
+        }
+    return item;
+}
+
+function set_map_aside_item_event() {
+    $(".servise-list .map-aside__item").on("click", function () {
+        let catgory_index = $(this).attr("var");
+        let name = $(this).children('.servise-name').text();
+
+        $('.back__btn').attr('step', 'one');
+        $('.back__btn').attr('servise', name);
+        $('.back__btn').attr('servise-id', catgory_index);
+
+        $('#search').val(name);
+        $('.map-aside-item').addClass('hidden');
+        $('.map-aside-item.geo-self').removeClass('hidden');
+        
+        $('.map-aside-item.search-servise').removeClass('hidden');
+        $('.map-aside-item.search-servise').addClass('search-servise_back');
+        $('.map-aside-item.search-servise').children('.input-wrap').addClass('input-wrap_inp');
+
+        if($('.map-aside-item[var=' + catgory_index + ']').length == 0) {
+            load_cat(catgory_index, () => {
+                $('.map-aside-item[var=' + catgory_index + ']').removeClass('hidden');
+            });
+        }
+        else {
+            $('.map-aside-item[var=' + catgory_index + ']').removeClass('hidden');
+        }
+
+    });
+}
+
+function set_servise_cat_event() {
+    $(".servise-cat .map-aside__item").on("click", function () {
+        let elem = $(this).next();
+        if(!elem.hasClass('map-aside__podcat')) { 
+            let id = $(this).attr('var');
+
+            load_podcat(id, this, (this_elem) => {
+                let elem = $(this_elem).next();
+
+                $(".servise-cat .map-aside__item").removeClass("map-aside__item_open");
+                $(this_elem).addClass("map-aside__item_open");
+                $('.map-aside__podcat').addClass('hidden');
+                elem.removeClass('hidden');
+            });
+            return; 
+        }
+        else {
+            if(elem.hasClass('hidden')){
+                $(".servise-cat .map-aside__item").removeClass("map-aside__item_open");
+                $(this).addClass("map-aside__item_open");
+                $('.map-aside__podcat').addClass('hidden');
+                elem.removeClass('hidden');
+            }
+            else {
+                $(this).removeClass("map-aside__item_open");
+                elem.addClass('hidden');
+            }
+        }
+    });
+}
+
+function set_servise_podcat_event() {
+    $(".map-aside__podcat .map-aside__item").on("click", function () {
+        let catgory_index = $(this).attr("var");
+        let name = $(this).text();
+        $('.back__query').text(name);
+
+        $('.back__btn').attr('step', 'two');
+        $('.input-wrap__cat').attr('value', 'Выбрать исполнителя');
+
+        $('.map-aside-item').addClass('hidden');
+        $('.map-aside-item.geo-self').removeClass('hidden');
+        $('.map-aside-item.search-servise').removeClass('hidden');
+        $('.map-aside-item.users-list').removeClass('hidden');
+        $('.map-aside-item.create-servise').removeClass('hidden');
+        $('.map-aside-item.search-servise').addClass('search-servise_users');
+
+        $('#search').attr('readonly', 'readonly');
+
+        load_users(catgory_index);
+
+    });    
+}
+
+
+// Load user
+
+function load_users(id) {
+    $.post("https://helpfi.me/send.php", {
+        'secret': id,
+        'cat': id,
+        'ya': {lat: _originMarker.getPosition().lat(), lng: _originMarker.getPosition().lng()},
+        'main': ''
+    }, function(data) {
+        
+        data = $.parseJSON(data);
+
+        for (i = 0; i < markers.length; i++) { markers[i].setMap(null); }
+        markers = [];
+
+        console.log(data);
+    }).catch(() => {
+        console.log("FFF");
+        data = {};
+        data = $.parseJSON(data);
+
+        for (i = 0; i < markers.length; i++) { markers[i].setMap(null); }
+        markers = [];
+
+        console.log(data);
+    });
+}
 
 function init_start() {
     let balls = $(".table__stars");
