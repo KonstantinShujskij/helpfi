@@ -530,7 +530,6 @@ function clearNearestMrkrs() {
 }
 
 function initCircle() {
-    console.log("initCircle");
     _circle = new google.maps.Marker({icon: icons.circle, clickable: false})
 }
 
@@ -540,14 +539,12 @@ function backToDrvrsList() {
 }
 
 function setMapToMarker(marker, map) {
-    console.log("setMapToMarker");
     if(marker.getPosition().lat() != 0) {
        marker.setMap(map);
     } 
 }
 
 function setMapToDirMarkers(map) {
-    console.log("setMapToDirMarkers");
     setMapToMarker(_originMarker, map);
     setMapToMarker(_destinationMarker, map);
     setMapToMarker(_wayPointMarker1, map);
@@ -568,23 +565,19 @@ function backToFirstStep() {
 }
 
 function makeQuery(src) {
-    console.log(src);
     let script = document.createElement("script");
     script.setAttribute("type", "text/javascript");
     script.setAttribute("src", src + "&id=" + (new Date).getTime());
     let head = document.getElementsByTagName("head").item(0);
     head.insertBefore(script, head.firstChild);
-    console.log("hext");
 }
 
 function getQueryHead(n) {
-    console.log("getQueryHead");
     let position = _originMarker.getPosition();
     return "/srv/ops.php?op=" + n + "&ctype=" + _ctype + "&cid=" + _cid + "&ctoken=" + _ctoken + "&Alat=" + position.lat() + "&Alng=" + position.lng() + "&vehtype=" + _drvtype;
 }
 
 function getNearestDrvrs() {
-    console.log("getNearestDrvrs");
     if (_tripDistance != 0 || _destinationMarker.getPosition().lat() == 0 || calcRoute()) {
        _drvrs = null;
        makeQuery(getQueryHead(0));
@@ -597,13 +590,11 @@ function currOrderRequest() {
 }
 
 function computeTotalDistance(directions) {
-    console.log("computeTotalDistance");
     let distance = 0;
     directions = directions.routes[0];
     for (i = 0; i < directions.legs.length; i++) {
         distance += directions.legs[i].distance.value;
     }
-    console.log(distance);
     return distance / 1000;
 }
 
@@ -614,12 +605,10 @@ function mobileVersion() {
 }
 
 function initDirections() {
-    console.log("initDirections");
     _directionsRenderer = new google.maps.DirectionsRenderer({suppressMarkers: false, draggable: false});
     _directionsService = new google.maps.DirectionsService;
 
     google.maps.event.addListener(_directionsRenderer, "directions_changed", function () {
-        console.log("event cange dir");
         _tripDistance = computeTotalDistance(_directionsRenderer.directions);
         if(_drvrs != null) { 
             fillDrvrsList();
@@ -634,7 +623,6 @@ function addWaypointMarker(arr, marker) {
 }
 
 function calcRoute() {
-    console.log("calcRoute");
     let arr_point = [];
     addWaypointMarker(arr_point, _wayPointMarker1);
     addWaypointMarker(arr_point, _wayPointMarker2);
@@ -648,7 +636,6 @@ function calcRoute() {
     };
 
     _directionsService.route(arr, function (dir, status) {
-        console.log("route");
         switch (status) {
             case google.maps.DirectionsStatus.OK:
                 _directionsRenderer.setDirections(dir);
@@ -683,7 +670,6 @@ function calcRoute() {
 }
 
 function initMarkers() {
-    console.log("initMarkers");
     _originMarker = createDirMarker(icons.origin, "Откуда ехать", "start-point");
     _destinationMarker = createDirMarker(icons.destination, "Конечная точка", "finish-point");
     _wayPointMarker1 = createDirMarker(icons.waypoint_one, "Остановка", "way-point-one");
@@ -743,8 +729,6 @@ function createDirMarker(icon, title, id) {
         autoCompl: input
     });
 
-    console.log(marker);
-
     google.maps.event.addListener(marker, "dragend", function (icon) {
         placeMarker(marker, marker.getPosition());
     });
@@ -752,7 +736,6 @@ function createDirMarker(icon, title, id) {
     let auto_comp = new google.maps.places.Autocomplete(input);
     auto_comp.setTypes(["geocode"]);
     input.placeholder = "";
-
     google.maps.event.addListener(auto_comp, "place_changed", function () {
         let place = auto_comp.getPlace();
         if(place.geometry != null) {
@@ -765,7 +748,6 @@ function createDirMarker(icon, title, id) {
 }
 
 function placeMarker(marker, position) {
-    console.log("placeMarker");
     _tripDistance = 0;
     marker.setPosition(position);
 
@@ -776,7 +758,6 @@ function placeMarker(marker, position) {
 }
 
 function renewAddress(marker) {
-    console.log("renewAddress");
 
     _geocoder.geocode({latLng: marker.getPosition()}, function (b, status) {
         let num = '';
@@ -801,7 +782,12 @@ function renewAddress(marker) {
             if(marker.getMap() == null) {
                 marker.setMap(_map);
             }
-            marker.autoCompl.value = add;
+
+            if(add !== '') {
+                $('.input-wrap-start').addClass('input-wrap_inp');
+                marker.autoCompl.value = add;
+            }
+            
         }
     })
 }
@@ -866,20 +852,21 @@ function zoomToCity(name, param) {
 }
 
 function initMap() {
-    console.log("initMap");
+    document.cookie = "lng=30.55";
+
 
     const default_point = {
         lat: 50.46,
         lng: 30.55,
         zoom: 11,
-        name: "Киев"
+        name: "Запорожье"
     }
 
     let lat = getCookie("lat"), 
         lng = getCookie("lng"), 
         zoom = getCookie("zoom"), 
         name = getCookie("name");
-
+    
     if (zoom == null || lat == null || lng == null) {
         lat = default_point.lat;
         lng = default_point.lng;
@@ -893,8 +880,6 @@ function initMap() {
     lat = Number(lat);
     lng = Number(lng);
     zoom = Number(zoom);
-
-    $(".dd-city .dropdown-toggle u").text(name);//!-----------------
 
     _map = new google.maps.Map(document.getElementById("googlemap"), {
         zoom: zoom,
@@ -919,7 +904,6 @@ function initMap() {
 
 // No Use
 function initComboBox() {
-    console.log("initComboBox");
     $(".dd-city .dropdown-toggle").click(function () {
         $(this).next().removeClass("hidden");
         $(this).next().find("#city").val("").focus();
@@ -1001,7 +985,6 @@ function getMinDate() {
 }
 
 function appendSelectElem(select, value, is_selected) {
-    console.log("appendSelectElem");
     option = document.createElement("option");
     option.setAttribute("value", value);
 
@@ -1027,12 +1010,10 @@ function fillMinutes() {
 }
 
 function fillTime() {
-    console.log("fillTime");
     let hours = 0;
     if(document.getElementById("time-date").selectedIndex == 0) {
         hours = getMinDate().getHours();
     }
-    console.log(hours);
 
     let elem_hours = document.getElementById("time-hours");
     for (elem_hours.innerHTML = ""; hours <= 23; hours++) {
@@ -1064,17 +1045,12 @@ function checkPhone() {
     let phone = document.getElementById("order-phone");
     let phone_val = phone.value;
 
-    console.log(phone_val);
-
     for(let i = 0; i < phone_val.length; i++) {
         if(isNaN(phone_val[i])) {
             phone_val = phone_val.replaceAt(i, ' ')
         }
     }
     phone_val = phone_val.replace(/\s+/g, '').trim();
-
-    console.log(phone_val);
-
 
     if (phone_val.length != 10) {
         return "";
@@ -1134,22 +1110,9 @@ function wrongClientLogin() {
     window.location = "/index.php?act=client_login"
 }
 
-// No Use
-function showAdditionalFields() {
-    /*showElem("order-phone");
-    showElem("order-name");
-    showElem("order-addinfo-curr");
-    showElem("order-phone-plus")*/
-}
-
-// No Use
-function hideAdditionalFields() {/*hideElem("order-phone");hideElem("order-name");hideElem("order-addinfo-curr");hideElem("order-phone-plus")*/
-}
 
 // No Use
 function showHideAdditionalFields() {
-    console.log("showHideAdditionalFields");
-    console.log(_isCurrOrder);
     if(!_isCurrOrder || _ctype <= 0) {
         if(!_isCurrOrder ) { showAdditionalFields(); }
         else { hideAdditionalFields(); }
@@ -1190,7 +1153,6 @@ function advOrderSubmit() {
         captcha = checkCaptcha();
         if (captcha == "") { return; } 
         get_param = "&PHPSESSID=" + sessionId + "&captcha_txt=" + captcha;
-        console.log(get_param);
     }
 
     if(grat != "") {
@@ -1290,7 +1252,6 @@ function refreshCaptcha() {
 }
 
 function wrongCaptcha() {
-    console.log("wrongCaptcha");
     $("#captcha").parent('.input-wrap').addClass('input-wrap_error');
 }
 
@@ -1313,53 +1274,25 @@ function clientLogout() {
     _cid = 0;
     _ctype = 0;
     _ctoken = "";
-    changeLoginUI()
 }
 
-//Управление кнопками входа выхода, не используеться!
-function changeLoginUI() {
-    console.log("changeLoginUI");
-    if(_ctype === 0) {
-        console.log("==0");
-        document.getElementById("loginMenuCaption").innerHTML = '<i class="ico-vt-login"></i> Войти';
-        document.getElementById("order_login_logout").innerHTML = "<a href='/index.php?act=client_login'>Вход для заказа с сайта</a>";
-    }
-    else {
-        let type = "клиент";
-        if(_ctype !== 1) { type = "организация"; }
 
-        document.getElementById("loginMenuCaption").innerHTML = '<i class="ico-vt-login"></i> ' + type + " <" + _cid + ">";
-        document.getElementById("order_login_logout").innerHTML = '<a href="#" onclick="clientLogout();return false;">Выход</a>';
-    }
-
-    showHideAdditionalFields()
-}
-
-$(document).ready(function () {/*mobileVersion();*/
+$(document).ready(function () {
     initMap();
     initDirections();
     initCircle();
     _markersKML = new google.maps.KmlLayer("http://vtaxi.info/srv/d.kmz?" + _ver, {preserveViewport: true});
     _markersKML.setMap(_map);
-    console.log(_markersKML);
     _geocoder = new google.maps.Geocoder;
 
     _ctype = getCookie("ctype");
     _cid = getCookie("cid");
     _ctoken = getCookie("ctoken");
-    console.log(_ctype);
-    console.log(_cid);
-    console.log(_ctoken);
 
     if(_ctype == null) { _ctype = 0; }
     if(_cid == null) { _cid = 0; }    
     if (_ctoken == null) { _ctoken = ""; }
 
-    console.log(_ctype);
-    console.log(_cid);
-    console.log(_ctoken);
-
-    changeLoginUI();
     setDrvType(0);
 
     $(".online").text(_drvNum);
@@ -1382,25 +1315,17 @@ $(document).ready(function () {/*mobileVersion();*/
     });
 
     $(".order-btn-one").click(function () {
-        console.log("order-btn-one click");
         if (_originMarker.getMap()) {
             _isMarkerPlacingAllowed = false;
-            console.log(_ctype);
             if (_isCurrOrder && 0 < _ctype || !_isCurrOrder) {
-                /*let name = checkName();
-                let phone = checkPhone();
-                console.log(phone);
-                console.log(name);
-                if (phone == "" || name == "") { console.log("lox"); return; }*/
+
             }
-            console.log(_isCurrOrder);
 
             if(_isCurrOrder) {
                 getNearestDrvrs();
             }
             else {
                 if(_ctype == 0) {
-                    console.log("captca 0");
                     $(".captcha").removeClass("hidden");
                     refreshCaptcha();
                     $(".info-order").removeClass('hidden');
@@ -1430,14 +1355,10 @@ $(document).ready(function () {/*mobileVersion();*/
     });
 
     $("input[name=when]").on("change", function () {
-        console.log("when cange");
         let value = $("input:radio[name=when]:checked").val();
-        console.log(value);
         if(value === "when-now") { _isCurrOrder = true; }
         else { _isCurrOrder = false; }
         
-        showHideAdditionalFields();
-
         if(value === "when-time") {
             $(".search-time").slideDown(100, function () {
                 fillTime();

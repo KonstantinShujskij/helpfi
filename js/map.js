@@ -1,177 +1,7 @@
 let markers = [];
+let select_cat = '';
 
 jQuery(document).ready(function ($) {
-
-    $(".services-droplist .service-list__item[var]").on("click", function () {
-        $.post("https://helpfi.me/send.php", {
-                'secret': 1,
-                'cat': 1,
-                'ya': {lat: _originMarker.getPosition().lat(), lng: _originMarker.getPosition().lng()},
-                main: 1
-            },
-            function (data) {
-                alert(data);
-
-                d = $.parseJSON(data);
-                for (i = 0; i < markers.length; i++) {
-                    markers[i].setMap(null);
-                }
-                markers = [];
-                //console.log( d.data.performers );
-                if (d.ok && d.data && d.data.responseCode == 0) {
-                    var infowindow = new google.maps.InfoWindow();
-                    var marker;
-                    if (d.data.performers.length) {
-                        for (k in d.data.performers) {
-                            v = d.data.performers[k];
-                            $('.user-contacts').hide();
-
-                            //console.log( "portfolioImages: ",v.portfolioImages );
-                            data = "<div class='mini-info'><div class='item-user-flex' id='_i_" + k + "_i_'><div class='user-photo'></div><div class='user-info'><div class='name'>" + v.name + "</div>";
-                            data += (v.rating = "<div class='rating-all'><div class='user-rating start '></div><div class='user-rating' style='width:" + (v.ratingValue / 5 * 60) + "px'></div></div>");
-                            // data += "<div class='personal-id'>id</div>";
-                            phone = "";
-                            phone_det = "";
-                            for (t in v.phones) {
-                                ph = v.phones[t];
-                                data += "<div class='phone'>+" + ph.num + "</div>";
-                                if (phone) phone += ", ";
-                                phone += ph.num;
-                                phone_det = "<a href='tel:" + ph.num + "' class='contact-phone contact-phone--btn'>" + ph.num + "</a>";
-                            }
-
-                            if( _originMarker.getPosition().lat() && _originMarker.getPosition().lng() )
-                                data += "<div class='user-distance'>" + calcDistance( new google.maps.LatLng(v.latitude,v.longitude), new google.maps.LatLng( _originMarker.getPosition().lat(), _originMarker.getPosition().lng() ) ) + " <span>км</span> </div>";
-
-
-                            data += "</div>";
-
-                            data += "<div class='user-additional-info'> ";
-
-                            data += "<div class='user-status'>  </div>";
-
-                            var dist = "";
-                            if (_originMarker.getPosition().lat() && _originMarker.getPosition().lng())
-                                dist = "<div class='user-distance'> " + calcDistance(new google.maps.LatLng(v.latitude, v.longitude), new google.maps.LatLng(_originMarker.getPosition().lat(), _originMarker.getPosition().lng())) + " <span>км</span> </div>";
-
-                            // data += dist + "<div class='address'>" + v.address + "</div>";
-                            data += "</div>";
-
-                            data += "</div></div><div class='full-info'>";
-                            data += "<div class='user-info'>" + v.message + "</div>"; // full info
-
-                            // data += "<div class='other-services'> <div class='service-list__item'> <div class='service-list__label'>Другая услуга</div> <div class='service-list__price'>1200₴</div> </div></div>"; // Other Servcies
-
-                            data += "<div class='photo-wrapper'>"; // Photo
-                            if (v.portfolioImages.length > 0) {
-                                $.each(v.portfolioImages, function (i, item) {
-                                    var url = 'http://vtaxi.info:8084/neos/image?id=' + item.id;
-                                    data += "<div class='photo-item swiper-slide'><i class='material-icons'></i><img src='" + url + "'></div>";
-                                })
-                            }else{
-                                data += "<div class='photo-item no-img'><i class='material-icons'></i><img src='https://helpfi.me/img/photo_2020-01-18_09-36-57.jpg'></div>";
-                            }
-                            data += "</div>";
-                            data += "<div class='user-control'> <div class='text-user btn--message' id='contacts-message'>Написать</div> <div class='call-user btn--call'>Позвонить</div></div> "; // Message.Call
-
-                            data += "<div class='user-contacts'> " + phone_det + " <!--<div class='call-cancel call-cansel--btn '>Отмена--></a><!--</div>-->";
-                            data += "<div class='user-contacts-message'> " + phone_det + " <!--<div class='call-cancel call-cansel--btn '>Отмена--></a><!--</div>-->";
-
-                            data += "</div>";
-
-
-                            $("#out-info").append(data);
-
-
-                            v.dist = dist;
-
-                            image = '/i/marker/marker-' + (v.cat_main = d.main) + '.png',
-                                marker = new google.maps.Marker({
-                                    position: {lat: v.latitude, lng: v.longitude},
-                                    map: _map,
-                                    title: v.name + " " + phone,
-                                    icon: image
-                                });
-
-                            markers.push(marker);
-
-                            google.maps.event.addListener(marker, 'click', (function (marker, v, p, k) {
-                                return function () {
-                                    for (var j = 0; j < markers.length; j++) {
-                                        image = '/i/marker/marker-' + v.cat_main + '.png',
-                                            markers[j].setIcon(image);
-                                        markers[j].setZIndex(1);
-                                    }
-                                    infowindow.setContent('<div class="item-user-flex" rel="_i_' + k + '_i_"><div class="user-photo"></div><div class="user-info"><div class="name">' + v.name + '</div>' + v.rating + '<div class="phone">' + p + '</div><<div class="address">' + v.address + '</div></div>' + v.dist + '</div>');
-                                    image = '/i/marker/active/marker-' + v.cat_main + '.png',
-                                        this.setIcon(image);
-                                    this.setZIndex(2);
-                                    infowindow.open(_map, marker);
-
-                                    $("#_i_" + k + "_i_").trigger("click");
-
-                                    google.maps.event.addListener(infowindow, "closeclick", (function (marker, v) {
-                                        return function () {
-                                            for (var j = 0; j < markers.length; j++) {
-                                                image = '/i/marker/marker-' + v.cat_main + '.png',
-                                                    markers[j].setIcon(image);
-                                                markers[j].setZIndex(1);
-                                            }
-                                        }
-                                    })(marker, v));
-                                }
-                            })(marker, v, phone, k));
-
-                            $("#_i_" + k + "_i_").on("click", (function (marker, v, p) {
-                                //console.log( v );
-                                return function () {
-                                    for (var j = 0; j < markers.length; j++) {
-                                        image = '/i/marker/marker-' + v.cat_main + '.png',
-                                            markers[j].setIcon(image);
-                                        markers[j].setZIndex(1);
-                                    }
-                                    infowindow.setContent('<div class="item-user-flex" id="_i_0_i_"><div class="user-photo"></div><div class="user-info"><div class="name">' + v.name + '</div>' + v.rating + '<div class="phone">' + p +
-                                        '</div><!--<div class="address"> -->' +/* v.address + */ '<!--</div> --> </div>' + v.dist + '</div>');
-                                    image = '/i/marker/active/marker-' + v.cat_main + '.png',
-                                        marker.setIcon(image);
-                                    marker.setZIndex(2);
-                                    infowindow.open(_map, marker);
-
-                                    /*google.maps.event.addListener(infowindow, "closeclick", (function(marker, v){
-                                      return function() {
-                                        for (var j = 0; j < markers.length; j++) {
-                                          image = '/i/marker/marker-'+v.cat_main+'.png',
-                                          markers[j].setIcon(image);
-                                          markers[j].setZIndex(1);
-                                        }
-                                      }
-                                    })(marker, v));*/
-                                }
-                            })(marker, v, phone));
-                        }
-                        $('.services-droplist').addClass('active');
-                        $("#out-info").parent().find(".category-wrapper").hide();
-                        $("#out-info").parent().find(".subcategory-wrapper").hide();
-                        $(".back-btn.step2").removeClass("step2").addClass("step3");//.attr("var",d.main);
-                        $(".service-list__item.has-subcategory").removeClass('selected');
-                    } else {
-                        if (noDisplay)
-                            $("#out-info").html("<div class='item-user-flex'>Ничего не найдено.</div>");
-                    }
-                    function ifRegidtration() {
-                        if ($("div.back-btn").hasClass("step2")) {
-                            // alert();
-                            $("#out-info").parent().after("<a class='addService' href='https://helpfi.me/index.php?act=clntreg&ref=11111'>Регистрация</a>");
-                        } else if ($("div.back-btn").hasClass("step3")){
-                            $('.addService').hide();
-                        }
-                    }
-                    ifRegidtration();
-                }
-                //console.log( d );
-            });
-
-    });
 
     String.prototype.replaceAt = function(index, replacement) {
         return this.substr(0, index) + replacement + this.substr(index + replacement.length);
@@ -311,7 +141,7 @@ jQuery(document).ready(function ($) {
         phone = phone.replace(/\s+/g, '').trim();
 
         phone_int = parseInt(phone);
-        if(phone_int >= 1000000) { console.log("GGG"); phone_int = 1000000; }
+        if(phone_int >= 1000000) { phone_int = 1000000; }
 
         phone = "" + phone_int;
         let phone_format = "";
@@ -419,6 +249,7 @@ jQuery(document).ready(function ($) {
         let step = $(this).attr('step');
 
         if(step === 'one') {
+            select_cat = '';
             $('#search').val('');
             $('.map-aside-item.search-servise').children('.input-wrap').removeClass('input-wrap_inp');        
             $('.map-aside-item.search-servise').removeClass('search-servise_back');
@@ -453,22 +284,6 @@ jQuery(document).ready(function ($) {
         }
        
     });
-
-    $(".user-item").on("click", function () {
-        let user_id = $(this).attr("user-id");
-
-        $('.back__btn').attr('step', 'three');
-        $('.input-wrap__cat').attr('value', 'Портфолио');
-
-        $('.map-aside-item').addClass('hidden');
-        $('.map-aside-item.search-servise').removeClass('hidden');
-        $('.map-aside-item.user-info').removeClass('hidden');
-        $('.map-aside-item.search-servise').addClass('search-servise_user');
-        $('.map-aside-item.search-servise').removeClass('search-servise_users'); 
-
-        $('#search').attr('readonly', 'readonly');
-
-    });   
     
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -478,7 +293,7 @@ jQuery(document).ready(function ($) {
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
 
-    init_start();
+    init_star('body');
        
     load_categories(); 
 
@@ -494,6 +309,8 @@ function load_categories() {
         for (key in categories) {
             $(".servise-list .map-aside__list").append(create_map_aside_item(key, categories[key].name));
         }
+        
+        init_icon();
 
         set_map_aside_item_event();
 
@@ -503,6 +320,8 @@ function load_categories() {
         for (key in categories) {
             $(".servise-list .map-aside__list").append(create_map_aside_item(key, categories[key].name));
         }
+        
+        init_icon();
 
         set_map_aside_item_event();
     });
@@ -522,6 +341,7 @@ function load_cat(id, fun) {
 
         $('.map-aside-footer').append(cat);
 
+        init_icon();
         set_servise_cat_event();
         fun();
 
@@ -536,6 +356,7 @@ function load_cat(id, fun) {
 
         $('.map-aside-footer').append(cat);
 
+        init_icon();
         set_servise_cat_event();
         fun();
 
@@ -589,7 +410,7 @@ function create_map_aside_item(id, name, icon=true, arrow=true) {
 
         if(arrow) {
             item += '<span class="icon arrow-icon">' +
-                        '<img src="images/aside-arrow.svg" alt="icon">' +
+                        '<img src="images/aside-arrow.svg" class="img-svg" alt="icon">' +
                     '</span>' +                                
                 '</div>';
         }
@@ -599,6 +420,7 @@ function create_map_aside_item(id, name, icon=true, arrow=true) {
 function set_map_aside_item_event() {
     $(".servise-list .map-aside__item").on("click", function () {
         let catgory_index = $(this).attr("var");
+        select_cat = catgory_index;
         let name = $(this).children('.servise-name').text();
 
         $('.back__btn').attr('step', 'one');
@@ -674,42 +496,238 @@ function set_servise_podcat_event() {
 
         $('#search').attr('readonly', 'readonly');
 
-        load_users(catgory_index);
+        load_users(catgory_index, _originMarker.getPosition().lat(), _originMarker.getPosition().lng());
 
     });    
 }
 
 
-// Load user
+// Load user 
 
-function load_users(id) {
-    $.post("https://helpfi.me/send.php", {
-        'secret': id,
-        'cat': id,
-        'ya': {lat: _originMarker.getPosition().lat(), lng: _originMarker.getPosition().lng()},
-        'main': ''
-    }, function(data) {
-        
-        data = $.parseJSON(data);
+function load_users(id, lat, lng, radius = 10.5, limit = 25) {
+    fetch('https://helpfi.me/api/perfomers.php?categoryId=' + id + '&latitude=' + lat + '&longitude=' + lng + '&radius=' + radius + '&limit=' + limit).then((response) => {
+        return response.json();
+    }).then((data) => {
+        let perfomers = data.perfomers;
 
-        for (i = 0; i < markers.length; i++) { markers[i].setMap(null); }
-        markers = [];
+        load_users_handler(perfomers);
 
-        console.log(data);
     }).catch(() => {
-        console.log("FFF");
-        data = {};
-        data = $.parseJSON(data);
-
-        for (i = 0; i < markers.length; i++) { markers[i].setMap(null); }
-        markers = [];
-
-        console.log(data);
+        let perfomers = [{"id":9901,
+        "referralId":9244,
+        "creator":"site",
+        "state":"p",
+        "createDate":"20201215102617",
+        "distance":0.71080286098858,
+        "name":"Андрей",
+        "address":"Киев, ул. Чигорина 18",
+        "email":"yakandre@gmail.com",
+        "message":"Разработка программ",
+        "cityId":2,
+        "latitude":50.4217,
+        "longitude":30.5394,
+        "ratingCount":12,
+        "ratingValue":4.5,
+        "avatar":{"id":1863,"comment":"Аватарка"},
+        "portfolioImages":[],
+        "phones":[{"num":"380503537319"}],
+        "categories":[{"categoryId":7,"info":"Разработка программ"}],
+        "workSchedule": {"hours":[{"day":"monday","hours":"8-12,14-18"},
+                        {"day":"tuesday","hours":"8-12,14-18"},
+                        {"day":"wednesday","hours":"8-12,14-18"},
+                        {"day":"thursday","hours":"8-12,14-18"},
+                        {"day":"friday","hours":"8-12,14-18"},
+                        {"day":"saturday","hours":"8-15"},
+                        {"day":"sunday","hours":"8-12"}]}},
+        {"id":3023,
+        "referralId":0,
+        "creator":"",
+        "state":"p",
+        "distance":1.6832856623002,
+        "name":"Александр",
+        "address":"Інженерний провулок  Київ",
+        "email":"",
+        "message":"Установлю актуальную версию Windows 10 на Ваш ноутбук всего за один час и 19 грн.!Ошибки нет, за девятнадцать гривен. Полная ГАРАНТИЯ на выполненную работу три месяца. Только СВЕЖИЕ драйвера. Опыт установки операционных систем более 15-ти лет дает гарантию ПРАВИЛЬНОЙ настройки Вашего ноутбука на максимальную ПРОИЗВОДИТЕЛЬНОСТЬ.Получите МАКСИМУМ от своего ноутбука прямо сейчас! И никаких проблем в дальнейшем",
+        "cityId":2,
+        "latitude":50.4429,
+        "longitude":30.5453,
+        "ratingCount":0,
+        "ratingValue":0,
+        "portfolioImages":[],
+        "phones":[{"num":"380502718533"}],
+        "categories":[{"categoryId":7,"info":"Компьютерная помощь."}],
+        "workSchedule":{"hours":[]}},
+        {"id":2899,"referralId":0,"creator":"","state":"p","distance":2.09432583516,"name":"Евгений","address":"вулиця Банкова  Київ","email":"","message":"Предлагаем Вашему вниманию полный комплекс услуг по автоматизации предприятий на базе программных продуктов 1с8(7.7)","cityId":2,"latitude":50.4452,"longitude":30.5291,"ratingCount":0,"ratingValue":0,"portfolioImages":[],"phones":[{"num":"380961582169"}],"categories":[{"categoryId":7,"info":"Предлагаем Вашему вниманию полный комплекс услуг по автоматизации предприятий на базе программных продуктов 1с8(7.7)"}],"workSchedule":{"hours":[]}},{"id":3375,"referralId":0,"creator":"","state":"p","distance":3.632839508142,"name":"Дмитрий","address":"вулиця Олеся Гончара  Київ","email":"","message":"Продажа, установка,обслуживание 1с.\r\nОпыт работы более 20 лет, помогу организовать учет любой сложности.\r\nПредоставляю услуги по установке, обновлению и доработке 1с (всех версий),обучение и консультации пользователей.\r\nСтоимость 400 грн.\r\nЛюбая форма оплаты. ","cityId":2,"latitude":50.4504,"longitude":30.5038,"ratingCount":0,"ratingValue":0,"portfolioImages":[],"phones":[{"num":"380996040573"}],"categories":[{"categoryId":7,"info":"Предоставляю услуги по установке, обновлению и доработке 1с (всех версий),обучение и консультации пользователей."}],"workSchedule":{"hours":[]}},{"id":2906,"referralId":0,"creator":"","state":"p","distance":5.8821037307987,"name":"Иларион","address":"вулиця Єреванська  Київ","email":"","message":"Настройка и установка программного обеспечения (ПО): Офисные приложения, графические программы, мультимедиа проигрыватели, архиватор, кодек, фото-редактор, видео плеер, браузер, скайп, пакет microsoft office, 1С:Предприятие, 1С:Бухгалтерия, «M.E.Doc» и многое др.Настройка WiFi \/ интернета: подключение к интернету, настройка домашней сети Wi-Fi, настройка и монтаж роутера и прочего сетевого оборудования, настройка и подключение беспроводной сети в офисе, настройка интернета на пару компьютеров.\r\n\r\nУстановка антивирусной защиты. Поиск и устранение компьютерных вирусов и другого вредоносного программного обеспечения..","cityId":2,"latitude":50.4358,"longitude":30.459,"ratingCount":0,"ratingValue":0,"portfolioImages":[],"phones":[{"num":"380500502100"}],"categories":[{"categoryId":7,"info":"Услуги программиста."},{"categoryId":23,"info":"Настройка и установка программного обеспечения (ПО): Офисные приложения, графические программы, мультимедиа проигрыватели, архиватор, кодек, фото-редактор, видео плеер, браузер, скайп, пакет microsoft office, 1С:Предприятие, 1С:Бухгалтерия, «M.E.Doc»"}],"workSchedule":{"hours":[]}},{"id":3373,"referralId":0,"creator":"","state":"p","distance":6.3587754646565,"name":"Сергей","address":"Фанерна вулиця  Київ","email":"","message":"Программист 1С. Доработки,Обновление, Настройка, Обучение (7.7,8.2) ","cityId":2,"latitude":50.4285,"longitude":30.6309,"ratingCount":0,"ratingValue":0,"portfolioImages":[],"phones":[{"num":"380937432711"}],"categories":[{"categoryId":7,"info":"Программист 1С. Доработки,Обновление, Настройка, Обучение (7.7,8.2)"}],"workSchedule":{"hours":[]}},{"id":3376,"referralId":0,"creator":"","state":"p","distance":7.7358491883125,"name":"Роман","address":"вулиця Профспілкова  Київ","email":"","message":"1.Обновление конфигураций 7.7 и 8.2\r\n2.Настройка и установка Бух, ЗУП, УПП УТ, и.д.р.\r\n3.Написание обработок\r\n4.Работа с API\r\n5.Обмен между базами 1с и других программ.\r\n6.Создание Печатных форм в Word и в 1с.\r\n7.Написание ТЗ, Алгоритмов для новых программ, инструкций для пользователей.\r\n8.Ведение Бух и Налогового учета\r\n9.Связка с Wincalc и 1С\r\n10.Автоматизация бизнес-процессов компании.\r\n11.Обучение программированию 1с индивидуально\r\nВыезд по Киеву и удаленное решение вопросов. ","cityId":2,"latitude":50.4397,"longitude":30.6488,"ratingCount":0,"ratingValue":0,"portfolioImages":[],"phones":[{"num":"380930803123"}],"categories":[{"categoryId":7,"info":" Услуги Программиста 1с"}],"workSchedule":{"hours":[]}},{"id":2368,"referralId":0,"creator":"","state":"p","distance":7.8414077834332,"name":"Владимир","address":"вулиця Газова  Київ","email":"","message":"Предлагаю услуги по установке, обновлению и доработке 1с 8.х,обучение пользователей.\r\nСтоимость 150грн\/час.\r\n\r\nТакже возможно ведение управленческого, бухгалтерского, налогового учета, сдача отчетности.","cityId":2,"latitude":50.4257,"longitude":30.4305,"ratingCount":0,"ratingValue":0,"portfolioImages":[],"phones":[{"num":"380935705076"}],"categories":[{"categoryId":89,"info":"Ведение управленческого,бухгалтерского,налогового учета."},{"categoryId":7,"info":"Предлагаю услуги по установке, обновлению и доработке 1с 8.х,обучение пользователей."}],"workSchedule":{"hours":[]}},{"id":3374,"referralId":0,"creator":"","state":"p","distance":8.293210964281,"name":"Инна","address":"вулиця Російська  Київ","email":"","message":"УДАЛЕННО!\r\nВедение бухгалтерского и налогового учета в программе 1с:Предприятие (8.2). Обновление 1С:Предприятие (8.2), создание любых отчетов и документов (программно), не предусмотренных в 1с:Предприятие (8.2).","cityId":2,"latitude":50.4248,"longitude":30.6581,"ratingCount":0,"ratingValue":0,"portfolioImages":[],"phones":[{"num":"380672825650"}],"categories":[{"categoryId":7,"info":"Ведение бухгалтерского и налогового учета в программе 1с:Предприятие (8.2). Обновление 1С:Предприятие (8.2"},{"categoryId":89,"info":"Ведение бухгалтерского и налогового учета в программе 1с:Предприятие (8.2). Обновление 1С:Предприятие (8.2"}],"workSchedule":{"hours":[]}},{"id":2889,"referralId":0,"creator":"","state":"p","distance":9.0621846333566,"name":"Андрей","address":"вулиця Вавилових  Київ","email":"","message":"- Переустановка Windows, программ и драйверов (при переустановке Windows установка антивируса бесплатно) - 100 грн (АКЦИЯ).\r\n-Установка и обновление драйверов\r\n- Установка, переустановка и настройка программного обеспечения: Офисные приложения, графические программы, мультимедиа проигрыватели, архиватор, кодек, фото-редактор, видео плеер, браузер, скайп, пакет Microsoft Office, а также другие приложения.\r\n\r\n- Настройка WiFi \/ интернета: настройка домашней сети Wi-Fi, настройка и подключение беспроводной сети в офисе\r\n\r\n- Установка антивирусной защиты. Поиск и устранение компьютерных вирусов и другого вредоносного программного обеспечения.\r\n\r\n- Настройка МФУ, принтеров, сканеров, копиров.\r\n\r\n- Сброс пароля пользователя Windows без потери данных (если вы забыли или же потеряли свой пароль от системы Windows - наши специалисты смогут вам помочь).\r\n\r\n- Настройка мобильных телефонов под управлением Android\r\n\r\n- Установка любых приложений для вашего смартфона ","cityId":2,"latitude":50.476,"longitude":30.4377,"ratingCount":0,"ratingValue":0,"portfolioImages":[],"phones":[{"num":"380934620182"}],"categories":[{"categoryId":16,"info":"Установка любых приложений для вашего смартфона"},{"categoryId":23,"info":" Настройка WiFi \/ интернета: настройка домашней сети Wi-Fi, настройка и подключение беспроводной сети в офисе"},{"categoryId":7,"info":"Установка, переустановка и настройка программного обеспечения"},{"categoryId":38,"info":"Переустановка Windows, программ и драйверов (при переустановке Windows установка антивируса бесплатно)"}],"workSchedule":{"hours":[]}},{"id":3037,"referralId":0,"creator":"","state":"p","distance":9.5159414998251,"name":"Николай","address":"вул. Теодора Драйзера  Київ","email":"","message":"Выполняю все виды компьютерных услуг.\r\nОт железа до программного обеспечения.","cityId":2,"latitude":50.5044,"longitude":30.6017,"ratingCount":0,"ratingValue":0,"portfolioImages":[],"phones":[{"num":"380934220488"}],"categories":[{"categoryId":7,"info":"Выполняю все виды компьютерных услуг."},{"categoryId":1212,"info":"Выполняю все виды компьютерных услуг."}],"workSchedule":{"hours":[]}},{"id":2895,"referralId":0,"creator":"","state":"p","distance":9.5341746975027,"name":"Анатолий","address":"вулиця Вірменська  Київ","email":"","message":"Доработка, консультирование, внедрение типовых конфигураций: УПП, БП, УТ, УТП, УНФ, УТ-3. Доработанная 1С Розница8 1, 2 (фискальные и не фискальные товары в одном чеке на 2 ФР, себестоимость, ценообразование, взаиморасчеты, суммовой обмен с бухгалтерией, различное торгового оборудование). Транспортная логистика с GPS мониторингом Wialon и Google maps на УФ. Позаказный расчет себестоимости к БПу и УТП, веб-сервисы, обмены с сайтом, интеграция любой сложности и др. Не франч, от 250 час (время фактическое). ","cityId":2,"latitude":50.4075,"longitude":30.6718,"ratingCount":0,"ratingValue":0,"portfolioImages":[],"phones":[{"num":"380931150924"}],"categories":[{"categoryId":7,"info":"Доработка, консультирование, внедрение типовых конфигураций: УПП, БП, УТ, УТП, УНФ, УТ-3. Доработанная 1С Розница8 1, 2"}],"workSchedule":{"hours":[]}},{"id":3050,"referralId":0,"creator":"","state":"p","distance":9.8631386629223,"name":"Александр","address":"вулиця Марганецька  Київ","email":"","message":"- Чистка, замена термопасты на ноутбуке(компьютере)\r\n- Решение проблем перегрева\r\n- Установка Windows XP, Windows 7, Windows 10\r\n(чистая установка)\r\n- Установка наиболее распространенных программ\r\n(Почтовые программы, интернет браузеры, архиваторы, программы для просмотра фотографий, рисунков, видео, фильмов, переводчики, программы для записи CD\/DVD-дисков)\r\n- Установка офисных приложений\r\n(Microsoft Office (2003,2007,2010,2013) (Word, Excel, Power Point и.т.д)\r\n- Установка и настройка антивирусной программы\r\n- Настройка интернета, роутера ","cityId":2,"latitude":50.4527,"longitude":30.6749,"ratingCount":0,"ratingValue":0,"portfolioImages":[],"phones":[{"num":"380969590591"}],"categories":[{"categoryId":1212,"info":"Чистка, замена термопасты на ноутбуке(компьютере)"},{"categoryId":38,"info":"Установка Windows XP, Windows 7, Windows 10"},{"categoryId":7,"info":"Установка наиболее распространенных программ"}],"workSchedule":{"hours":[]}}];
+        
+        load_users_handler(perfomers);
     });
 }
 
-function init_start() {
-    let balls = $(".table__stars");
+function load_users_handler(perfomers) {
+    for (i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers = [];
+
+    let user_list = $('.users-list .map-aside__list');
+    user_list.html('');
+
+    for (key in perfomers) {
+        user_list.append(create_user_item(perfomers[key].id, 
+                                          perfomers[key].name, 
+                                          perfomers[key].distance.toFixed(2),
+                                          perfomers[key].address,
+                                          "Юлия.png",
+                                          perfomers[key].ratingValue,
+                                          perfomers[key].ratingCount
+                                          ));
+
+        let infowindow = new google.maps.InfoWindow();    
+
+        google.maps.event.addListener(infowindow, "closeclick", () => {
+            for (let j = 0; j < markers.length; j++) {
+                let image = 'https://helpfi.me/i/marker/marker-' + select_cat + '.png';
+                markers[j].setIcon(image);
+                markers[j].setZIndex(1);
+            }
+        });
+
+        let image = 'https://helpfi.me/i/marker/marker-' + select_cat + '.png';
+        let marker = new google.maps.Marker({
+            position: {lat: perfomers[key].latitude, lng: perfomers[key].longitude},
+            map: _map,
+            title: perfomers[key].name,
+            icon: image
+        }); 
+
+        markers.push(marker);
+
+        phone = perfomers[key].phones[0].num? perfomers[key].phones[0].num : '';
+
+        google.maps.event.addListener(marker, 'click', (function (marker, perfomer, phone, key) {
+            return function () {
+                for (var j = 0; j < markers.length; j++) {
+                    let image = 'https://helpfi.me/i/marker/marker-' + select_cat + '.png';
+                    markers[j].setIcon(image);
+                    markers[j].setZIndex(1);
+                }
+
+                infowindow.setContent(create_info_window(perfomer.id,
+                                                         perfomer.name, 
+                                                         perfomer.distance.toFixed(2),
+                                                         perfomer.address,
+                                                         "Юлия.png",
+                                                         perfomer.ratingValue,
+                                                         perfomer.ratingCount));
+                let active_image = 'https://helpfi.me/i/marker/active/marker-' + select_cat + '.png';
+                this.setIcon(active_image);
+                this.setZIndex(2);
+                infowindow.open(_map, marker);
+            }
+        })(marker, perfomers[key], phone, key));
+    }
+
+    init_star('body');
+    set_user_item_event();
+}
+
+function create_user_item(user_id, user_name, user__distance, user__adres, user__photo, user__appraisal = 5.0, user__appraisal_count = 100, user__coment_count = 100, user__status = 'свободен') { 
+    let item = '<div class="user-item" user-id="' + user_id +'">' +
+                    '<div class="online-wrap online-wrap__online">' +
+                        '<div class="avatar table-avatar">' +
+                            '<div class="avatar__wrapper">' + 
+                                '<div class="avatar__anchor">' +
+                                    '<img src="images/' + user__photo + '" class="w-100 d-block" alt="avatar">' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="user-item__info">' +
+                        '<div class="user-item__name">' + user_name + '</div>' +
+                        '<div class="table__ball">' +
+                            '<div class="table__stars" ball="' + user__appraisal + '"></div>' +                            
+                            '<div>' +
+                                '<span>' + user__appraisal.toFixed(1) + ' (' + user__appraisal_count + ')</span>' + 
+                            '</div>' +
+                        '</div>' +
+                        '<div>' +
+                            '<img class="user-item__mess-icon" src="images/mess.svg" alt="icon">' +
+                            '<span>' + user__coment_count + '</span>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="user-item__status">' +
+                        '<div class="user-item__flag">' + user__status + '</div>' +
+                        '<div class="user-item__distance">' + user__distance + ' км</div>' +
+                        '<div class="user-item__adres">' + user__adres + '</div>' +
+                    '</div>' +
+                '</div>';
+
+    return item;
+}
+
+function create_info_window(user_id, user_name, user_distance, user_adres, user_photo, user_appraisal = 5.0, user_appraisal_count = 100, user_coment_count = 100, user_status = 'свободен') {
+    let item = '<div class="user-item" user-id="' + user_id +'">' + 
+                    '<div class="online-wrap online-wrap__online">' +
+                        '<div class="avatar table-avatar">' +
+                            '<div class="avatar__wrapper">' +
+                                '<div class="avatar__anchor">' +
+                                    '<img src="images/' + user_photo + '" class="w-100 d-block" alt="avatar">' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="user-item__info">' +
+                        '<div class="user-item__name">' + user_name + '</div>' +
+                        '<div class="table__ball">' +
+                            '<div class="table__stars" ball="' + user_appraisal + '">';
+                                for(let i = 0; i < parseInt(user_appraisal); i++) {
+                                    item += '<span class="icon"><img src="images/star-all.svg" class="img-svg" alt="icon"></span>';
+                                }
+                        
+                                let part = user_appraisal - parseInt(user_appraisal);                        
+                                let index = '0';
+                                
+                                if(part >= 0.9) {
+                                    index = 'all';
+                                }
+                                else if(part >= 0.7) {       
+                                    index = '5';
+                                }
+                                else if(part >= 0.4) {
+                                    index = '3';
+                                }
+                                else if(part >= 0.2){
+                                    index = '1';
+                                }
+                        
+                                if(user_appraisal < 5.0) {
+                                    item += '<span class="icon"><img src="images/star-' + index + '.svg" class="img-svg" alt="icon"></span>';
+                                }
+                        
+                                for(let i = 0; i < 5 - 1 - parseInt(user_appraisal); i++) {
+                                    item += '<span class="icon"><img src="images/star-0.svg" class="img-svg" alt="icon"></span>';
+                                }
+                    item += '</div>' +                          
+                            '<div>' +                     
+                                '<span>' + user_appraisal + ' (' + user_appraisal_count + ')</span>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div>' +
+                            '<img class="user-item__mess-icon" src="images/mess.svg" alt="icon">' +
+                            '<span>' + user_coment_count + '</span>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="user-item__status">' +
+                        '<div class="user-item__flag">' + user_status + '</div>' +
+                        '<div class="user-item__distance">' + user_distance + ' км</div>' +
+                        '<div class="user-item__adres">' + user_adres + '</div>' +
+                    '</div>'+
+                '</div>';
+    return item;
+}
+
+function init_star(parent) {
+    let balls = $(parent).find(".table__stars");
     for(let j = 0; j < balls.length; j++) {
         let ball = $(balls[j]).attr("ball");
         ball = parseFloat(ball);
@@ -744,6 +762,181 @@ function init_start() {
         }
     }
 }
+
+function set_user_item_event() {
+    $(".user-item").on("click", function () {
+        let user_id = $(this).attr("user-id");
+
+        $('.back__btn').attr('step', 'three');
+        $('.input-wrap__cat').attr('value', 'Портфолио');
+
+        $('.map-aside-item').addClass('hidden');
+        load_user_info(user_id);
+        
+        $('.map-aside-item.user-info').removeClass('hidden');       
+        $('.map-aside-item.search-servise').removeClass('hidden');
+        $('.map-aside-item.search-servise').addClass('search-servise_user');
+        $('.map-aside-item.search-servise').removeClass('search-servise_users'); 
+
+        $('#search').attr('readonly', 'readonly');
+
+    });   
+}
+
+function load_user_info(id) {
+    fetch('https://helpfi.me/api/perfomer.php?id=' + id).then((response) => {
+        return response.json();
+    }).then((data) => {
+        let perfomer = data.perfomers;
+
+        load_user_info_handler(perfomer);
+    }).catch(() => {
+        let perfomer = {
+            "id":383,
+            "referralId":0,
+            "creator":"",
+            "state":"p",
+            "name":"Ирина, Олег",
+            "address":"Лісозахисний провулок ",
+            "email":"",
+            "message":"Цены умеренные:-Грунтовка стен от 5грн, потолок от 7.50грн. кв.м-Шпатлевание стен под обои от 30грн, под покраску-40грн, потолок- 40грн кв.мВенецианская Штукатурка,Марсельский Воск,Фактурная Штукатурка - От 100 гр.кв м.-Поклейка обоев без подбора рисунка-25грн, с рисунком-30-50грн кв.м-Покраска обоев, стен от 15грн. м",
+            "cityId":2,
+            "latitude":50.5293,
+            "longitude":30.4406,
+            "ratingCount":0,
+            "ratingValue":0,
+            "portfolioImages":[{'title': 'title one', 'id': 1813}, {'title': 'title two', 'id': 383}],
+            "phones":[{"num":"380688151430"}],
+            "categories":[{"categoryId":1502,"categoryName":[{"locale":"ru","value":"Отделочные работы"},{"locale":"ua","value":"Оздоблювальні роботи"}],"info":"Цены умеренные:-Грунтовка стен от 5грн, потолок от 7.50грн. кв.м-Шпатлевание стен под обои от 30грн, под покраску-40грн, потолок- 40грн кв.мВенецианская Штукатурка,Марсельский Воск,Фактурная Штукатурка - От 100 гр.кв м.-Поклейка обоев без подбора рис"},{"categoryId":1567,"categoryName":[{"locale":"ru","value":"Штукатур"},{"locale":"ua","value":"Штукатур"}],"info":"Венецианская Штукатурка,Марсельский Воск,Фактурная Штукатурка"},{"categoryId":1512,"categoryName":[{"locale":"ru","value":"Поклейка обоев"},{"locale":"ua","value":"Поклейка шпалер"}],"info":"-Поклейка обоев без подбора рисунка-25грн, с рисунком-30-50грн кв.м-Покраска обоев"}],
+            "workSchedule":{"hours":[{"day":"monday","hours":"7-21"},{"day":"tuesday","hours":"7-21"},{"day":"wednesday","hours":"7-21"},{"day":"thursday","hours":"7-21"},{"day":"friday","hours":"7-21"},{"day":"saturday","hours":"7-21"},{"day":"sunday","hours":"7-21"}]}};
+
+        load_user_info_handler(perfomer);
+    });
+}
+
+function load_user_info_handler(perfomer) {
+    let user_info = $('.user-info');
+
+    user_info.html('');
+
+    user_info.append(create_user_item(perfomer.id, 
+                                      perfomer.name, 
+                                      calcDistance(new google.maps.LatLng(perfomer.latitude, perfomer.longitude), new google.maps.LatLng(_originMarker.getPosition().lat(), _originMarker.getPosition().lng())),
+                                      perfomer.address,
+                                      "Юлия.png",
+                                      perfomer.ratingValue,
+                                      perfomer.ratingCount));
+    init_star('.user-info');
+    user_info.append(create_user_service_list(perfomer.categories));
+                                                
+    user_info.append(create_user_service_services([ {'title': 'Другие услуги швеи', 'price': '1200'}, 
+                                                    {'title': 'Пошив одежды', 'price': '1500'},
+                                                    {'title': 'Пошив текстиля', 'price': '1000'},
+                                                    {'title': 'Ремонт одежды', 'price': '500'}]));
+
+    user_info.append(create_user_service_photo(perfomer.portfolioImages));
+    user_info.append(create_user_service_btns(perfomer.phones));
+
+    init_icon();
+
+    set_user_info_event();
+}
+
+function create_user_service_list(list) {
+    let item =  '<div class="user-service-list">';
+
+    for(let i = 0; i < list.length; i++) {
+        item += '<div class="user-service">' + (i + 1) + ') ' + list[i].info + '.</div>'
+    }
+
+    item += '</div>';
+
+    return item;
+}
+
+function create_user_service_services(services) {
+    let item = '';
+
+    for(let i = 0; i < services.length; i++) {
+        item += '<div class="user-info__service">' +
+                    '<div class="mr-auto">' + services[i].title + '</div>' + 
+                    '<div class="green">от ' + services[i].price + '₴</div>' +
+                '</div>';
+    }
+    
+    return item;
+}
+
+function create_user_service_photo(images) {
+    let item =  '<div class="user-info__img-wrap">';
+
+    for(let i = 0; i < images.length; i++) {
+        item += '<div class="user-info__img">' +
+                    '<img src="http://vtaxi.info:8084/neos/image?id=' + images[i].id + '" alt="img" class="w-100 h-100">' +
+                    '<div class="user-info-img-title">' +
+                        '<span class="ml-auto mr-auto">' + images[i].title + '</span>' +
+                        '<span>' + (i + 1) + '/' + images.length + '</span>' +
+                    '</div>' +
+                '</div>';
+    }     
+
+    item += '</div>';
+    return item;
+}
+
+function create_user_service_btns(phones) {
+    item = '<div class="user-info__btns">' +
+                '<div class="user-info__phones-wrap">';
+
+                    for(let i = 0; i < phones.length; i++) {
+                        item += '<div class="user-info__phone" phone-val="' + phones[i].num + '">';
+
+                        let phone_code = phones[i].num.substring(2, 5);
+
+                        if(phone_code == '050' || phone_code == '066' || phone_code == '095' || phone_code == '099') {
+                            item += '<span class="icon">' +
+                                        '<img src="images/Vodafone.svg" class="img-svg" alt="icon">' +
+                                    '</span>' +
+                                    '<span>Vodafone</span>';
+
+                        }
+                        else if(phone_code == '039' || phone_code == '067' || phone_code == '068' || phone_code == '096' || phone_code == '097' || phone_code == '098') {
+                            item += '<span class="icon">' +
+                                        '<img src="images/Kyivstar.svg" class="img-svg" alt="icon">' +
+                                    '</span>' +
+                                    '<span>Vodafone</span>';
+                        }
+                        else if(phone_code == '063' || phone_code == '093' || phone_code == '073') {
+                            item += '<span class="icon">' +
+                                        '<img src="images/Vodafone.svg" class="img-svg" alt="icon">' +
+                                    '</span>' +
+                                    '<span>Киевстар</span>';
+                                    
+                        }
+                        else {
+                            item += '<span>Неизвестный оператор</span>';
+                        }
+
+                        item += '</div>';
+                    }
+
+        item += '</div>' +
+                '<div class="user-info__btns-wrap">' +
+                    '<button class="helpfi___btn phone-btn">' +
+                        '<span>ПОЗВОНИТЬ</span>' +
+                    '</button>' +
+                '</div>' +
+            '</div>';
+
+    return item;
+}
+
+function set_user_info_event() {
+    $(".user-info .phone-btn").on("click", function () {
+        $('.user-info__phones-wrap').toggleClass('user-info__phones-wrap_active');
+    });
+}
+
 
 function calcDistance(p1, p2) {
     return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);

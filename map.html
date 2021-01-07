@@ -135,7 +135,7 @@
                         <div class="map-aside__inner">   
                             <div class="map-aside-top">
                                 <div class="map-aside-item geo-self">
-                                    <label class="input-wrap input-wrap_inp" value="Введите адрес">
+                                    <label class="input-wrap input-wrap-start" value="Введите адрес">
                                         <div type=button class="input-btn geo-btn">
                                             <span class="icon">
                                                 <img src="images/geo.svg" class="img-svg" alt="icon">
@@ -246,7 +246,7 @@
                                     </div>
                                     <label class="helpfi___btn map-footer__right-btn" src_img="images/clock.svg">
                                         <span>
-                                            <img src="images/clock.svg" alt="time">
+                                            <img src="images/clock.svg" class="img-svg" alt="time">
                                         </span>                                        
                                         <input type="radio" name="when" value="when-quarter" id="when-quarter" class="footer__radio">
                                     </label>
@@ -264,9 +264,21 @@
                                     </div>
                                     <label class="helpfi___btn map-footer__right-btn" src_img="images/calendar.svg">
                                         <span>
-                                            <img src="images/calendar.svg" alt="time">
+                                            <img src="images/calendar.svg" class="img-svg" alt="time">
                                         </span>
                                         <input type="radio" name="when" value="when-time" id="when-time" class="footer__radio">
+                                    </label>
+                                </div>
+
+                                <div class="footer-popup__item">
+                                    <div class="footer-popup__item-info justify-content-end">
+                                        Поиск автомобиля
+                                    </div>
+                                    <label class="helpfi___btn map-footer__right-btn" src_img="images/car-select.svg">
+                                        <span>
+                                            <img src="images/car-select.svg" class="img-svg" alt="select">
+                                        </span>                                        
+                                        <input type="radio" name="when" value="when-quarter" id="when-quarter" class="footer__radio">
                                     </label>
                                 </div>
                             </div>
@@ -275,7 +287,7 @@
                                 <div class="footer-popup__item">                                        
                                     <label class="helpfi___btn map-footer__left-btn" src_img="images/tow-truck.svg">
                                         <span>
-                                            <img src="images/tow-truck.svg" alt="time">
+                                            <img src="images/tow-truck.svg" class="img-svg">
                                         </span>                                        
                                         <input type="radio" name="what" id="what-support" class="footer__radio" onclick="setDrvType(3)">
                                     </label>
@@ -287,7 +299,7 @@
                                 <div class="footer-popup__item">
                                     <label class="helpfi___btn map-footer__left-btn" src_img="images/truck.svg">
                                         <span>
-                                            <img src="images/truck.svg" alt="time">
+                                            <img src="images/truck.svg" class="img-svg">
                                         </span>                                        
                                         <input type="radio" name="what" id="what-truck" class="footer__radio" onclick="setDrvType(2)">
                                     </label>
@@ -299,7 +311,7 @@
                                 <div class="footer-popup__item">
                                     <label class="helpfi___btn map-footer__left-btn" src_img="images/buss.svg">
                                         <span>
-                                            <img src="images/buss.svg" alt="time">
+                                            <img src="images/buss.svg" class="img-svg">
                                         </span>                                        
                                         <input type="radio" name="what" id="what-bus" class="footer__radio" onclick="setDrvType(1)">
                                     </label>
@@ -311,7 +323,7 @@
                                 <div class="footer-popup__item">
                                     <label class="helpfi___btn map-footer__left-btn" src_img="images/universal.svg">
                                         <span>
-                                            <img src="images/universal.svg" alt="time">
+                                            <img src="images/universal.svg" class="img-svg">
                                         </span>                                        
                                         <input type="radio" name="what" id="what-uni" class="footer__radio" onclick="setDrvType(4)">
                                     </label>
@@ -323,7 +335,7 @@
                                 <div class="footer-popup__item">
                                     <label class="helpfi___btn map-footer__left-btn" src_img="images/taxi.svg">
                                         <span>
-                                            <img src="images/taxi.svg" alt="time">
+                                            <img src="images/taxi.svg" class="img-svg">
                                         </span>                                        
                                         <input type="radio" checked="checked" name="what" id="what-auto" class="footer__radio" onclick="setDrvType(0)">
                                     </label>
@@ -404,199 +416,12 @@
 
                                 <div class="map-aside-item users-list hidden">
                                     <div class="map-aside__list">
-                                        <div class="user-item" user-id='1'>
-                                            <div class="online-wrap online-wrap__online">
-                                                <div class="avatar table-avatar">
-                                                    <div class="avatar__wrapper">
-                                                        <div class="avatar__anchor">
-                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="user-item__info">
-                                                <div class="user-item__name">Юлия</div>
-                                                <div class="table__ball">
-                                                    <div class="table__stars" ball="5.0"></div>                            
-                                                    <div>
-                                                        <span>5 (321)</span> 
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <img class="user-item__mess-icon" src="images/mess.svg" alt="icon"> 
-                                                    <span>235</span>
-                                                </div>
-                                            </div>
-                                            <div class="user-item__status">
-                                                <div class="user-item__flag">Свободен</div>
-                                                <div class="user-item__distance">0,7 км</div>
-                                                <div class="user-item__adres">ул. Пушкинская 10</div>
-                                            </div>
-                                        </div>
-                                        <div class="user-item" user-id='2'>
-                                            <div class="online-wrap online-wrap__online">
-                                                <div class="avatar table-avatar">
-                                                    <div class="avatar__wrapper">
-                                                        <div class="avatar__anchor">
-                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="user-item__info">
-                                                <div class="user-item__name">Юлия</div>
-                                                <div class="table__ball">
-                                                    <div class="table__stars" ball="5.0"></div>                            
-                                                    <div>
-                                                        <span>5 (321)</span> 
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <img class="user-item__mess-icon" src="images/mess.svg" alt="icon"> 
-                                                    <span>235</span>
-                                                </div>
-                                            </div>
-                                            <div class="user-item__status">
-                                                <div class="user-item__flag">Свободен</div>
-                                                <div class="user-item__distance">0,7 км</div>
-                                                <div class="user-item__adres">ул. Пушкинская 10</div>
-                                            </div>
-                                        </div>
-                                        <div class="user-item" user-id='3'>
-                                            <div class="online-wrap online-wrap__online">
-                                                <div class="avatar table-avatar">
-                                                    <div class="avatar__wrapper">
-                                                        <div class="avatar__anchor">
-                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="user-item__info">
-                                                <div class="user-item__name">Юлия</div>
-                                                <div class="table__ball">
-                                                    <div class="table__stars" ball="5.0"></div>                            
-                                                    <div>
-                                                        <span>5 (321)</span> 
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <img class="user-item__mess-icon" src="images/mess.svg" alt="icon"> 
-                                                    <span>235</span>
-                                                </div>
-                                            </div>
-                                            <div class="user-item__status">
-                                                <div class="user-item__flag">Свободен</div>
-                                                <div class="user-item__distance">0,7 км</div>
-                                                <div class="user-item__adres">ул. Пушкинская 10</div>
-                                            </div>
-                                        </div>
-                                        <div class="user-item" user-id='4'>
-                                            <div class="online-wrap online-wrap__online">
-                                                <div class="avatar table-avatar">
-                                                    <div class="avatar__wrapper">
-                                                        <div class="avatar__anchor">
-                                                            <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="user-item__info">
-                                                <div class="user-item__name">Юлия</div>
-                                                <div class="table__ball">
-                                                    <div class="table__stars" ball="5.0"></div>                            
-                                                    <div>
-                                                        <span>5 (321)</span> 
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <img class="user-item__mess-icon" src="images/mess.svg" alt="icon"> 
-                                                    <span>235</span>
-                                                </div>
-                                            </div>
-                                            <div class="user-item__status">
-                                                <div class="user-item__flag">Свободен</div>
-                                                <div class="user-item__distance">0,7 км</div>
-                                                <div class="user-item__adres">ул. Пушкинская 10</div>
-                                            </div>
-                                        </div>
+                                           
                                     </div>
                                 </div>
 
                                 <div class="map-aside-item user-info hidden">
-                                    <div class="user-item">
-                                        <div class="online-wrap online-wrap__online">
-                                            <div class="avatar table-avatar">
-                                                <div class="avatar__wrapper">
-                                                    <div class="avatar__anchor">
-                                                        <img src="images/Юлия.png" class="w-100 d-block" alt="avatar">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="user-item__info">
-                                            <div class="user-item__name">Юлия</div>
-                                            <div class="table__ball">
-                                                <div class="table__stars" ball="5.0"></div>                            
-                                                <div>
-                                                    <span>5 (321)</span> 
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <img class="user-item__mess-icon" src="images/mess.svg" alt="icon"> 
-                                                <span>235</span>
-                                            </div>
-                                        </div>
-                                        <div class="user-item__status">
-                                            <div class="user-item__flag">Свободен</div>
-                                            <div class="user-item__distance">0,7 км</div>
-                                            <div class="user-item__adres">ул. Пушкинская 10</div>
-                                        </div>
-                                    </div>
-                                    <div class="user-service-list">
-                                        <div class="user-service">1) Дизайн одежды и подбор материалов.</div>
-                                        <div class="user-service">2) Индивидуальный пошив </div>
-                                        <div class="user-service">3) Различные виды ручного декорирования: вышивка, дырки, потертости  на  джинсах.</div>
-                                        <div class="user-service">4) Создание аксессуаров.</div>
-                                        <div class="user-service">5) Ремонт и реставрация одежды.</div>
-                                        <div class="user-service">6) Перешив и модернизация одежды.</div>
-                                        <div class="user-service">7) Замена молний, пуговиц, заклепок</div>
-                                    </div>
-                                    <div class="user-info__service">
-                                        <div class="mr-auto">Другие услуги швеи</div>
-                                        <div class="green">от 1200₴</div>
-                                    </div>
-                                    <div class="user-info__service">
-                                        <div class="mr-auto">Пошив одежды</div>
-                                        <div class="green">от 1500₴</div>
-                                    </div>
-                                    <div class="user-info__service">
-                                        <div class="mr-auto">Пошив текстиля</div>
-                                        <div class="green">от 1000₴</div>
-                                    </div>
-                                    <div class="user-info__service">
-                                        <div class="mr-auto">Ремонт одежды</div>
-                                        <div class="green">от 500₴</div>
-                                    </div>
 
-                                    <div class="user-info__img-wrap">
-                                        <div class="user-info__img">
-                                            <img src="images/user-service.png" alt="img" class="w-100 h-100">
-                                            <div class="user-info-img-title">
-                                                <span class="ml-auto mr-auto">Рабочая форма</span>
-                                                <span>2/4</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="user-info__btns">
-                                        <button class="helpfi___btn mr-2 mess-btn">
-                                            <span>НАПИСАТЬ</span>
-                                        </button>
-                                        <button class="helpfi___btn phone-btn">
-                                            <span>ПОЗВОНИТЬ</span>
-                                        </button>
-                                    </div>
                                 </div>
 
                                 <div class="map-aside-item create-servise hidden">
