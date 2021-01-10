@@ -764,6 +764,8 @@ function renewAddress(marker) {
         let str = '';
         let ct = '';
         
+        if(b.length == 0) { return; }
+
         let len = b[0].address_components.length;
         for(let i=0; i < len; i++){
             if(b[0].address_components[i].types[0] == "street_number") {
@@ -853,8 +855,8 @@ function zoomToCity(name, param) {
 
 function initMap() {
     const default_point = {
-        lat: 50.46,
-        lng: 30.55,
+        lat: 50.4485,
+        lng: 30.5135,
         zoom: 11,
         name: "Киев"
     }
@@ -864,13 +866,20 @@ function initMap() {
         zoom = getCookie("zoom"), 
         name = getCookie("name");
     
-    if (zoom == null || lat == null || lng == null || zoom == '' || lat == '' || lng == '') {
+    
+    /*if (zoom == null || lat == null || lng == null || zoom == '' || lat == '' || lng == '') {
         lat = default_point.lat;
         lng = default_point.lng;
         zoom = default_point.zoom;
         name = default_point.name;
-    }
+    }*/
 
+    lat = default_point.lat;
+    lng = default_point.lng;
+    zoom = default_point.zoom;
+    name = default_point.name;
+
+    
     _isPOI = getCookie("isPOI");    
     if(_isPOI != null) { name = "сохраненная точка"; }
        

@@ -839,7 +839,7 @@ function load_user_info(id) {
     fetch('https://helpfi.me/api/perfomer.php?id=' + id).then((response) => {
         return response.json();
     }).then((data) => {
-        let perfomer = data.perfomers;
+        let perfomer = data.perfomers.performer;
 
         load_user_info_handler(perfomer);
     }).catch(() => {
