@@ -1,7 +1,40 @@
 let markers = [];
 let select_cat = '';
+let select_user_cat = 0;
+let select_user = 0;
+let img_index = 0;
+let img_lenght = 0;
 
 jQuery(document).ready(function ($) {
+    let gets = (function() {
+        let a = window.location.search;
+        let b = new Object();
+        a = a.substring(1).split("&");
+        for (var i = 0; i < a.length; i++) {
+              c = a[i].split("=");
+            b[c[0]] = c[1];
+        }
+        return b;
+    })();
+
+    console.log(gets['user-id']);
+    console.log(gets['cat-id']);
+
+    if(window.innerWidth < 576) {
+        $('.map-aside-footer').addClass('hidden');
+    }
+
+    if(gets['user-id'] != '0' && gets['user-id'] != null) {
+        console.log("FFF");
+        load_user_info(gets['user-id']);
+    }
+    else if(gets['cat-id'] != '0' && gets['cat-id'] != null) {
+        console.log("$$$");
+        load_users(gets['cat-id']);
+    }
+    else {
+        load_categories(); 
+    }
 
     String.prototype.replaceAt = function(index, replacement) {
         return this.substr(0, index) + replacement + this.substr(index + replacement.length);
@@ -238,6 +271,16 @@ jQuery(document).ready(function ($) {
         $('.map-aside-footer').toggleClass('hidden');
     });
 
+    $('.user-btn').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $('.map-aside-footer').toggleClass('hidden');
+    });
+
+    $('.share-btn').click(function(e) {
+        window.location.replace('?cat-id=' + select_user_cat +'&user-id=' + select_user + '&latitude=' + _originMarker.getPosition().lat() + '&longitude=' + _originMarker.getPosition().lng());
+    });
+
     ///////// 
 
     $(".back__btn").on("click", function () {
@@ -271,6 +314,7 @@ jQuery(document).ready(function ($) {
             $('#search').removeAttr('readonly');
 
             $('.back__btn').attr('step', 'one');
+            select_user_cat = 0;
         }
         else if(step === 'three') {
             $('.input-wrap__cat').attr('value', 'Выбрать исполнителя');
@@ -279,8 +323,10 @@ jQuery(document).ready(function ($) {
             $('.map-aside-item.users-list').removeClass('hidden');  
             $('.map-aside-item.create-servise').removeClass('hidden');  
             $('.map-aside-item.search-servise').removeClass('search-servise_user'); 
+            $('.map-aside-item.search-servise').addClass('search-servise_users'); 
 
             $('.back__btn').attr('step', 'two');
+            select_user = 0;
         }
        
     });
@@ -294,8 +340,6 @@ jQuery(document).ready(function ($) {
     });
 
     init_star('body');
-       
-    load_categories(); 
 
 });
 
@@ -505,6 +549,8 @@ function set_servise_podcat_event() {
 // Load user 
 
 function load_users(id, lat, lng, radius = 10.5, limit = 25) {
+    select_user_cat = id;
+
     fetch('https://helpfi.me/api/perfomers.php?categoryId=' + id + '&latitude=' + lat + '&longitude=' + lng + '&radius=' + radius + '&limit=' + limit).then((response) => {
         return response.json();
     }).then((data) => {
@@ -610,7 +656,7 @@ function load_users_handler(perfomers) {
                     let image = 'https://helpfi.me/i/marker/marker-' + select_cat + '.png';
                     markers[j].setIcon(image);
                     markers[j].setZIndex(1);
-                }
+                }                
 
                 infowindow.setContent(create_info_window(perfomer.id,
                                                          perfomer.name, 
@@ -622,16 +668,22 @@ function load_users_handler(perfomers) {
                 let active_image = 'https://helpfi.me/i/marker/active/marker-' + select_cat + '.png';
                 this.setIcon(active_image);
                 this.setZIndex(2);
+                $('.gm-style-iw .gm-ui-hover-effect').trigger('click');
+
                 infowindow.open(_map, marker);
             }
         })(marker, perfomers[key], phone, key));
+    }
+
+    if(perfomers.length == 0) {
+        user_list.append('<div class="user-item">Исполнителей не найдено</div>');
     }
 
     init_star('body');
     set_user_item_event();
 }
 
-function create_user_item(user_id, user_name, user__distance, user__adres, user__photo, user__appraisal = 5.0, user__appraisal_count = 100, user__coment_count = 100, user__status = 'свободен') { 
+function create_user_item(user_id, user_name, user__distance, user__adres, user__photo, user__appraisal = 5.0, user__appraisal_count = 100, user__coment_count = 100, user__status = 'Свободен') { 
     let item = '<div class="user-item" user-id="' + user_id +'">' +
                     '<div class="online-wrap online-wrap__online">' +
                         '<div class="avatar table-avatar">' +
@@ -665,7 +717,7 @@ function create_user_item(user_id, user_name, user__distance, user__adres, user_
     return item;
 }
 
-function create_info_window(user_id, user_name, user_distance, user_adres, user_photo, user_appraisal = 5.0, user_appraisal_count = 100, user_coment_count = 100, user_status = 'свободен') {
+function create_info_window(user_id, user_name, user_distance, user_adres, user_photo, user_appraisal = 5.0, user_appraisal_count = 100, user_coment_count = 100, user_status = 'Свободен') {
     let item = '<div class="user-item" user-id="' + user_id +'">' + 
                     '<div class="online-wrap online-wrap__online">' +
                         '<div class="avatar table-avatar">' +
@@ -829,10 +881,10 @@ function load_user_info_handler(perfomer) {
     init_star('.user-info');
     user_info.append(create_user_service_list(perfomer.categories));
                                                 
-    user_info.append(create_user_service_services([ {'title': 'Другие услуги швеи', 'price': '1200'}, 
+    /*user_info.append(create_user_service_services([ {'title': 'Другие услуги швеи', 'price': '1200'}, 
                                                     {'title': 'Пошив одежды', 'price': '1500'},
                                                     {'title': 'Пошив текстиля', 'price': '1000'},
-                                                    {'title': 'Ремонт одежды', 'price': '500'}]));
+                                                    {'title': 'Ремонт одежды', 'price': '500'}]));*/
 
     user_info.append(create_user_service_photo(perfomer.portfolioImages));
     user_info.append(create_user_service_btns(perfomer.phones));
@@ -868,10 +920,16 @@ function create_user_service_services(services) {
 }
 
 function create_user_service_photo(images) {
+    if(images.length == 0){ return '<div></div>'; }
+
+    img_lenght = images.length;
+
     let item =  '<div class="user-info__img-wrap">';
 
     for(let i = 0; i < images.length; i++) {
-        item += '<div class="user-info__img">' +
+        let cls = '';
+        if(i == 0) { cls = 'active'; }
+        item += '<div class="user-info__img ' + cls + '" img-id="' + i + '">' +
                     '<img src="http://vtaxi.info:8084/neos/image?id=' + images[i].id + '" alt="img" class="w-100 h-100">' +
                     '<div class="user-info-img-title">' +
                         '<span class="ml-auto mr-auto">' + images[i].title + '</span>' +
@@ -879,6 +937,26 @@ function create_user_service_photo(images) {
                     '</div>' +
                 '</div>';
     }     
+
+        item += '<div class="user-info__img-controls">';
+            item += '<button class="user-info__img-left-btn">' +
+                        '<span class="icon">' +
+                            '<img src="images/aside-arrow.svg" class="img-svg" alt="icon">' +
+                        '</span>' +
+                    '</button>' +
+                    '<div class="user-info__img-points">';
+            for(let i = 0; i < images.length; i++) {
+                if(i == 0) { item += '<div class="user-info__img-point active" point-id="' + i + '"></div>'; }
+                else { item += '<div class="user-info__img-point" point-id="' + i + '"></div>'; }                
+            }                
+            item += '</div>' +
+                    '<button class="user-info__img-right-btn">' +
+                        '<span class="icon">' +
+                            '<img src="images/aside-arrow.svg" class="img-svg" alt="icon">' +
+                        '</span>' +
+                    '</button>';
+
+        item += '</div>';
 
     item += '</div>';
     return item;
@@ -935,6 +1013,23 @@ function set_user_info_event() {
     $(".user-info .phone-btn").on("click", function () {
         $('.user-info__phones-wrap').toggleClass('user-info__phones-wrap_active');
     });
+
+    $(".user-info__img-right-btn").on("click", function() {
+        img_index = (img_index + 1) % img_lenght;
+        set_active_img(img_index);
+    });
+    $(".user-info__img-left-btn").on("click", function() {
+        img_index = (img_index + 1) % img_lenght;
+        set_active_img(img_index);
+    });
+}
+
+function set_active_img(index) {
+    $(".user-info__img").removeClass('active');
+    $(".user-info__img[img-id=" + index + "]").addClass('active');
+
+    $(".user-info__img-point").removeClass('active');
+    $(".user-info__img-point[point-id=" + index + "]").addClass('active');
 }
 
 

@@ -852,14 +852,11 @@ function zoomToCity(name, param) {
 }
 
 function initMap() {
-    document.cookie = "lng=30.55";
-
-
     const default_point = {
         lat: 50.46,
         lng: 30.55,
         zoom: 11,
-        name: "Запорожье"
+        name: "Киев"
     }
 
     let lat = getCookie("lat"), 
@@ -867,7 +864,7 @@ function initMap() {
         zoom = getCookie("zoom"), 
         name = getCookie("name");
     
-    if (zoom == null || lat == null || lng == null) {
+    if (zoom == null || lat == null || lng == null || zoom == '' || lat == '' || lng == '') {
         lat = default_point.lat;
         lng = default_point.lng;
         zoom = default_point.zoom;
