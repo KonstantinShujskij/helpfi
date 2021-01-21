@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -50,6 +50,13 @@
                 <button class="note note_active ml-auto">
                     <img src="images/note.svg" alt="note">
                 </button>
+                <div class="lang">
+                    <div class="lang__select">Укр</div>
+                    <div class="lang__list">
+                        <a href="#?lang=u" class="lang__item">Укр</a>
+                        <a href="#?lang=ru" class="lang__item">Рус</a>
+                    </div>
+                </div>
             </section>
 
             <div class="d-flex flex-row content-wrap">
@@ -221,7 +228,7 @@
                                 <div class="map-aside-item map-aside__footer hidden">
                                     <div class="footer-btns">
                                         <button class="helpfi___btn map-footer__left-btn">
-                                            <span>
+                                            <span class="icon">
                                                 <img src="images/taxi.svg" alt="taxi">
                                             </span>
                                         </button>
@@ -235,7 +242,7 @@
                                             <span>НАЗАД</span>
                                         </button>
                                         <button class="helpfi___btn map-footer__right-btn">
-                                            <span>
+                                            <span class="icon">
                                                 <img src="images/clock.svg" alt="time">
                                             </span>
                                         </button>
@@ -250,7 +257,7 @@
                                         Заказать на сейчас
                                     </div>
                                     <label class="helpfi___btn map-footer__right-btn" src_img="images/clock.svg">
-                                        <span>
+                                        <span class="icon">
                                             <img src="images/clock.svg" class="img-svg" alt="time">
                                         </span>                                        
                                         <input type="radio" name="when" value="when-quarter" id="when-quarter" class="footer__radio">
@@ -259,7 +266,7 @@
                                 
                                 <div class="footer-popup__item">
                                     <div class="footer-popup__item-info">
-                                        <select class="form-control input-short form-select" name="time-date" id="time-date" onchange="fillTime()">
+                                        <select class="day-select form-control input-short form-select" name="time-date" id="time-date" onchange="fillTime()">
                                             <option value="td">Сегодня</option>
                                             <option value="tm">Завтра</option>
                                         </select>
@@ -268,7 +275,7 @@
                                         <select class="form-control input-time form-select" name="time-mins" id="time-mins"></select>
                                     </div>
                                     <label class="helpfi___btn map-footer__right-btn" src_img="images/calendar.svg">
-                                        <span>
+                                        <span class="icon">
                                             <img src="images/calendar.svg" class="img-svg" alt="time">
                                         </span>
                                         <input type="radio" name="when" value="when-time" id="when-time" class="footer__radio">
@@ -280,7 +287,7 @@
                                         Поиск автомобиля
                                     </div>
                                     <label class="helpfi___btn map-footer__right-btn" src_img="images/car-select.svg">
-                                        <span>
+                                        <span class="icon">
                                             <img src="images/car-select.svg" class="img-svg" alt="select">
                                         </span>                                        
                                         <input type="radio" name="when" value="when-quarter" id="when-quarter" class="footer__radio">
@@ -291,8 +298,8 @@
                             <div class="map-aside-item taxi-order hidden">
                                 <div class="footer-popup__item">                                        
                                     <label class="helpfi___btn map-footer__left-btn" src_img="images/tow-truck.svg">
-                                        <span>
-                                            <img src="images/tow-truck.svg" class="img-svg">
+                                        <span class="icon" img-src="images/Техпомощь" hover-src="images/Техпомощь__white">
+                                            <img src="images/Техпомощь.png">
                                         </span>                                        
                                         <input type="radio" name="what" id="what-support" class="footer__radio" onclick="setDrvType(3)">
                                     </label>
@@ -303,8 +310,8 @@
                               
                                 <div class="footer-popup__item">
                                     <label class="helpfi___btn map-footer__left-btn" src_img="images/truck.svg">
-                                        <span>
-                                            <img src="images/truck.svg" class="img-svg">
+                                        <span class="icon" img-src="images/Грузовик" hover-src="images/Грузовик_white">
+                                            <img src="images/Грузовик.png" class="img-svg">
                                         </span>                                        
                                         <input type="radio" name="what" id="what-truck" class="footer__radio" onclick="setDrvType(2)">
                                     </label>
@@ -315,8 +322,8 @@
 
                                 <div class="footer-popup__item">
                                     <label class="helpfi___btn map-footer__left-btn" src_img="images/buss.svg">
-                                        <span>
-                                            <img src="images/buss.svg" class="img-svg">
+                                        <span class="icon" img-src="images/Микроавтобус" hover-src="images/Микроавтобус_white">
+                                            <img src="images/Микроавтобус.png" class="img-svg">
                                         </span>                                        
                                         <input type="radio" name="what" id="what-bus" class="footer__radio" onclick="setDrvType(1)">
                                     </label>
@@ -327,8 +334,8 @@
 
                                 <div class="footer-popup__item">
                                     <label class="helpfi___btn map-footer__left-btn" src_img="images/universal.svg">
-                                        <span>
-                                            <img src="images/universal.svg" class="img-svg">
+                                        <span class="icon" img-src="images/Универсал" hover-src="images/Универсал_white">
+                                            <img src="images/Универсал.png" class="img-svg">
                                         </span>                                        
                                         <input type="radio" name="what" id="what-uni" class="footer__radio" onclick="setDrvType(4)">
                                     </label>
@@ -339,8 +346,8 @@
 
                                 <div class="footer-popup__item">
                                     <label class="helpfi___btn map-footer__left-btn" src_img="images/taxi.svg">
-                                        <span>
-                                            <img src="images/taxi.svg" class="img-svg">
+                                        <span class="icon" img-src="images/Седан" hover-src="images/Седан_white">
+                                            <img src="images/Седан.png" class="img-svg">
                                         </span>                                        
                                         <input type="radio" checked="checked" name="what" id="what-auto" class="footer__radio" onclick="setDrvType(0)">
                                     </label>

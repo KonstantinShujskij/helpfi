@@ -4,100 +4,155 @@ let select_user_cat = 0;
 let select_user = 0;
 let img_index = 0;
 let img_lenght = 0;
+let select_cat_name = '';
+
+String.prototype.replaceAt = function(index, replacement) {
+    return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+}
+
+String.prototype.insertAt = function(index, replacement) {
+    return this.substr(0, index) + replacement + this.substr(index);
+}
+
+let cods = ['050', '066', '095', '099', '039', '067', '068', '096', '097', '098', '063', '093', '073', '091', '092', '094', '070', '080', '090', '044'];
+
+function validate_phone(phone) {
+    for(let i = 0; i < phone.length; i++) {
+        if(isNaN(phone[i])) {
+            phone = phone.replaceAt(i, ' ')
+        }
+    }
+    phone = phone.replace(/\s+/g, '').trim();
+
+    let format_phone = '';
+
+    if(phone.length >= 1) {
+        format_phone += "(";
+    }
+    if(phone.length >= 3) {
+        format_phone += phone.substr(0, 3);
+    }
+    else {
+        format_phone += phone;
+    }
+
+    if(phone.length >= 4) {
+        format_phone += ") ";
+    }
+    if(phone.length >= 6) {
+        format_phone += phone.substr(3, 3);
+    }
+    else {
+        format_phone += phone.substr(3);
+    }
+
+    if(phone.length >= 7) {
+        format_phone += "-";
+    }
+    if(phone.length >= 8) {
+        format_phone += phone.substr(6, 2);
+    }
+    else {
+        format_phone += phone.substr(6);
+    }
+
+    if(phone.length >= 9) {
+        format_phone += "-";
+    }
+    if(phone.length >= 10) {
+        format_phone += phone.substr(8, 2);
+    }
+    else {
+        format_phone += phone.substr(8);
+    }
+
+    return format_phone;
+}
+
+let gets = (function() {
+    let a = window.location.search;
+    let b = new Object();
+    a = a.substring(1).split("&");
+    for (var i = 0; i < a.length; i++) {
+          c = a[i].split("=");
+        b[c[0]] = c[1];
+    }
+    return b;
+})();
 
 jQuery(document).ready(function ($) {
-    let gets = (function() {
-        let a = window.location.search;
-        let b = new Object();
-        a = a.substring(1).split("&");
-        for (var i = 0; i < a.length; i++) {
-              c = a[i].split("=");
-            b[c[0]] = c[1];
-        }
-        return b;
-    })();
 
-    console.log(gets['user-id']);
-    console.log(gets['cat-id']);
 
     if(window.innerWidth < 576) {
         $('.map-aside-footer').addClass('hidden');
     }
 
+    load_categories(); 
+
     if(gets['user-id'] != '0' && gets['user-id'] != null) {
-        console.log("FFF");
+        _originMarker.setPosition(new google.maps.LatLng(gets['latitude'], gets['longitude']));
+        renewAddress(_originMarker);
+
+        select_cat_name = decodeURI(gets['cat']);
+        $('#search').val(select_cat_name);
+        
+        $('.back__btn').attr('step', 'one');
+        $('.input-wrap__cat').attr('value', 'Портфолио');
+
+        $('.map-aside-item').addClass('hidden');
+        load_user_info(gets['user-id']);
+        
+        $('.map-aside-item.user-info').removeClass('hidden');       
+        $('.map-aside-item.search-servise').removeClass('hidden');
+        $('.map-aside-item.search-servise').addClass('search-servise_user');
+        $('.map-aside-item.search-servise').removeClass('search-servise_users'); 
+        $('.map-aside-item.search-servise').addClass('search-servise_back');
+        $('.map-aside-item.search-servise').children('.input-wrap').addClass('input-wrap_inp');
+
+        $('#search').attr('readonly', 'readonly');
+
         load_user_info(gets['user-id']);
     }
     else if(gets['cat-id'] != '0' && gets['cat-id'] != null) {
-        console.log("$$$");
-        load_users(gets['cat-id']);
+        select_cat_name = decodeURI(gets['cat']);
+        let catgory_index = gets['cat-id'];
+        _originMarker.setPosition(new google.maps.LatLng(gets['latitude'], gets['longitude']));
+        renewAddress(_originMarker);
+
+        $('.back__btn').attr('step', 'one');
+        $('.input-wrap__cat').attr('value', 'Выбрать исполнителя');
+
+        $('#search').val(select_cat_name);
+        $('.map-aside-item').addClass('hidden');
+        $('.map-aside-item.geo-self').removeClass('hidden');
+        $('.map-aside-item.search-servise').removeClass('hidden');
+        $('.map-aside-item.users-list').removeClass('hidden');
+        $('.map-aside-item.create-servise').removeClass('hidden');
+        $('.map-aside-item.search-servise').addClass('search-servise_users');
+        $('.map-aside-item.search-servise').addClass('search-servise_back');
+        $('.map-aside-item.search-servise').children('.input-wrap').addClass('input-wrap_inp');
+
+
+
+        $('#search').attr('readonly', 'readonly');
+
+        load_users(catgory_index, _originMarker.getPosition().lat(), _originMarker.getPosition().lng());
     }
     else {
-        load_categories(); 
+        navigator.geolocation.getCurrentPosition(function (position) {
+            position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            setCenterAndZoom(position, 17);
+            placeMarker(_originMarker, position);
+            load_users(3, _originMarker.getPosition().lat(), _originMarker.getPosition().lng());
+        });    
     }
-
-    String.prototype.replaceAt = function(index, replacement) {
-        return this.substr(0, index) + replacement + this.substr(index + replacement.length);
-    }
-    
-    String.prototype.insertAt = function(index, replacement) {
-        return this.substr(0, index) + replacement + this.substr(index);
-    }
-
-    let cods = ['050', '066', '095', '099', '039', '067', '068', '096', '097', '098', '063', '093', '073', '091', '092', '094', '070', '080', '090', '044'];
-
-    function validate_phone(phone) {
-        for(let i = 0; i < phone.length; i++) {
-            if(isNaN(phone[i])) {
-                phone = phone.replaceAt(i, ' ')
-            }
+    /*$('.day-select').styler({
+        selectSmartPositioning: false,
+        onSelectClosed: function() {
+            let select_text = $($($(this[0]).children()[1]).children()[0]).text();
+            $('.phone-wrap').children('.flag').attr('country', select_text);
         }
-        phone = phone.replace(/\s+/g, '').trim();
-    
-        let format_phone = '';
-    
-        if(phone.length >= 1) {
-            format_phone += "(";
-        }
-        if(phone.length >= 3) {
-            format_phone += phone.substr(0, 3);
-        }
-        else {
-            format_phone += phone;
-        }
-    
-        if(phone.length >= 4) {
-            format_phone += ") ";
-        }
-        if(phone.length >= 6) {
-            format_phone += phone.substr(3, 3);
-        }
-        else {
-            format_phone += phone.substr(3);
-        }
-    
-        if(phone.length >= 7) {
-            format_phone += "-";
-        }
-        if(phone.length >= 8) {
-            format_phone += phone.substr(6, 2);
-        }
-        else {
-            format_phone += phone.substr(6);
-        }
-    
-        if(phone.length >= 9) {
-            format_phone += "-";
-        }
-        if(phone.length >= 10) {
-            format_phone += phone.substr(8, 2);
-        }
-        else {
-            format_phone += phone.substr(8);
-        }
-    
-        return format_phone;
-    }
+    });*/
 
     $('.phone__select').styler({
         selectSmartPositioning: false,
@@ -278,7 +333,17 @@ jQuery(document).ready(function ($) {
     });
 
     $('.share-btn').click(function(e) {
-        window.location.replace('?cat-id=' + select_user_cat +'&user-id=' + select_user + '&latitude=' + _originMarker.getPosition().lat() + '&longitude=' + _originMarker.getPosition().lng());
+        window.location.replace('?cat-id=' + select_user_cat +'&user-id=' + select_user + '&latitude=' + _originMarker.getPosition().lat() + '&longitude=' + _originMarker.getPosition().lng() + '&cat=' + select_cat_name);
+    });
+
+    $('.footer-popup__item .map-footer__left-btn').hover(function(e) {
+        let src = $(this).children('.icon').attr("hover-src");
+        $(this).children('.icon').children('img').attr('src', '../' + src  + '.png');
+    });
+
+    $('.footer-popup__item .map-footer__left-btn').mouseleave(function(e) {
+        let src = $(this).children('.icon').attr("img-src");
+        $(this).children('.icon').children('img').attr('src', '../' + src  + '.png');
     });
 
     ///////// 
@@ -466,6 +531,7 @@ function set_map_aside_item_event() {
         let catgory_index = $(this).attr("var");
         select_cat = catgory_index;
         let name = $(this).children('.servise-name').text();
+        select_cat_name = name;
 
         $('.back__btn').attr('step', 'one');
         $('.back__btn').attr('servise', name);
@@ -544,7 +610,6 @@ function set_servise_podcat_event() {
 
     });    
 }
-
 
 // Load user 
 
@@ -836,6 +901,8 @@ function set_user_item_event() {
 }
 
 function load_user_info(id) {
+    select_user = id;
+
     fetch('https://helpfi.me/api/perfomer.php?id=' + id).then((response) => {
         return response.json();
     }).then((data) => {
@@ -967,7 +1034,7 @@ function create_user_service_btns(phones) {
                 '<div class="user-info__phones-wrap">';
 
                     for(let i = 0; i < phones.length; i++) {
-                        item += '<div class="user-info__phone" phone-val="' + phones[i].num + '">';
+                        item += '<a href="tel:' + phones[i].num + '" class="user-info__phone" phone-val="' + phones[i].num + '">';
 
                         let phone_code = phones[i].num.substring(2, 5);
 
@@ -976,7 +1043,6 @@ function create_user_service_btns(phones) {
                                         '<img src="images/Vodafone.svg" class="img-svg" alt="icon">' +
                                     '</span>' +
                                     '<span>Vodafone</span>';
-
                         }
                         else if(phone_code == '039' || phone_code == '067' || phone_code == '068' || phone_code == '096' || phone_code == '097' || phone_code == '098') {
                             item += '<span class="icon">' +
@@ -988,14 +1054,13 @@ function create_user_service_btns(phones) {
                             item += '<span class="icon">' +
                                         '<img src="images/Vodafone.svg" class="img-svg" alt="icon">' +
                                     '</span>' +
-                                    '<span>Киевстар</span>';
-                                    
+                                    '<span>Киевстар</span>';   
                         }
                         else {
                             item += '<span>Неизвестный оператор</span>';
                         }
 
-                        item += '</div>';
+                        item += '</a>';
                     }
 
         item += '</div>' +

@@ -623,6 +623,23 @@
     opacity: 0;
 }
 
+
+.search-servise_users .input-wrap .list-btn, .search-servise_users .input-wrap .clear-btn {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.search-servise_user .filter-btn, .search-servise_user .share-btn {
+    visibility: visible;
+    opacity: 1;
+} 
+
+.search-servise_user .input-wrap .list-btn, .search-servise_user .input-wrap .clear-btn {
+    visibility: hidden;
+    opacity: 0;
+}
+
+
 /* Users */
 
 .users-list {
@@ -1164,6 +1181,22 @@
     margin: 0 !important;
 }
 
+.map-footer__left-btn .icon, .map-footer__right-btn .icon {
+    width: 2.25rem;
+    height: 2.25rem;
+} 
+
+.map-footer__left-btn img, .map-footer__right-btn img {
+    width: 100%;
+} 
+
+.map-footer__left-btn svg, .map-footer__right-btn svg {
+    width: 100%;
+} 
+
+.map-footer__left-btn .icon.img{
+    background-image: url(attr(img_src));
+}
 
 .footer-btns .map-footer__left-btn, .footer-btns .map-footer__right-btn {
     border: none;
@@ -1320,6 +1353,11 @@ button.map-footer__right-btn, button.map-footer__left-btn {
 .form-control:focus {
     border-color: #03A868;
 } 
+
+.search-servise.search-servise_user .input-wrap_inp .clear-btn {
+    visibility: hidden;
+    opacity: 0;
+}
 
 @media (max-width: 846px) {  
     .top .map-aside__switch-wrap {   

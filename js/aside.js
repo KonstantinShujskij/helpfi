@@ -16,6 +16,8 @@ function init_icon() {
             $img.replaceWith($svg);
         }, 'xml');
     });
+
+
 }
 
 (function () {
@@ -72,6 +74,14 @@ function init_icon() {
 
             e.stopPropagation();
         }       
+    });
+
+    $('.lang__select').click(function(e) {
+        $(this).parent().toggleClass('lang_open');     
+    });
+
+    $('.lang__item').click(function(e) {
+        $(this).parent().parent().removeClass('lang_open');     
     });
 
     $(document).click( function(e){
